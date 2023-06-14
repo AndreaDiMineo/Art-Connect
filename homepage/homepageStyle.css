@@ -1,0 +1,166 @@
+body {
+    margin: 0;
+  }
+  
+  button{
+    border-style: none;
+  }
+  
+  header {
+      display: flex;
+      flex-direction: row;
+      background-color: blue;
+    }
+    
+    .link {
+      text-decoration: none;
+      color: white;
+      padding-top: 2%;
+      padding-left: 2%;
+    }
+    
+    input {
+      border-radius: 13px;
+      height: 2rem;
+      width: 2.5rem;
+      margin-left: 2%;
+      margin-top: 1.5%;
+    }
+    
+    .searchBar {
+      padding-left: 2%;
+    }
+    
+    .logo {
+      height: 5rem;
+      width: 5.5rem;
+    }
+
+    .right-info {
+      display: flex;
+      flex-direction: row;
+      margin-left: 70%;
+      margin-top: 1.5%;
+    }
+    
+    .button {
+      border-radius: 13px;
+      height: 2.5rem;
+      width: 7rem;
+      cursor: grab;
+    }
+    
+    .buttonSearch {
+      border-radius: 13px;
+      height: 3rem;
+      width: 13rem;
+      margin-left: 43%;
+      background-color: blue;
+      color: white;
+      cursor: grab;
+    }
+    
+    .section-homepage {
+      height: 22rem;
+      background-image: url(https://cdn.sanity.io/images/cctd4ker/production/77e5d266fc5d1b4783c593bdd6d1e02e1b6a019f-3648x5472.jpg?rect=0,1262,3648,4210&w=1080&q=75&fit=clip&auto=format);
+      background-size: cover;
+    }
+    
+    .title {
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding-bottom: 3%;
+      padding-top: 5%;
+      font-size: 30px;
+    }
+  
+    .list {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .categories {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      position: relative;
+      top: -3rem;
+      left: -2rem;
+    }
+  
+    .categories p:nth-child(1) {
+      position: relative;
+      left: 1rem;
+    }
+  
+    .categories p:nth-child(2) {
+      position: relative;
+      left: -0.5rem;
+    }
+  
+    .categories p:nth-child(3) {
+      position: relative;
+      left: -1.4rem;
+    }
+  
+    .categories p:nth-child(4) {
+      position: relative;
+      left: -1.5rem;
+    }
+
+    .categories p:nth-child(5) {
+      position: relative;
+      left: -0.5rem;
+    }
+  
+    .categories p:nth-child(6) {
+      position: relative;
+      left: 1rem;
+    }
+  
+    body h1 {
+      text-align: center;
+    }
+  
+    .list img, .list p {
+      padding: 2%;
+    }
+  
+    .images {
+      text-align: center;
+    }
+  
+    .images img {
+      height: 5rem;
+      width: 5rem;
+      border-radius: 30%;
+    }
+  
+    .globe {
+      position: relative;
+      right: -1rem;
+      height: 2rem;
+      width: 2rem;
+      padding-top: 1.2%;
+    }
+  
+    .input-geo {
+      display: flex;
+      flex-direction: row;
+      margin-top: 1.5%;
+      margin-left: 1.5%;
+    }
+  
+    .input-geo img {
+      position: relative;
+      width: 1.5rem;
+      height: 1.5rem;
+      left: -2.2rem;
+      bottom: -0.4rem;
+    }
+  
+    .button a {
+      text-decoration: none;
+      color: black;
+    }
