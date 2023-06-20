@@ -77,7 +77,7 @@ const SearchMuseum = () => {
         return a - b;
       });
     }
-    const mus = museums.map((v) => <Museum km={v} key={v} />);
+    const mus = arr.map((v) => <Museum km={v} key={v} />);
     return mus;
   };
 
