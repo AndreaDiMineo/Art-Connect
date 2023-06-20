@@ -3,15 +3,15 @@ import "../styles/museumStyle.css";
 import { useContext } from "react";
 import { FilterContext } from "../hooks/filter-context";
 
-const Museum = () => {
+const Museum = ({ km }) => {
   const { rating, category } = useContext(FilterContext);
   const ClickProfile = () => {
     return (
       <div>
-        <MuseumProfile/>
+        <MuseumProfile />
       </div>
-    )
-  }
+    );
+  };
   return (
     <div className="museumCard">
       <div className="museumCardLeft">
@@ -30,7 +30,7 @@ const Museum = () => {
               src="https://i.ibb.co/4JWWxhz/map-pin.png"
               alt=""
             />
-            <p>4km</p>
+            <p>{km}km</p>
           </div>
           <div className="museumType">
             <img
