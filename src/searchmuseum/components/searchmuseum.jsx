@@ -57,11 +57,38 @@ const SearchMuseum = () => {
 
   const [filter, setFilter] = useState(false);
   const ClickFilter = () => {
-    setFilter(true);
+    setFilter((v) => (v = !v));
     //background: rgba(0,0,0,0.5);
   };
 
-  const { clickRating, clickCategory } = useContext(FilterContext);
+  const { clickRating, clickCategory, museums } = useContext(FilterContext);
+
+  const [closest, setClosest] = useState(false);
+
+  const clickClosest = () => {
+    setClosest((v) => (v = !v));
+  };
+
+  const orderMuseums = (close) => {
+    let arr = museums;
+    if (close) {
+      arr = museums.toSorted((a, b) => {
+        return a - b;
+      });
+    }
+    const mus = arr.map((v) => <Museum km={v} key={v} />);
+    return mus;
+  };
+
+  const OrderedMuseums = () => {
+    const mus = orderMuseums(true);
+    return <div className="museums">{mus}</div>;
+  };
+
+  const NonOrderedMuseums = () => {
+    const mus = orderMuseums(false);
+    return <div className="museums">{mus}</div>;
+  };
 
   return (
     <div className="rootSearchMuseum">
@@ -94,22 +121,19 @@ const SearchMuseum = () => {
                   />
                 </div>
               </div>
-              <div className="filters">
-                <p onClick={clickRating}>4.0</p>
-                <p>Più vicini</p>
-                <p onClick={() => clickCategory("Storia")}>Storia</p>
-                <p onClick={() => clickCategory("Arte")}>Arte</p>
-                <p onClick={() => clickCategory("Tecnologia")}>Tecnologia</p>
-              </div>
+              {filter ? (
+                <div className="filters">
+                  <p onClick={clickRating}>4.0</p>
+                  <p onClick={clickClosest}>Più vicini</p>
+                  <p onClick={() => clickCategory("Storia")}>Storia</p>
+                  <p onClick={() => clickCategory("Arte")}>Arte</p>
+                  <p onClick={() => clickCategory("Tecnologia")}>Tecnologia</p>
+                </div>
+              ) : (
+                <></>
+              )}
             </div>
-            <div className="museums">
-              <Museum />
-              <Museum />
-              <Museum />
-              <Museum />
-              <Museum />
-              <Museum />
-            </div>
+            {closest ? <OrderedMuseums /> : <NonOrderedMuseums />}
           </div>
           <div className="mainRight">
             <Map

@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./style.css";
 import React, { useContext } from "react";
 import { FuncContext } from "./context";
 
