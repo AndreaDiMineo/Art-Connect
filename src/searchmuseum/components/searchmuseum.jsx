@@ -1,13 +1,13 @@
-import "./searchmuseumStyle.css";
+import "../styles/searchmuseumStyle.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import Header from "./header";
+import Header from "./Header";
 import { Map, Marker, NavigationControl } from "react-map-gl";
 import { useState, useContext, useRef } from "react";
-import { ViewContext } from "./components/searchmuseum/hooks/view-context";
-import { FilterContext, FilterProvider } from "../../components/searchmuseum/filter-context";
-import Museum from "../components/museum";
-import Footer from "../homepage/footer";
+import { ViewContext } from "../hooks/view-context";
+import { FilterContext, FilterProvider } from "../hooks/filter-context";
+import Museum from "./Museum";
+import Footer from "../../homepage/footer";
 
 const MAPBOX_TOKEN =
   "pk.eyJ1IjoiYWRlcGVkcmluaSIsImEiOiJjbGlrMzd2dWEwZWI5M2trZG5wem04eWV5In0.xku2He5nmX0r89rngZndlQ";
@@ -17,13 +17,13 @@ const SearchMuseum = () => {
   const ref = useRef(view);
   const [marker, setMarker] = useState({
     latitude: ref.current.latitude,
-    longitude: ref.current.longitude
+    longitude: ref.current.longitude,
   });
   const setCenter = (lng, lat) => {
     setView(lng, lat);
     setMarker({
       longitude: lng,
-      latitude: lat
+      latitude: lat,
     });
   };
   const getLocation = () => {
@@ -35,16 +35,15 @@ const SearchMuseum = () => {
 
   const Geocoding = (ricerca) => {
     const API = "https://geocode.maps.co/search?q=" + encodeURI(ricerca);
-      const response = fetch(API)
-        .then((res) => res.json())
-        .then((json) => {
-          if (json != '') {
-            setCenter(json[0].lon, json[0].lat);
-          }
-          else {
-            alert("Nessun risultato trovato");
-          }
-        });
+    const response = fetch(API)
+      .then((res) => res.json())
+      .then((json) => {
+        if (json != "") {
+          setCenter(json[0].lon, json[0].lat);
+        } else {
+          alert("Nessun risultato trovato");
+        }
+      });
   };
 
   const CheckGeoInput = (e) => {
@@ -58,9 +57,9 @@ const SearchMuseum = () => {
 
   const [filter, setFilter] = useState(false);
   const ClickFilter = () => {
-    setFilter(true);  
+    setFilter(true);
     //background: rgba(0,0,0,0.5);
-  }
+  };
 
   const { clickRating, clickCategory } = useContext(FilterContext);
 
@@ -104,12 +103,12 @@ const SearchMuseum = () => {
               </div>
             </div>
             <div className="museums">
-                <Museum />
-                <Museum />
-                <Museum />
-                <Museum />
-                <Museum />
-                <Museum />
+              <Museum />
+              <Museum />
+              <Museum />
+              <Museum />
+              <Museum />
+              <Museum />
             </div>
           </div>
           <div className="mainRight">
@@ -131,7 +130,7 @@ const SearchMuseum = () => {
             </Map>
           </div>
         </section>
-        <Footer/>
+        <Footer />
       </main>
     </div>
   );
