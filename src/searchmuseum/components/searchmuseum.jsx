@@ -90,6 +90,10 @@ const SearchMuseum = () => {
     return <div className="museums">{mus}</div>;
   };
 
+  const changeFilter = (e) => {
+    console.log(e);
+  };
+
   return (
     <div className="rootSearchMuseum">
       <Header />
@@ -123,11 +127,24 @@ const SearchMuseum = () => {
               </div>
               {filter ? (
                 <div className="filters">
-                  <p onClick={clickRating}>4.0</p>
-                  <p onClick={clickClosest}>Più vicini</p>
-                  <p onClick={() => clickCategory("Storia")}>Storia</p>
-                  <p onClick={() => clickCategory("Arte")}>Arte</p>
-                  <p onClick={() => clickCategory("Tecnologia")}>Tecnologia</p>
+                  <p id="ratingFilter" onClick={changeFilter}>
+                    4.0
+                  </p>
+                  <p id="closestFilter" onClick={clickClosest}>
+                    Più vicini
+                  </p>
+                  <p id="storia" onClick={() => clickCategory("Storia")}>
+                    Storia
+                  </p>
+                  <p id="arte" onClick={() => clickCategory("Arte")}>
+                    Arte
+                  </p>
+                  <p
+                    id="tecnologia"
+                    onClick={() => clickCategory("Tecnologia")}
+                  >
+                    Tecnologia
+                  </p>
                 </div>
               ) : (
                 <></>
