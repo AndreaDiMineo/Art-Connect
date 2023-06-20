@@ -5,7 +5,7 @@ import "./style.css";
 const Login = () => {
   return (
     <React.Fragment>
-      <div className="main-section">
+      <div class="main-section">
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -13,7 +13,6 @@ const Login = () => {
           crossorigin="anonymous"
         />
         <Background />
-
         <Form />
 
         <script
