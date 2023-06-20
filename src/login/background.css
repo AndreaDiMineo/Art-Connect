@@ -5,10 +5,6 @@
     padding: 0px;
 }
 
-body {
-    font-family: "Exo", sans-serif;
-}
-
 .context {
     width: 100%;
     position: absolute;
@@ -21,7 +17,8 @@ body {
     font-size: 50px;
 }
 
-body {
+.main-section {
+    font-family: "Exo", sans-serif;
     background: #2c56e8 !important;
     background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
     width: 100%;
