@@ -1,6 +1,6 @@
 import React from "react";
 import Background from "./background";
-import "./style.css";
+import "./styles.css";
 import ForgetYourPassword from "./forgetYourPassword";
 const Reset = () => {
   return (
