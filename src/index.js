@@ -10,6 +10,7 @@ import SearchMuseum from "./searchmuseum/components/searchmuseum";
 import { ViewProvider } from "./searchmuseum/hooks/view-context";
 import { FilterProvider } from "./searchmuseum/hooks/filter-context";
 import Profile from "./profile/profile";
+import { FuncProvider } from "./login/context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -30,14 +31,7 @@ const router = createBrowserRouter([
       </div>
     ),
   },
-  {
-    path: "/register",
-    element: (
-      <div>
-        <Register />
-      </div>
-    ),
-  },
+
   {
     path: "/dashboard",
     element: (
@@ -64,7 +58,9 @@ const router = createBrowserRouter([
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <FuncProvider>
+      <RouterProvider router={router} />
+    </FuncProvider>
   </React.StrictMode>
 );
 

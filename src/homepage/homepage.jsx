@@ -35,7 +35,7 @@ const Homepage = () => {
           <img className='map-pin' src='https://i.ibb.co/4JWWxhz/map-pin.png' onMouseOver={ExtendInputBar}/>
         </div>
         <div className='right-info'>
-          <button className="button"><a href='register'>Accedi</a></button>
+          <button className="button"><a href='login'>Accedi</a></button>
           <img className="globe" src='https://i.ibb.co/M24xQDv/globe.png'/>
         </div>
       </header>
