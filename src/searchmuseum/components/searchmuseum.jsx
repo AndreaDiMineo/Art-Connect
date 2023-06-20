@@ -61,7 +61,9 @@ const SearchMuseum = () => {
     //background: rgba(0,0,0,0.5);
   };
 
-  const { clickRating, clickCategory } = useContext(FilterContext);
+  const { clickRating, clickCategory, museums } = useContext(FilterContext);
+
+  const [closest, setClosest] = useState(false);
 
   return (
     <div className="rootSearchMuseum">
@@ -96,19 +98,24 @@ const SearchMuseum = () => {
               </div>
               <div className="filters">
                 <p onClick={clickRating}>4.0</p>
-                <p>Più vicini</p>
+                <p
+                  onClick={setClosest((v) => {
+                    v = !v;
+                  })}
+                >
+                  Più vicini
+                </p>
                 <p onClick={() => clickCategory("Storia")}>Storia</p>
                 <p onClick={() => clickCategory("Arte")}>Arte</p>
                 <p onClick={() => clickCategory("Tecnologia")}>Tecnologia</p>
               </div>
             </div>
             <div className="museums">
-              <Museum />
-              <Museum />
-              <Museum />
-              <Museum />
-              <Museum />
-              <Museum />
+              <Museum km="5" />
+              <Museum km="15" />
+              <Museum km="1" />
+              <Museum km="3" />
+              <Museum km="7" />
             </div>
           </div>
           <div className="mainRight">
