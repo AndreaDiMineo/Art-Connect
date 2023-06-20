@@ -1,27 +1,40 @@
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #dbd8e3;
+}
+
+.h-custom {
+  height: calc(100% - 73px);
+}
+
 form {
-    background-color: white;
-    border-radius: 5px;
-    padding: 2rem;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  background-color: white;
+  border-radius: 5px;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 }
 
 #login-btn {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-    width: 100%;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#cancel {
+  margin-right: 2rem;
 }
 
 @media (max-width: 450px) {
-    .h-custom {
-        height: 100%;
-    }
-}
-
-.divider:after,
-.divider:before {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: #dbd8e3;
+  .h-custom {
+    height: 100%;
+  }
 }
