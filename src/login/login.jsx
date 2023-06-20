@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "./form";
 import Background from "./background";
-import "./styles.css";
+import "./style.css";
 const Login = () => {
   return (
     <React.Fragment>

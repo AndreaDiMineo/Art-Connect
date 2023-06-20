@@ -65,6 +65,32 @@ const SearchMuseum = () => {
 
   const [closest, setClosest] = useState(false);
 
+  const clickClosest = () => {
+    setClosest((v) => (v = !v));
+    console.log(closest);
+  };
+
+  const orderMuseums = (close) => {
+    let arr = museums;
+    if (close) {
+      arr = museums.toSorted((a, b) => {
+        return a - b;
+      });
+    }
+    const mus = museums.map((v) => <Museum km={v} key={v} />);
+    return mus;
+  };
+
+  const OrderedMuseums = () => {
+    const mus = orderMuseums(true);
+    return <div className="museums">{mus}</div>;
+  };
+
+  const NonOrderedMuseums = () => {
+    const mus = orderMuseums(false);
+    return <div className="museums">{mus}</div>;
+  };
+
   return (
     <div className="rootSearchMuseum">
       <Header />
@@ -98,25 +124,13 @@ const SearchMuseum = () => {
               </div>
               <div className="filters">
                 <p onClick={clickRating}>4.0</p>
-                <p
-                  onClick={setClosest((v) => {
-                    v = !v;
-                  })}
-                >
-                  Più vicini
-                </p>
+                <p onClick={clickClosest}>Più vicini</p>
                 <p onClick={() => clickCategory("Storia")}>Storia</p>
                 <p onClick={() => clickCategory("Arte")}>Arte</p>
                 <p onClick={() => clickCategory("Tecnologia")}>Tecnologia</p>
               </div>
             </div>
-            <div className="museums">
-              <Museum km="5" />
-              <Museum km="15" />
-              <Museum km="1" />
-              <Museum km="3" />
-              <Museum km="7" />
-            </div>
+            {closest ? <OrderedMuseums /> : <NonOrderedMuseums />}
           </div>
           <div className="mainRight">
             <Map
