@@ -1,8 +1,8 @@
 import React from "react";
-import Form from "./form";
 import Background from "./background";
-import "./styles.css";
-const Login = () => {
+import "./style.css";
+import ForgetYourPassword from "./forgetYourPassword";
+const Reset = () => {
   return (
     <React.Fragment>
       <link
@@ -13,7 +13,7 @@ const Login = () => {
       />
       <Background />
 
-      <Form />
+      <ForgetYourPassword />
 
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
@@ -23,4 +23,4 @@ const Login = () => {
     </React.Fragment>
   );
 };
-export default Login;
+export default Reset;

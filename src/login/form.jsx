@@ -30,8 +30,6 @@ const Form = () => {
                         </div>
 
                         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                            {!togglePass ? (
-                                toggle ? (
                                     <form>
                                         <div class="d-flex flex-row align-items-center justify-content-center">
                                             <p className="lead fw-normal mb-0 me-3">Sign in with</p>
@@ -149,7 +147,7 @@ const Form = () => {
                                                     Remember me
                                                 </label>
                                             </div>
-                                            <a href="#!" className="text-body" onClick={Forget}>
+                                            <a href="passwordreset" className="text-body" >
                                                 Forgot password?
                                             </a>
                                         </div>
@@ -164,18 +162,14 @@ const Form = () => {
                                             </button>
                                             <p className="small fw-bold mt-2 pt-1 mb-0">
                                                 Don't have an account?{" "}
-                                                <a href="#!" className="link-danger" onClick={register}>
+                                                <a href="register" className="link-danger">
                                                     Register
                                                 </a>
                                             </p>
                                         </div>
                                     </form>
-                                ) : (
-                                    <Register />
-                                )
-                            ) : (
-                                <ForgetYourPassword />
-                            )}
+                            
+                           
                         </div>
                     </div>
                 </div>
