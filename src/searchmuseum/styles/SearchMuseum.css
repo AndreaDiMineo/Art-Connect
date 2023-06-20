@@ -6,6 +6,11 @@
   margin: 1rem;
 }
 
+h1 {
+  text-align: left;
+  margin-left: 1%;
+}
+
 .mainSearchMuseum {
   margin: 0.5rem;
   display: flex;
@@ -21,7 +26,19 @@
 
 .geo {
   display: flex;
+  flex-direction: column;
 }
+
+.search, .filters {
+  display: flex;
+  flex-direction: row;
+}
+
+.filters p {
+  padding: 3%;
+  cursor: grab;
+}
+
 .geoInput {
   position: relative;
   width: 90%;
@@ -37,14 +54,21 @@
 
 .geoInput .mapPin {
   position: absolute;
-  top: 9px;
-  right: 5px;
-  width: 1rem;
+}
+
+.mapPin, .mapFilter {
+  top: 1rem;
+  right: -0.5rem;
+  width: 1.7rem;
+  height: 1.7rem;
+  cursor: grab;
 }
 
 .geoFilter {
-  width: 7%;
+  width: 10%;
+  height: 3rem;
   margin-left: 1rem;
+  margin-top: 1.5%;
   background-color: blue;
   display: flex;
   justify-content: center;
