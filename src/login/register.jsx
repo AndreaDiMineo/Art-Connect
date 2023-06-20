@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./style.css";
 import React, { useContext } from "react";
 import { FuncContext } from "./context";
 import Form from "./form";
@@ -12,7 +12,7 @@ const Register = () => {
     } = useContext(FuncContext);
     return (
         <>
-            {!toggle ? (
+            
                 <form id="formRegister">
                     <div
                         id="one"
@@ -196,14 +196,12 @@ const Register = () => {
 
                     <p class="text-center text-muted mt-3 mb-0">
                         Have already an account?{" "}
-                        <a href="#!" class="fw-bold text-body" onClick={register}>
+                        <a href="login" class="fw-bold text-body">
                             <u style={{ color: "red" }}>Login here</u>
                         </a>
                     </p>
                 </form>
-            ) : (
-                <Form />
-            )}
+          
         </>
     );
 };
