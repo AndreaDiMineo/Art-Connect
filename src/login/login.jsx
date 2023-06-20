@@ -1,11 +1,11 @@
 import React from "react";
 import Form from "./form";
 import Background from "./background";
-import "./styles.css";
+import "./style.css";
 const Login = () => {
   return (
     <React.Fragment>
-    
+      <div class="main-section">
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -20,7 +20,7 @@ const Login = () => {
           integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
           crossorigin="anonymous"
         ></script>
-    
+      </div>
     </React.Fragment>
   );
 };
