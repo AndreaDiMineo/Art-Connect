@@ -57,7 +57,7 @@ const SearchMuseum = () => {
 
   const [filter, setFilter] = useState(false);
   const ClickFilter = () => {
-    setFilter(true);
+    setFilter((v) => (v = !v));
     //background: rgba(0,0,0,0.5);
   };
 
@@ -67,7 +67,6 @@ const SearchMuseum = () => {
 
   const clickClosest = () => {
     setClosest((v) => (v = !v));
-    console.log(closest);
   };
 
   const orderMuseums = (close) => {
@@ -122,13 +121,17 @@ const SearchMuseum = () => {
                   />
                 </div>
               </div>
-              <div className="filters">
-                <p onClick={clickRating}>4.0</p>
-                <p onClick={clickClosest}>Più vicini</p>
-                <p onClick={() => clickCategory("Storia")}>Storia</p>
-                <p onClick={() => clickCategory("Arte")}>Arte</p>
-                <p onClick={() => clickCategory("Tecnologia")}>Tecnologia</p>
-              </div>
+              {filter ? (
+                <div className="filters">
+                  <p onClick={clickRating}>4.0</p>
+                  <p onClick={clickClosest}>Più vicini</p>
+                  <p onClick={() => clickCategory("Storia")}>Storia</p>
+                  <p onClick={() => clickCategory("Arte")}>Arte</p>
+                  <p onClick={() => clickCategory("Tecnologia")}>Tecnologia</p>
+                </div>
+              ) : (
+                <></>
+              )}
             </div>
             {closest ? <OrderedMuseums /> : <NonOrderedMuseums />}
           </div>
