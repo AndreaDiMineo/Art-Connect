@@ -4,7 +4,7 @@ export const useFilter = () => {
   const [rating, setRating] = useState(false);
 
   const clickRating = () => {
-    setRating((v) => (v = true));
+    setRating((v) => (v = !v));
   };
 
   const [category, setCategory] = useState("");
@@ -13,21 +13,43 @@ export const useFilter = () => {
     setCategory((v) => (v = catg));
   };
 
+  const [closest, setClosest] = useState(false);
+
+  const clickClosest = () => {
+    setClosest((v) => (v = !v));
+  };
+
   return {
     clickRating,
     rating,
     clickCategory,
     category,
+    clickClosest,
+    closest,
   };
 };
 
 export const FilterContext = createContext();
 
 export const FilterProvider = ({ children }) => {
-  const { clickRating, rating, clickCategory, category } = useFilter();
+  const {
+    clickRating,
+    rating,
+    clickCategory,
+    category,
+    clickClosest,
+    closest,
+  } = useFilter();
   return (
     <FilterContext.Provider
-      value={{ clickRating, rating, clickCategory, category }}
+      value={{
+        clickRating,
+        rating,
+        clickCategory,
+        category,
+        clickClosest,
+        closest,
+      }}
     >
       {children}
     </FilterContext.Provider>
