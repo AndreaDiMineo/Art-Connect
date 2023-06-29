@@ -12,6 +12,8 @@ import Profile from "./profile/profile";
 import { FuncProvider } from "./login/context";
 import RegisterNV from "./login/registerNV";
 import Reset from "./login/resetpassword";
+import MuseumProfile from "./museumprofile/museumprofile";
+import EditProfile from "./profile/editprofile";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -72,6 +74,24 @@ const router = createBrowserRouter([
       <div>
         <FilterProvider>
           <Profile />
+        </FilterProvider>
+      </div>
+    ),
+  },
+  {
+    path: "/edit-profile",
+    element: (
+      <div>
+        <EditProfile />
+      </div>
+    ),
+  },
+  {
+    path: "/museumprofile",
+    element: (
+      <div>
+        <FilterProvider>
+          <MuseumProfile />
         </FilterProvider>
       </div>
     ),
