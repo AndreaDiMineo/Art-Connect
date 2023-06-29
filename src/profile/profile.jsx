@@ -1,7 +1,7 @@
 import "./styles.css";
 import { useState } from "react";
 import Footer from "../homepage/footer";
-import Header from "../searchmuseum/components/Header";
+import Header from "../searchmuseum/components/header";
 import { Link } from "react-router-dom";
 
 export default function Profile() {

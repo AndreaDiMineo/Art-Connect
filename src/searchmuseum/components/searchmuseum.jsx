@@ -1,7 +1,7 @@
 import "../styles/searchmuseumStyle.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import Header from "./Header";
+import Header from "./header";
 import { Map, Marker, NavigationControl } from "react-map-gl";
 import { useState, useContext, useRef } from "react";
 import { ViewContext } from "../hooks/view-context";
@@ -187,18 +187,26 @@ const SearchMuseum = () => {
                 <div className="filters">
                   <p onClick={() => setOrderView((v) => (v = !v))}>Ordina</p>
                   {orderView ? (
-                    <div class="orderView">
+                    <div className="orderView">
                       <p
-                        class="selectedOrder"
+                        className={"default" === order ? "selectedOrder" : ""}
                         id="default"
                         onClick={changeOrder}
                       >
                         Default
                       </p>
-                      <p id="rating" onClick={changeOrder}>
+                      <p
+                        className={"rating" === order ? "selectedOrder" : ""}
+                        id="rating"
+                        onClick={changeOrder}
+                      >
                         Più valutato
                       </p>
-                      <p id="closest" onClick={changeOrder}>
+                      <p
+                        className={"closest" === order ? "selectedOrder" : ""}
+                        id="closest"
+                        onClick={changeOrder}
+                      >
                         Più vicini
                       </p>
                     </div>
@@ -209,21 +217,33 @@ const SearchMuseum = () => {
                     Categoria
                   </p>
                   {categoryView ? (
-                    <div class="filterView">
+                    <div className="filterView">
                       <p
-                        class="selectedCategory"
+                        className={"all" === order ? "selectedCategory" : ""}
                         id="all"
                         onClick={changeCategory}
                       >
                         Tutte
                       </p>
-                      <p id="storia" onClick={changeCategory}>
+                      <p
+                        className={"storia" === order ? "selectedCategory" : ""}
+                        id="storia"
+                        onClick={changeCategory}
+                      >
                         Storia
                       </p>
-                      <p id="arte" onClick={changeCategory}>
+                      <p
+                        className={"arte" === order ? "selectedCategory" : ""}
+                        id="arte"
+                        onClick={changeCategory}
+                      >
                         Arte
                       </p>
-                      <p id="tecnologia" onClick={changeCategory}>
+                      <p
+                        className={"arte" === order ? "selectedCategory" : ""}
+                        id="tecnologia"
+                        onClick={changeCategory}
+                      >
                         Tecnologia
                       </p>
                     </div>
