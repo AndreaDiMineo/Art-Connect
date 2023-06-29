@@ -1,4 +1,4 @@
-# Art-Connect
+# ArtConnect
 ArtConnect - Sito Web per la Visione di Musei ed Eventi Artistici
 Benvenuto in ArtConnect, un sito web che ti consente di esplorare musei e eventi artistici vicino alla tua posizione attuale. Il sistema offre una guida completa sulle mostre disponibili e identifica eventi correlati in base alle tue preferenze e alle esperienze precedenti. Il sito è sviluppato utilizzando React, Firebase e stili Bootstrap per offrire un'esperienza utente intuitiva e accattivante.
 
