@@ -11,7 +11,7 @@ const Nav = () => {
           alt="logo"
         />
         <nav className="navLinks">
-          <button className="linkBtn"><Link className="btn-link" to={"/dashboard"}>Musei</Link></button>
+          <button className="linkBtn"><Link className="btn-links" to={"/dashboard"}>Musei</Link></button>
           <button className="linkBtn">Eventi</button>
           <button className="linkBtn">Assistenza</button>
         </nav>
