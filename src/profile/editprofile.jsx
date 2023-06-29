@@ -1,4 +1,6 @@
 import "./stylesedit.css";
+import Footer from "../homepage/footer";
+import Header from "../searchmuseum/components/header";
 
 export default function EditProfile() {
   return (
@@ -7,6 +9,7 @@ export default function EditProfile() {
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
         rel="stylesheet"
       />
+      <Header />
       <div className="container-xl px-4 mt-4">
         <hr className="mt-0 mb-4" />
         <div className="row">
@@ -94,6 +97,7 @@ export default function EditProfile() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

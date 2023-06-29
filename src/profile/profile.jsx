@@ -2,6 +2,7 @@ import "./styles.css";
 import { useState } from "react";
 import Footer from "../homepage/footer";
 import Header from "../searchmuseum/components/Header";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   const [toggle, setToggle] = useState(false);
@@ -102,16 +103,11 @@ export default function Profile() {
                   <hr />
                   <div className="row">
                     <div className="col-sm-10">
-                      <a
-                        className="btn-settings"
-                        target="__blank"
-                        href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills"
-                      >
+                      <Link className="btn-settings" to={"/edit-profile"}>
                         Edit Profile
-                      </a>
+                      </Link>
                       <a
                         className="btn-settings"
-                        target="__blank"
                         href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills"
                       >
                         Change Password

@@ -1,4 +1,5 @@
-import "../styles/Header.css";
+import { Link } from "react-router-dom";
+import "../styles/headerStyle.css";
 
 const Nav = () => {
   return (
@@ -10,7 +11,11 @@ const Nav = () => {
           alt="logo"
         />
         <nav className="navLinks">
-          <button className="linkBtn">Musei</button>
+          <button className="linkBtn">
+            <Link className="btn-links" to={"/dashboard"}>
+              Musei
+            </Link>
+          </button>
           <button className="linkBtn">Eventi</button>
           <button className="linkBtn">Assistenza</button>
         </nav>
