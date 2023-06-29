@@ -92,7 +92,7 @@ h1 {
   background-color: lightgrey;
 }
 
-.selectedFilter,
+.selectedCategory,
 .selectedOrder {
   color: blue;
 }

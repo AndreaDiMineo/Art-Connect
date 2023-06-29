@@ -59,45 +59,98 @@ const SearchMuseum = () => {
   };
 
   //Gestione filtri
-  const { filter, clickFilter, order, clickOrder, clickCategory, museums } =
-    useContext(FilterContext);
+  const {
+    filter,
+    clickFilter,
+    order,
+    clickOrder,
+    category,
+    clickCategory,
+    museums,
+  } = useContext(FilterContext);
   const [orderView, setOrderView] = useState(false);
+  const [categoryView, setCategoryView] = useState(false);
 
   //Ordina musei
-  const orderedMuseums = (order) => {
-    let arr = museums;
+  const orderMuseums = (museum, order) => {
+    let arr = museum;
     switch (order) {
+      case "rating":
+        arr = museum.toSorted((a, b) => {
+          return b.rating - a.rating;
+        });
+        break;
       case "closest":
-        arr = museums.toSorted((a, b) => {
-          return a - b;
+        arr = museum.toSorted((a, b) => {
+          return a.km - b.km;
         });
         break;
       default:
         break;
     }
-    const mus = arr.map((v) => <Museum km={v} key={v} />);
-    return mus;
-  };
-  const Museums = () => {
-    const mus = orderedMuseums(order);
-    return <div className="museums">{mus}</div>;
+    return arr;
   };
   const changeOrder = (e) => {
-    const type = e.target.attributes.clicktype.nodeValue;
+    const id = e.target.id;
     const classList = e.target.classList;
-    switch (type) {
+    switch (id) {
+      case "default":
       case "rating":
       case "closest":
-        clickOrder(type);
+        clickOrder(id);
         break;
       default:
         break;
     }
     const selectedOrder = document.querySelector(".selectedOrder");
     selectedOrder.classList.remove("selectedOrder");
-    e.target.classList.add("selectedOrder");
+    classList.add("selectedOrder");
   };
 
+  //Categorie
+  const filterMuseums = (museums, category) => {
+    return category === "all"
+      ? museums
+      : museums.filter((v) => v.category.toLowerCase() === category);
+  };
+  const changeCategory = (e) => {
+    const id = e.target.id;
+    const classList = e.target.classList;
+    switch (id) {
+      case "storia":
+      case "arte":
+      case "tecnologia":
+      case "all":
+        clickCategory(id);
+        break;
+      default:
+        break;
+    }
+    const selectedCategory = document.querySelector(".selectedCategory");
+    selectedCategory.classList.remove("selectedCategory");
+    classList.add("selectedCategory");
+  };
+
+  //Aggiorna i musei
+  const Museums = () => {
+    console.log("UPDATE " + order + "   " + category);
+    const mus = orderMuseums(filterMuseums(museums, category), order);
+    return (
+      <div className="museums">
+        {mus.map((v) => (
+          <Museum
+            name={v.name}
+            km={v.km}
+            category={v.category}
+            rating={v.rating}
+            key={v.name}
+          />
+        ))}
+      </div>
+    );
+  };
+
+  //HTML
   return (
     <div className="rootSearchMuseum">
       <Header />
@@ -132,46 +185,57 @@ const SearchMuseum = () => {
               </div>
               {filter ? (
                 <div className="filters">
-                  <p
-                    clicktype="ordina"
-                    onClick={() => setOrderView((v) => (v = !v))}
-                  >
-                    Ordina
-                  </p>
+                  <p onClick={() => setOrderView((v) => (v = !v))}>Ordina</p>
                   {orderView ? (
                     <div class="orderView">
                       <p
                         class="selectedOrder"
-                        clicktype="default"
+                        id="default"
                         onClick={changeOrder}
                       >
                         Default
                       </p>
-                      <p clicktype="rating" onClick={changeOrder}>
+                      <p id="rating" onClick={changeOrder}>
                         Più valutato
                       </p>
-                      <p clicktype="closest" onClick={changeOrder}>
+                      <p id="closest" onClick={changeOrder}>
                         Più vicini
                       </p>
                     </div>
                   ) : (
                     <></>
                   )}
-                  <p id="Storia" clicktype="category">
-                    Storia
+                  <p onClick={() => setCategoryView((v) => (v = !v))}>
+                    Categoria
                   </p>
-                  <p id="Arte" clicktype="category">
-                    Arte
-                  </p>
-                  <p clicktype="category" id="Tecnologia">
-                    Tecnologia
-                  </p>
+                  {categoryView ? (
+                    <div class="filterView">
+                      <p
+                        class="selectedCategory"
+                        id="all"
+                        onClick={changeCategory}
+                      >
+                        Tutte
+                      </p>
+                      <p id="storia" onClick={changeCategory}>
+                        Storia
+                      </p>
+                      <p id="arte" onClick={changeCategory}>
+                        Arte
+                      </p>
+                      <p id="tecnologia" onClick={changeCategory}>
+                        Tecnologia
+                      </p>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               ) : (
                 <></>
               )}
             </div>
-            {order ? <Museums /> : <></>}
+            {order || category ? <Museums /> : <></>}
           </div>
           <div className="mainRight">
             <Map

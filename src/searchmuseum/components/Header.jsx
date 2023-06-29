@@ -1,4 +1,4 @@
-import "../styles/headerStyle.css";
+import "../styles/Header.css";
 
 const Nav = () => {
   return (
@@ -19,7 +19,12 @@ const Nav = () => {
         <div className="headerRightIcons">
           <img className="globe" src="https://i.ibb.co/M24xQDv/globe.png" />
           <img className="globe" src="https://i.ibb.co/CWYtHLZ/bell.png" />
-          <a href="profile"><img className="globe" src="https://i.ibb.co/YLNmppN/icons8-person-24.png"/></a>
+          <a href="profile">
+            <img
+              className="globe"
+              src="https://i.ibb.co/YLNmppN/icons8-person-24.png"
+            />
+          </a>
         </div>
       </div>
     </header>
