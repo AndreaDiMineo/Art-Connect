@@ -1,5 +1,6 @@
 import "./styles.css";
 import { useState } from "react";
+import Footer from "../homepage/footer";
 
 export default function Profile() {
   const [toggle, setToggle] = useState(false);
@@ -44,7 +45,7 @@ export default function Profile() {
                           style={{
                             color: "#007bff",
                             backgroundColor: "white",
-                            borderColor: "#2c56e8"
+                            borderColor: "#2c56e8",
                           }}
                         >
                           Followed
@@ -141,6 +142,7 @@ export default function Profile() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
