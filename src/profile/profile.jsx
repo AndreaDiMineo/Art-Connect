@@ -139,10 +139,10 @@ export default function Profile() {
                 </div>
               </div>
             </div>
-            <Footer />
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
