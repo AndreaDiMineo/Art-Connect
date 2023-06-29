@@ -1,5 +1,7 @@
 import "./styles.css";
 import { useState } from "react";
+import Footer from "../homepage/footer";
+import Header from "../searchmuseum/components/Header";
 
 export default function Profile() {
   const [toggle, setToggle] = useState(false);
@@ -18,6 +20,7 @@ export default function Profile() {
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         rel="stylesheet"
       />
+      <Header />
       <div className="container">
         <div className="main-body">
           <div className="row gutters-sm">
@@ -44,7 +47,7 @@ export default function Profile() {
                           style={{
                             color: "#007bff",
                             backgroundColor: "white",
-                            borderColor: "#2c56e8"
+                            borderColor: "#2c56e8",
                           }}
                         >
                           Followed
@@ -141,6 +144,7 @@ export default function Profile() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
