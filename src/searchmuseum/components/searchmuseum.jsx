@@ -91,7 +91,10 @@ const SearchMuseum = () => {
   };
 
   const changeFilter = (e) => {
-    switch (e.target.attributes.clicktype.nodeValue) {
+    const type = e.target.attributes.clicktype.nodeValue;
+    const classList = e.target.classList;
+    console.log(e);
+    switch (type) {
       case "rating":
         clickRating();
         break;
@@ -99,10 +102,16 @@ const SearchMuseum = () => {
         clickClosest();
         break;
       case "category":
-        clickCategory("Storia");
+        const id = e.target.id;
+        clickCategory(id);
         break;
       default:
         break;
+    }
+    if (classList.contains("selectedFilter")) {
+      e.target.classList.remove("selectedFilter");
+    } else {
+      e.target.classList.add("selectedFilter");
     }
   };
 
