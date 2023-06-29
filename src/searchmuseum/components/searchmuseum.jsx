@@ -91,9 +91,17 @@ const SearchMuseum = () => {
   };
 
   const changeFilter = (e) => {
-    switch (e.target.clickType) {
+    switch (e.target.attributes.clicktype.nodeValue) {
       case "rating":
         clickRating();
+        break;
+      case "closest":
+        clickClosest();
+        break;
+      case "category":
+        clickCategory("Storia");
+        break;
+      default:
         break;
     }
   };
@@ -131,30 +139,22 @@ const SearchMuseum = () => {
               </div>
               {filter ? (
                 <div className="filters">
-                  <p clickType="rating" onClick={changeFilter}>
+                  <p clicktype="rating" onClick={changeFilter}>
                     4.0
                   </p>
-                  <p clickType="closest" onClick={clickClosest}>
+                  <p clicktype="closest" onClick={changeFilter}>
                     Più vicini
                   </p>
-                  <p
-                    id="Storia"
-                    clickType="category"
-                    onClick={() => clickCategory("Storia")}
-                  >
+                  <p id="Storia" clicktype="category" onClick={changeFilter}>
                     Storia
                   </p>
-                  <p
-                    id="Arte"
-                    clickType="category"
-                    onClick={() => clickCategory("Arte")}
-                  >
+                  <p id="Arte" clicktype="category" onClick={changeFilter}>
                     Arte
                   </p>
                   <p
-                    clickType="category"
+                    clicktype="category"
                     id="Tecnologia"
-                    onClick={() => clickCategory("Tecnologia")}
+                    onClick={changeFilter}
                   >
                     Tecnologia
                   </p>
