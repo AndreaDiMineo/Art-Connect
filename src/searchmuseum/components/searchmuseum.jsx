@@ -90,6 +90,31 @@ const SearchMuseum = () => {
     return <div className="museums">{mus}</div>;
   };
 
+  const changeFilter = (e) => {
+    const type = e.target.attributes.clicktype.nodeValue;
+    const classList = e.target.classList;
+    console.log(e);
+    switch (type) {
+      case "rating":
+        clickRating();
+        break;
+      case "closest":
+        clickClosest();
+        break;
+      case "category":
+        const id = e.target.id;
+        clickCategory(id);
+        break;
+      default:
+        break;
+    }
+    if (classList.contains("selectedFilter")) {
+      e.target.classList.remove("selectedFilter");
+    } else {
+      e.target.classList.add("selectedFilter");
+    }
+  };
+
   return (
     <div className="rootSearchMuseum">
       <Header />
@@ -123,11 +148,25 @@ const SearchMuseum = () => {
               </div>
               {filter ? (
                 <div className="filters">
-                  <p onClick={clickRating}>4.0</p>
-                  <p onClick={clickClosest}>Più vicini</p>
-                  <p onClick={() => clickCategory("Storia")}>Storia</p>
-                  <p onClick={() => clickCategory("Arte")}>Arte</p>
-                  <p onClick={() => clickCategory("Tecnologia")}>Tecnologia</p>
+                  <p clicktype="rating" onClick={changeFilter}>
+                    4.0
+                  </p>
+                  <p clicktype="closest" onClick={changeFilter}>
+                    Più vicini
+                  </p>
+                  <p id="Storia" clicktype="category" onClick={changeFilter}>
+                    Storia
+                  </p>
+                  <p id="Arte" clicktype="category" onClick={changeFilter}>
+                    Arte
+                  </p>
+                  <p
+                    clicktype="category"
+                    id="Tecnologia"
+                    onClick={changeFilter}
+                  >
+                    Tecnologia
+                  </p>
                 </div>
               ) : (
                 <></>
