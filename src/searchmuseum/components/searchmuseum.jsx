@@ -13,6 +13,7 @@ const MAPBOX_TOKEN =
   "pk.eyJ1IjoiYWRlcGVkcmluaSIsImEiOiJjbGlrMzd2dWEwZWI5M2trZG5wem04eWV5In0.xku2He5nmX0r89rngZndlQ";
 
 const SearchMuseum = () => {
+  //Gestione mappa
   const { view, setView, setViewState } = useContext(ViewContext);
   const ref = useRef(view);
   const [marker, setMarker] = useState({
@@ -26,6 +27,8 @@ const SearchMuseum = () => {
       latitude: lat,
     });
   };
+
+  //Geolocalizzazione
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition(getCoordsLocation);
   };
@@ -33,9 +36,10 @@ const SearchMuseum = () => {
     setCenter(pos.coords.longitude, pos.coords.latitude);
   };
 
+  //Geocoding: ricerca per nome
   const Geocoding = (ricerca) => {
     const API = "https://geocode.maps.co/search?q=" + encodeURI(ricerca);
-    const response = fetch(API)
+    fetch(API)
       .then((res) => res.json())
       .then((json) => {
         if (json != "") {
@@ -45,7 +49,6 @@ const SearchMuseum = () => {
         }
       });
   };
-
   const CheckGeoInput = (e) => {
     if (e.key === "Enter" || e.keyCode === 13) {
       const ricerca = e.target.value;
@@ -55,64 +58,44 @@ const SearchMuseum = () => {
     }
   };
 
-  const [filter, setFilter] = useState(false);
-  const ClickFilter = () => {
-    setFilter((v) => (v = !v));
-    //background: rgba(0,0,0,0.5);
-  };
+  //Gestione filtri
+  const { filter, clickFilter, order, clickOrder, clickCategory, museums } =
+    useContext(FilterContext);
+  const [orderView, setOrderView] = useState(false);
 
-  const { clickRating, clickCategory, museums } = useContext(FilterContext);
-
-  const [closest, setClosest] = useState(false);
-
-  const clickClosest = () => {
-    setClosest((v) => (v = !v));
-  };
-
-  const orderMuseums = (close) => {
+  //Ordina musei
+  const orderedMuseums = (order) => {
     let arr = museums;
-    if (close) {
-      arr = museums.toSorted((a, b) => {
-        return a - b;
-      });
-    }
-    const mus = arr.map((v) => <Museum km={v} key={v} />);
-    return mus;
-  };
-
-  const OrderedMuseums = () => {
-    const mus = orderMuseums(true);
-    return <div className="museums">{mus}</div>;
-  };
-
-  const NonOrderedMuseums = () => {
-    const mus = orderMuseums(false);
-    return <div className="museums">{mus}</div>;
-  };
-
-  const changeFilter = (e) => {
-    const type = e.target.attributes.clicktype.nodeValue;
-    const classList = e.target.classList;
-    console.log(e);
-    switch (type) {
-      case "rating":
-        clickRating();
-        break;
+    switch (order) {
       case "closest":
-        clickClosest();
-        break;
-      case "category":
-        const id = e.target.id;
-        clickCategory(id);
+        arr = museums.toSorted((a, b) => {
+          return a - b;
+        });
         break;
       default:
         break;
     }
-    if (classList.contains("selectedFilter")) {
-      e.target.classList.remove("selectedFilter");
-    } else {
-      e.target.classList.add("selectedFilter");
+    const mus = arr.map((v) => <Museum km={v} key={v} />);
+    return mus;
+  };
+  const Museums = () => {
+    const mus = orderedMuseums(order);
+    return <div className="museums">{mus}</div>;
+  };
+  const changeOrder = (e) => {
+    const type = e.target.attributes.clicktype.nodeValue;
+    const classList = e.target.classList;
+    switch (type) {
+      case "rating":
+      case "closest":
+        clickOrder(type);
+        break;
+      default:
+        break;
     }
+    const selectedOrder = document.querySelector(".selectedOrder");
+    selectedOrder.classList.remove("selectedOrder");
+    e.target.classList.add("selectedOrder");
   };
 
   return (
@@ -142,29 +125,45 @@ const SearchMuseum = () => {
                   <img
                     className="mapFilter"
                     src="https://i.ibb.co/PxsVrr6/filter.png"
-                    onClick={ClickFilter}
+                    alt=""
+                    onClick={clickFilter}
                   />
                 </div>
               </div>
               {filter ? (
                 <div className="filters">
-                  <p clicktype="rating" onClick={changeFilter}>
-                    4.0
+                  <p
+                    clicktype="ordina"
+                    onClick={() => setOrderView((v) => (v = !v))}
+                  >
+                    Ordina
                   </p>
-                  <p clicktype="closest" onClick={changeFilter}>
-                    Più vicini
-                  </p>
-                  <p id="Storia" clicktype="category" onClick={changeFilter}>
+                  {orderView ? (
+                    <div class="orderView">
+                      <p
+                        class="selectedOrder"
+                        clicktype="default"
+                        onClick={changeOrder}
+                      >
+                        Default
+                      </p>
+                      <p clicktype="rating" onClick={changeOrder}>
+                        Più valutato
+                      </p>
+                      <p clicktype="closest" onClick={changeOrder}>
+                        Più vicini
+                      </p>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  <p id="Storia" clicktype="category">
                     Storia
                   </p>
-                  <p id="Arte" clicktype="category" onClick={changeFilter}>
+                  <p id="Arte" clicktype="category">
                     Arte
                   </p>
-                  <p
-                    clicktype="category"
-                    id="Tecnologia"
-                    onClick={changeFilter}
-                  >
+                  <p clicktype="category" id="Tecnologia">
                     Tecnologia
                   </p>
                 </div>
@@ -172,7 +171,7 @@ const SearchMuseum = () => {
                 <></>
               )}
             </div>
-            {closest ? <OrderedMuseums /> : <NonOrderedMuseums />}
+            {order ? <Museums /> : <></>}
           </div>
           <div className="mainRight">
             <Map
