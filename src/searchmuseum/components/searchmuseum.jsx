@@ -13,6 +13,7 @@ const MAPBOX_TOKEN =
   "pk.eyJ1IjoiYWRlcGVkcmluaSIsImEiOiJjbGlrMzd2dWEwZWI5M2trZG5wem04eWV5In0.xku2He5nmX0r89rngZndlQ";
 
 const SearchMuseum = () => {
+  //Gestione mappa
   const { view, setView, setViewState } = useContext(ViewContext);
   const ref = useRef(view);
   const [marker, setMarker] = useState({
@@ -26,6 +27,8 @@ const SearchMuseum = () => {
       latitude: lat,
     });
   };
+
+  //Geolocalizzazione
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition(getCoordsLocation);
   };
@@ -33,9 +36,10 @@ const SearchMuseum = () => {
     setCenter(pos.coords.longitude, pos.coords.latitude);
   };
 
+  //Geocoding: ricerca per nome
   const Geocoding = (ricerca) => {
     const API = "https://geocode.maps.co/search?q=" + encodeURI(ricerca);
-    const response = fetch(API)
+    fetch(API)
       .then((res) => res.json())
       .then((json) => {
         if (json != "") {
@@ -45,7 +49,6 @@ const SearchMuseum = () => {
         }
       });
   };
-
   const CheckGeoInput = (e) => {
     if (e.key === "Enter" || e.keyCode === 13) {
       const ricerca = e.target.value;
@@ -55,66 +58,99 @@ const SearchMuseum = () => {
     }
   };
 
-  const [filter, setFilter] = useState(false);
-  const ClickFilter = () => {
-    setFilter((v) => (v = !v));
-    //background: rgba(0,0,0,0.5);
-  };
+  //Gestione filtri
+  const {
+    filter,
+    clickFilter,
+    order,
+    clickOrder,
+    category,
+    clickCategory,
+    museums,
+  } = useContext(FilterContext);
+  const [orderView, setOrderView] = useState(false);
+  const [categoryView, setCategoryView] = useState(false);
 
-  const { clickRating, clickCategory, museums } = useContext(FilterContext);
-
-  const [closest, setClosest] = useState(false);
-
-  const clickClosest = () => {
-    setClosest((v) => (v = !v));
-  };
-
-  const orderMuseums = (close) => {
-    let arr = museums;
-    if (close) {
-      arr = museums.toSorted((a, b) => {
-        return a - b;
-      });
-    }
-    const mus = arr.map((v) => <Museum km={v} key={v} />);
-    return mus;
-  };
-
-  const OrderedMuseums = () => {
-    const mus = orderMuseums(true);
-    return <div className="museums">{mus}</div>;
-  };
-
-  const NonOrderedMuseums = () => {
-    const mus = orderMuseums(false);
-    return <div className="museums">{mus}</div>;
-  };
-
-  const changeFilter = (e) => {
-    const type = e.target.attributes.clicktype.nodeValue;
-    const classList = e.target.classList;
-    console.log(e);
-    switch (type) {
+  //Ordina musei
+  const orderMuseums = (museum, order) => {
+    let arr = museum;
+    switch (order) {
       case "rating":
-        clickRating();
+        arr = museum.toSorted((a, b) => {
+          return b.rating - a.rating;
+        });
         break;
       case "closest":
-        clickClosest();
+        arr = museum.toSorted((a, b) => {
+          return a.km - b.km;
+        });
         break;
-      case "category":
-        const id = e.target.id;
+      default:
+        break;
+    }
+    return arr;
+  };
+  const changeOrder = (e) => {
+    const id = e.target.id;
+    const classList = e.target.classList;
+    switch (id) {
+      case "default":
+      case "rating":
+      case "closest":
+        clickOrder(id);
+        break;
+      default:
+        break;
+    }
+    const selectedOrder = document.querySelector(".selectedOrder");
+    selectedOrder.classList.remove("selectedOrder");
+    classList.add("selectedOrder");
+  };
+
+  //Categorie
+  const filterMuseums = (museums, category) => {
+    return category === "all"
+      ? museums
+      : museums.filter((v) => v.category.toLowerCase() === category);
+  };
+  const changeCategory = (e) => {
+    const id = e.target.id;
+    const classList = e.target.classList;
+    switch (id) {
+      case "storia":
+      case "arte":
+      case "tecnologia":
+      case "all":
         clickCategory(id);
         break;
       default:
         break;
     }
-    if (classList.contains("selectedFilter")) {
-      e.target.classList.remove("selectedFilter");
-    } else {
-      e.target.classList.add("selectedFilter");
-    }
+    const selectedCategory = document.querySelector(".selectedCategory");
+    selectedCategory.classList.remove("selectedCategory");
+    classList.add("selectedCategory");
   };
 
+  //Aggiorna i musei
+  const Museums = () => {
+    console.log("UPDATE " + order + "   " + category);
+    const mus = orderMuseums(filterMuseums(museums, category), order);
+    return (
+      <div className="museums">
+        {mus.map((v) => (
+          <Museum
+            name={v.name}
+            km={v.km}
+            category={v.category}
+            rating={v.rating}
+            key={v.name}
+          />
+        ))}
+      </div>
+    );
+  };
+
+  //HTML
   return (
     <div className="rootSearchMuseum">
       <Header />
@@ -142,37 +178,64 @@ const SearchMuseum = () => {
                   <img
                     className="mapFilter"
                     src="https://i.ibb.co/PxsVrr6/filter.png"
-                    onClick={ClickFilter}
+                    alt=""
+                    onClick={clickFilter}
                   />
                 </div>
               </div>
               {filter ? (
                 <div className="filters">
-                  <p clicktype="rating" onClick={changeFilter}>
-                    4.0
+                  <p onClick={() => setOrderView((v) => (v = !v))}>Ordina</p>
+                  {orderView ? (
+                    <div class="orderView">
+                      <p
+                        class="selectedOrder"
+                        id="default"
+                        onClick={changeOrder}
+                      >
+                        Default
+                      </p>
+                      <p id="rating" onClick={changeOrder}>
+                        Più valutato
+                      </p>
+                      <p id="closest" onClick={changeOrder}>
+                        Più vicini
+                      </p>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  <p onClick={() => setCategoryView((v) => (v = !v))}>
+                    Categoria
                   </p>
-                  <p clicktype="closest" onClick={changeFilter}>
-                    Più vicini
-                  </p>
-                  <p id="Storia" clicktype="category" onClick={changeFilter}>
-                    Storia
-                  </p>
-                  <p id="Arte" clicktype="category" onClick={changeFilter}>
-                    Arte
-                  </p>
-                  <p
-                    clicktype="category"
-                    id="Tecnologia"
-                    onClick={changeFilter}
-                  >
-                    Tecnologia
-                  </p>
+                  {categoryView ? (
+                    <div class="filterView">
+                      <p
+                        class="selectedCategory"
+                        id="all"
+                        onClick={changeCategory}
+                      >
+                        Tutte
+                      </p>
+                      <p id="storia" onClick={changeCategory}>
+                        Storia
+                      </p>
+                      <p id="arte" onClick={changeCategory}>
+                        Arte
+                      </p>
+                      <p id="tecnologia" onClick={changeCategory}>
+                        Tecnologia
+                      </p>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               ) : (
                 <></>
               )}
             </div>
-            {closest ? <OrderedMuseums /> : <NonOrderedMuseums />}
+            {order || category ? <Museums /> : <></>}
           </div>
           <div className="mainRight">
             <Map

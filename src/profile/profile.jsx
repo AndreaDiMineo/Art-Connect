@@ -1,7 +1,7 @@
 import "./styles.css";
 import { useState } from "react";
 import Footer from "../homepage/footer";
-import Header from "../searchmuseum/components/header";
+import Header from "../searchmuseum/components/Header";
 import { Link } from "react-router-dom";
 
 export default function Profile() {
@@ -103,10 +103,7 @@ export default function Profile() {
                   <hr />
                   <div className="row">
                     <div className="col-sm-10">
-                      <Link
-                        className="btn-settings"
-                        to={"/edit-profile"}
-                      >
+                      <Link className="btn-settings" to={"/edit-profile"}>
                         Edit Profile
                       </Link>
                       <a

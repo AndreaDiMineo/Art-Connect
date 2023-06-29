@@ -11,7 +11,11 @@ const Nav = () => {
           alt="logo"
         />
         <nav className="navLinks">
-          <button className="linkBtn"><Link className="btn-links" to={"/dashboard"}>Musei</Link></button>
+          <button className="linkBtn">
+            <Link className="btn-links" to={"/dashboard"}>
+              Musei
+            </Link>
+          </button>
           <button className="linkBtn">Eventi</button>
           <button className="linkBtn">Assistenza</button>
         </nav>
@@ -20,7 +24,12 @@ const Nav = () => {
         <div className="headerRightIcons">
           <img className="globe" src="https://i.ibb.co/M24xQDv/globe.png" />
           <img className="globe" src="https://i.ibb.co/CWYtHLZ/bell.png" />
-          <a href="profile"><img className="globe" src="https://i.ibb.co/YLNmppN/icons8-person-24.png"/></a>
+          <a href="profile">
+            <img
+              className="globe"
+              src="https://i.ibb.co/YLNmppN/icons8-person-24.png"
+            />
+          </a>
         </div>
       </div>
     </header>
