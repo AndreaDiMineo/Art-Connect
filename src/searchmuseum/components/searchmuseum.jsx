@@ -237,7 +237,7 @@ const SearchMuseum = () => {
                       </p>
                     </div>
                   ) : (
-                    <></>
+                    <p></p>
                   )}
                   <p onClick={() => setCategoryView((v) => (v = !v))}>
                     Categoria
