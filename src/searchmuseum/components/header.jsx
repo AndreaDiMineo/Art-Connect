@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
 import "../styles/headerStyle.css";
-import React from "react";import React from "react";
+import React from "react";
 const Nav = () => {
   return (
     <header className="header">
       <div className="headerLeft">
-<<<<<<< ssName="linkBtn">
-            <Link className="btn-links" to={"/dashboard"}>
-              Musei
-            </Link>
-          </button>
-          <button className="linkBtn">Eventi</button>
-          <button className="linkBtn">Assistenza</button>
-<<<<<<< </nav>ssName="linkBtn">
+        <Link className="btn-links" to={"/dashboard"}>
+          <img
+            className="logo"
+            src="https://i.ibb.co/sq7qsF4/logo-Art-Connect-White.png"
+            alt="logo"
+          />
+        </Link>
+        <nav className="navLinks">
+          <button className="linkBtn">
             <Link className="btn-links" to={"/dashboard"}>
               Musei
             </Link>
@@ -25,14 +26,12 @@ const Nav = () => {
         <div className="headerRightIcons">
           <img className="globe" src="https://i.ibb.co/M24xQDv/globe.png" />
           <img className="globe" src="https://i.ibb.co/CWYtHLZ/bell.png" />
-          <Link to={"/profile"}>
+          <a href="profile">
             <img
               className="globe"
               src="https://i.ibb.co/YLNmppN/icons8-person-24.png"
-              title="Profilo"
-              alt="Profilo"
             />
-          </Link>
+          </a>
         </div>
       </div>
     </header>
