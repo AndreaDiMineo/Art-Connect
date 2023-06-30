@@ -1,59 +1,66 @@
 .card {
-    background-color: #d9d9d9;
-    border-radius: 10px;
-    width: 55rem;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  width: 55rem;
 }
 
 .museum-img {
-    width: 55rem;
-    height: 25rem;
-    border-radius: 2%;
+  width: 55rem;
+  height: 25rem;
+  border-radius: 2%;
 }
 
 .museum-btn {
-    background-color: blue;
-    color: white;
-    height: 3rem;
-    width: 8rem;
-    margin: 10%;
-    cursor: grab;
+  background-color: blue;
+  color: white;
+  height: 3rem;
+  width: 8rem;
+  margin: 10%;
+  cursor: grab;
 }
 
-.stats-btns, .btns, .museum-info {
-    display: flex;
-    flex-direction: column;
+.stats-btns,
+.btns,
+.museum-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .stats-btns {
-    margin-top: 5%;
+  margin-top: 5%;
+  margin-left: 2.5%;
+  width: 25%;
 }
 
 .stats {
-    display: flex;
-    flex-direction: row;
-}
-
-.stats img {
-    margin: 3%;
+  display: flex;
+  flex-direction: row;
 }
 
 .museum-info {
-    margin-left: 5%;
+  align-self: center;
+  margin-left: 10%;
 }
 
 .museum-profile {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+}
+
+.museum_icons {
+  width: 1.5rem;
+  height: 1.5em;
 }
 
 ul {
-    margin-left: 6%;
+  margin-left: 6%;
 }
 
-p, h3 {
-    padding: 1.5%;
+p,
+h3 {
+  padding: 1.5%;
 }
 
 h3 {
-    margin-top: 2%;
+  margin-top: 2%;
 }
