@@ -1,3 +1,5 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -14,6 +16,7 @@ import RegisterNV from "./login/registerNV";
 import Reset from "./login/resetpassword";
 import MuseumProfile from "./museumprofile/components/museumprofile";
 import EditProfile from "./profile/editprofile";
+import Home from "./home/Home";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -22,7 +25,7 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <div>
-        <Homepage />
+        <Home />
       </div>
     ),
   },

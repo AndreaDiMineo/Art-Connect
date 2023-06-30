@@ -16,7 +16,7 @@ export default function Profile() {
   };
 
   return (
-    <>
+    <div>
       <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -141,6 +141,6 @@ export default function Profile() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
