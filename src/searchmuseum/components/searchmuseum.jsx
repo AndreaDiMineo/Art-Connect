@@ -26,6 +26,10 @@ const SearchMuseum = () => {
       longitude: lng,
       latitude: lat,
     });
+    updateMuseums(lng, lat);
+  };
+  const calculateDistance = (lng1, lat1, lng2, lat2) => {
+    return Math.sqrt(Math.pow(lng2 - lng1, 2) + Math.pow(lat2 - lat1, 2)) * 100;
   };
 
   //Geolocalizzazione
@@ -67,6 +71,7 @@ const SearchMuseum = () => {
     category,
     clickCategory,
     museums,
+    setMuseums,
   } = useContext(FilterContext);
   const [orderView, setOrderView] = useState(false);
   const [categoryView, setCategoryView] = useState(false);
@@ -103,7 +108,7 @@ const SearchMuseum = () => {
   //Categorie
   const filterMuseums = (museums, category) => {
     const filter =
-      category === "all"
+      category === "all" || category === undefined
         ? museums
         : museums.filter((v) => v.category.toLowerCase() === category);
     //setFilteredMuseums([...filter]);
@@ -121,6 +126,9 @@ const SearchMuseum = () => {
   //Aggiorna i musei
   const Museums = () => {
     const mus = orderMuseums(filterMuseums(museums, category), order);
+    if (museums[0].km === undefined) {
+      updateMuseums(marker.longitude, marker.latitude);
+    }
     return (
       <div className="museums">
         {mus.map((v) => (
@@ -147,6 +155,16 @@ const SearchMuseum = () => {
           />
         ))}
       </div>
+    );
+  };
+  const updateMuseums = (lng, lat) => {
+    setMuseums(
+      museums.map((v) => {
+        v.km = calculateDistance(v.longitude, v.latitude, lng, lat);
+        return {
+          ...v,
+        };
+      })
     );
   };
 

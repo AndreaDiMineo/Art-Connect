@@ -28,7 +28,7 @@ const Museum = ({ name, km, category, rating }) => {
               src="https://i.ibb.co/4JWWxhz/map-pin.png"
               alt=""
             />
-            <p>{km}km</p>
+            <p>{parseFloat(km).toFixed(2)}km</p>
           </div>
           <div className="museumType">
             <img
