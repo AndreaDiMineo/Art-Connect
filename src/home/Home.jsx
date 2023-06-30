@@ -1,4 +1,5 @@
 import FeauturedEvent from "./FeaturedEvent";
+import Button from "react-bootstrap/Button";
 import "./styleHome.css";
 
 const Home = () => {
@@ -29,8 +30,8 @@ const Home = () => {
             </ul>
           </div>
           <div className="navRight">
-            <button className="btn btn-outline-primary ">Log In</button>
-            <button className="btn btn-outline-primary ">Sign In</button>
+            <Button variant="outline-primary">Log In</Button>
+            <Button variant="outline-primary">Log In</Button>
           </div>
         </nav>
         <span className="xMenuMobile none">X</span>

@@ -2,6 +2,7 @@ import "../styles/searchmuseumStyle.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import Header from "./header";
+import { React } from "react";
 import { Map, Marker, NavigationControl } from "react-map-gl";
 import { useState, useContext, useRef } from "react";
 import { ViewContext } from "../hooks/view-context";
@@ -237,7 +238,7 @@ const SearchMuseum = () => {
                       </p>
                     </div>
                   ) : (
-                    <></>
+                    <p></p>
                   )}
                   <p onClick={() => setCategoryView((v) => (v = !v))}>
                     Categoria
@@ -280,11 +281,11 @@ const SearchMuseum = () => {
                       </p>
                     </div>
                   ) : (
-                    <></>
+                    <p></p>
                   )}
                 </div>
               ) : (
-                <></>
+                <p></p>
               )}
             </div>
             <Museums />
