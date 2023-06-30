@@ -14,7 +14,7 @@ const FeaturedEvent = () => {
       "Depeche Mode",
       "Muse",
       "aja monet",
-      "Anderson .Paak",
+
       "Florence and the Machine",
       "Beyonce",
     ];
