@@ -153,7 +153,8 @@ const Register = () => {
                 </div>
 
                 <label class="form-label" for="form3Example3cg">
-                  Select your language<span style={{ color: "red" }}> *</span>
+                  Select your preferred language
+                  <span style={{ color: "red" }}> *</span>
                 </label>
                 <select
                   class="form-select form-select-sm mb-3"
@@ -175,7 +176,7 @@ const Register = () => {
                     id="form2Example3cg"
                   />
                   <label class="form-check-label" for="form2Example3g">
-                    I agree all statements in{" "}
+                    I agree to all statements in{" "}
                     <a href="#!" class="text-body">
                       <u>Terms of service</u>
                     </a>
@@ -190,7 +191,7 @@ const Register = () => {
                     id="form2Example3cg"
                   />
                   <label class="form-check-label" for="form2Example3g">
-                    I agree to receiving notifications
+                    I agree to receive notifications
                   </label>
                 </div>
 
