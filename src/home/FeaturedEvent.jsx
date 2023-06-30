@@ -15,7 +15,7 @@ const FeaturedEvent = () => {
       "Muse",
       "aja monet",
       "Tarantinosnyc",
-
+      "Ron Jackson",
       "Beyonce",
     ];
 
