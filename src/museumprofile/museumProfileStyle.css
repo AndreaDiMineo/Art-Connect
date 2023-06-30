@@ -1,9 +1,59 @@
 .card {
-    background-color: gray;
-    width: 25rem;
-    height: 30rem;
+    background-color: #d9d9d9;
+    border-radius: 10px;
+    width: 55rem;
 }
 
 .museum-img {
-    width: 25rem;
+    width: 55rem;
+    height: 25rem;
+    border-radius: 2%;
+}
+
+.museum-btn {
+    background-color: blue;
+    color: white;
+    height: 3rem;
+    width: 8rem;
+    margin: 10%;
+    cursor: grab;
+}
+
+.stats-btns, .btns, .museum-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stats-btns {
+    margin-top: 5%;
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+}
+
+.stats img {
+    margin: 3%;
+}
+
+.museum-info {
+    margin-left: 5%;
+}
+
+.museum-profile {
+    display: flex;
+    flex-direction: row;
+}
+
+ul {
+    margin-left: 6%;
+}
+
+p, h3 {
+    padding: 1.5%;
+}
+
+h3 {
+    margin-top: 2%;
 }
