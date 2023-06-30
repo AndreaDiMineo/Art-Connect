@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <React.Fragment>
@@ -43,9 +44,11 @@ const NavBar = () => {
               />
               <label for="floatingInput">Search</label>
             </div>
-            <button id="accedi" type="button" class="btn btn-outline-light">
-              Accedi
-            </button>
+            <Link to="/login">
+              <button id="accedi" type="button" class="btn btn-outline-light">
+                Accedi
+              </button>
+            </Link>
           </div>
         </div>
       </nav>
