@@ -8,6 +8,7 @@
   --black: #41393e;
   --pink: #eda2c0;
 }
+
 .top {
   background-image: url("https://www.travelandleisure.com/thmb/MEkukyYk2LafCG9V-2g5aCN5KIM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/louvre-museum-paris-BESTMUSEUM0122-0cbd8a63089e4ce9969a2ead829b68e8.jpg");
   background-repeat: no-repeat;
@@ -86,25 +87,7 @@
   text-transform: uppercase;
 }
 
-.home h1,
-.home h3,
-.home h4 {
-  font-family: "Josefin Sans", sans-serif;
-}
-
-.home h1 {
-  font-size: 4rem;
-}
-
-.home h3 {
-  font-size: 2rem;
-}
-
-.home h4 {
-  font-size: 1.5rem;
-}
-
-.home header h1 {
+.headerHome h1 {
   margin: 0;
 }
 
@@ -196,44 +179,7 @@
   padding: 0.5rem 2rem;
   color: var(--magenta);
 }
-
-.home footer {
-  background-color: var(--magenta);
-  color: white;
-  text-transform: uppercase;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-}
-
-.home footer a {
-  color: white;
-}
-
-.footerTop {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footerTop svg {
-  max-width: 20ch;
-}
-
-.footerTop p {
-  margin: 0;
-}
-
-.footerCenter {
-  margin: 1rem;
-}
-
-.footerBottom {
-  display: flex;
-  gap: 0.5rem;
-}
-
+/*
 @media screen and (max-width: 600px) {
   .top {
     background-image: linear-gradient(var(--magenta), var(--pink));
@@ -249,10 +195,10 @@
   .dropdown {
     display: inline;
   }
-  .home h1 {
+  h1 {
     font-size: 3rem;
   }
-  .headerHome {
+  header {
     padding-bottom: 10rem;
   }
   .upcomingSection {
@@ -336,7 +282,7 @@
   }
 }
 
-.home button:hover {
+button:hover {
   color: white;
   background-color: var(--black);
   border-color: var(--black);
@@ -345,3 +291,4 @@
 .none {
   display: none;
 }
+*/
