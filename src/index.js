@@ -12,7 +12,7 @@ import Profile from "./profile/profile";
 import { FuncProvider } from "./login/context";
 import RegisterNV from "./login/registerNV";
 import Reset from "./login/resetpassword";
-import MuseumProfile from "./museumprofile/museumprofile";
+import MuseumProfile from "./museumprofile/components/museumprofile";
 import EditProfile from "./profile/editprofile";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -5,7 +5,7 @@ import Header from "./header";
 import { Map, Marker, NavigationControl } from "react-map-gl";
 import { useState, useContext, useRef } from "react";
 import { ViewContext } from "../hooks/view-context";
-import { FilterContext, FilterProvider } from "../hooks/filter-context";
+import { FilterContext } from "../hooks/filter-context";
 import Museum from "./Museum";
 import Footer from "../../homepage/footer";
 
@@ -111,13 +111,13 @@ const SearchMuseum = () => {
       category === "all" || category === undefined
         ? museums
         : museums.filter((v) => v.category.toLowerCase() === category);
-    //setFilteredMuseums([...filter]);
-    return filter;
+    setFilteredMuseums([...filter]);
   };
   const changeCategory = (e) => {
     const id = e.target.id;
     const classList = e.target.classList;
     clickCategory(id);
+    filterMuseums(museums, id);
     const selectedCategory = document.querySelector(".selectedCategory");
     selectedCategory.classList.remove("selectedCategory");
     classList.add("selectedCategory");
@@ -125,7 +125,7 @@ const SearchMuseum = () => {
 
   //Aggiorna i musei
   const Museums = () => {
-    const mus = orderMuseums(filterMuseums(museums, category), order);
+    const mus = orderMuseums(filteredMuseums, order);
     if (museums[0].km === undefined) {
       updateMuseums(marker.longitude, marker.latitude);
     }
@@ -146,7 +146,7 @@ const SearchMuseum = () => {
   const MarkerMuseum = () => {
     return (
       <div>
-        {museums.map((v) => (
+        {filteredMuseums.map((v) => (
           <Marker
             longitude={v.longitude}
             latitude={v.latitude}
@@ -160,6 +160,14 @@ const SearchMuseum = () => {
   const updateMuseums = (lng, lat) => {
     setMuseums(
       museums.map((v) => {
+        v.km = calculateDistance(v.longitude, v.latitude, lng, lat);
+        return {
+          ...v,
+        };
+      })
+    );
+    setFilteredMuseums(
+      filteredMuseums.map((v) => {
         v.km = calculateDistance(v.longitude, v.latitude, lng, lat);
         return {
           ...v,
@@ -279,7 +287,7 @@ const SearchMuseum = () => {
                 <></>
               )}
             </div>
-            {order || category ? <Museums /> : <></>}
+            <Museums />
           </div>
           <div className="mainRight">
             <Map
@@ -297,7 +305,7 @@ const SearchMuseum = () => {
                 color="red"
               />
               <NavigationControl />
-              {museums ? <MarkerMuseum /> : <></>}
+              <MarkerMuseum />
             </Map>
           </div>
         </section>
