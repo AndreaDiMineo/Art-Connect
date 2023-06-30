@@ -10,6 +10,7 @@ const FeaturedEvent = () => {
       "Björk",
       "Liam Gallagher",
       "Alicia Keys",
+      "Drake",
       "Depeche Mode",
       "Muse",
       "Anderson .Paak",
