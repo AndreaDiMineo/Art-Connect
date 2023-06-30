@@ -26,6 +26,11 @@ p {
   margin-left: 30px;
 }
 
+.desc button {
+  margin-right: 10px !important;
+  width: 15%;
+}
+
 button {
   margin-right: 10px !important;
   width: 15%;
