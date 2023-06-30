@@ -5,11 +5,12 @@ const Nav = () => {
   return (
     <header className="header">
       <div className="headerLeft">
-        <Link className="img-links" to={"/"}>
+        <Link to={"/"}>
           <img
             className="logo"
             src="https://i.ibb.co/sq7qsF4/logo-Art-Connect-White.png"
-            alt="logo"
+            title="ArtConnect"
+            alt="Logo ArtConnect"
           />
         </Link>
         <nav className="navLinks">
@@ -26,12 +27,14 @@ const Nav = () => {
         <div className="headerRightIcons">
           <img className="globe" src="https://i.ibb.co/M24xQDv/globe.png" />
           <img className="globe" src="https://i.ibb.co/CWYtHLZ/bell.png" />
-          <a href="profile">
+          <Link to={"/profile"}>
             <img
               className="globe"
               src="https://i.ibb.co/YLNmppN/icons8-person-24.png"
+              title="Profilo"
+              alt="Profilo"
             />
-          </a>
+          </Link>
         </div>
       </div>
     </header>

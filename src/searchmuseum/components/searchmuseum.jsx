@@ -181,7 +181,7 @@ const SearchMuseum = () => {
     <div className="rootSearchMuseum">
       <Header />
       <main className="pageSearchMuseum">
-        <h1>Cosa vuoi visitare?</h1>
+        <h1 class="titleSearchMuseum">Cosa vuoi visitare?</h1>
         <section className="mainSearchMuseum">
           <div className="mainLeft">
             <div className="geo">
