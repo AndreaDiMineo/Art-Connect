@@ -1,26 +1,44 @@
-import MuseumProfile from "../../museumprofile/components/museumprofile";
+import MuseumProfile, { MuseumStats } from "../../museumprofile/components/museumprofile";
 import "../styles/museumStyle.css";
-import React from "react";
+import { useState } from "react";
+import { Background } from "./searchmuseum";
+
 const Museum = ({ name, km, category, rating }) => {
-  const clickProfile = () => {
-    return (
-      <div>
-        <MuseumProfile />
-      </div>
-    );
-  };
+  const [ profile, setProfile ] = useState(false);
+  const { main, mapSection } = Background();
+  const card = document.querySelector(".museumCard");
+  const ClickProfile = (stato) => {
+    main.addEventListener('click', () => {
+      setProfile(false);
+      main.style.backgroundColor = "";
+      mapSection.style.display = "block";
+    })
+    setProfile(stato);
+    if (stato === true) {
+      card.style.position = "relative";
+      mapSection.style.display = "none";
+      main.style.zIndex = 1;
+      main.style.left = 0;
+      main.style.top = 0;
+      main.style.overflow = "auto";
+      main.style.backgroundColor = "rgba(0,0,0,0.7)";
+    }
+    else {
+      main.style.backgroundColor = "";
+      mapSection.style.display = "block";
+    }
+  }
   return (
     <div className="museumCard">
       <div className="museumCardLeft">
         <img
           className="museumImg"
-          alt=""
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Field_Museum_of_Natural_History.jpg/1280px-Field_Museum_of_Natural_History.jpg"
-          onClick={clickProfile}
+          onClick={!profile === true ? () => ClickProfile(true) : () => ClickProfile(false)}
         />
       </div>
       <div className="museumCardRight">
-        <h3 className="museumTitle">{name}</h3>
+        <h3 className="museumTitle">Field Museum of Natural History</h3>
         <div className="museumSubtitle">
           <div className="museumDistance">
             <img
@@ -48,6 +66,7 @@ const Museum = ({ name, km, category, rating }) => {
           <p>{rating}</p>
         </div>
       </div>
+      { !profile === true ? null : <MuseumProfile/> }
     </div>
   );
 };
