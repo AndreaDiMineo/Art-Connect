@@ -37,7 +37,7 @@ h1 {
 
 .filters p {
   padding: 3%;
-  cursor: grab;
+  cursor: pointer;
 }
 
 .geoInput {
@@ -63,7 +63,7 @@ h1 {
   right: -0.5rem;
   width: 1.7rem;
   height: 1.7rem;
-  cursor: grab;
+  cursor: pointer;
 }
 
 .geoFilter {
