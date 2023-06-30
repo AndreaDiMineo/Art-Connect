@@ -6,7 +6,7 @@ const Register = () => {
   const { passwordNascondi, passwordInfo, showInfoPassword } =
     useContext(FuncContext);
   return (
-    <>
+    <React.Fragment>
       <section class="vh-100">
         <div class="container-fluid h-custom">
           <div class="row d-flex justify-content-center align-items-center h-100">
@@ -215,7 +215,7 @@ const Register = () => {
           </div>
         </div>
       </section>
-    </>
+    </React.Fragment>
   );
 };
 

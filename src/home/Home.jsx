@@ -1,10 +1,10 @@
 import FeauturedEvent from "./FeaturedEvent";
 import Button from "react-bootstrap/Button";
 import "./styleHome.css";
-
+import React from "react";
 const Home = () => {
   return (
-    <>
+    <React.Fragment>
       <div className="top">
         <nav>
           <div className="navLeft">
@@ -60,7 +60,7 @@ const Home = () => {
           <div className="genres"></div>
         </section>
       </main>
-    </>
+    </React.Fragment>
   );
 };
 export default Home;

@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import "../styles/headerStyle.css";
-
+import React from "react";
 const Nav = () => {
   return (
     <header className="header">
       <div className="headerLeft">
-        <Link className="btn-links" to={"/dashboard"}><img
-          className="logo"
-          src="https://i.ibb.co/sq7qsF4/logo-Art-Connect-White.png"
-          alt="logo"
-        /></Link>
+        <Link className="btn-links" to={"/dashboard"}>
+          <img
+            className="logo"
+            src="https://i.ibb.co/sq7qsF4/logo-Art-Connect-White.png"
+            alt="logo"
+          />
+        </Link>
         <nav className="navLinks">
           <button className="linkBtn">
             <Link className="btn-links" to={"/dashboard"}>
