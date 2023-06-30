@@ -5,7 +5,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Homepage from "./homepage/homepage";
 import Login from "./login/login";
 import SearchMuseum from "./searchmuseum/components/searchmuseum";
 import { ViewProvider } from "./searchmuseum/hooks/view-context";
