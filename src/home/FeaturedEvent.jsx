@@ -6,12 +6,12 @@ const FeaturedEvent = () => {
 
   useEffect(() => {
     const artists = [
+      "Kim Petras",
+      "Björk",
       "Liam Gallagher",
-      "Anderson .Paak",
       "Depeche Mode",
       "Muse",
-      "Björk",
-      "Kim Petras",
+      "Anderson .Paak",
       "Florence and the Machine",
       "M83",
     ];

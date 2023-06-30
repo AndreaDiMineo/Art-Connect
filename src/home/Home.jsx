@@ -24,8 +24,8 @@ const Home = () => {
           </header>
         </div>
         <main>
-          <FeauturedEvent />
           <Musei />
+          <FeauturedEvent />
         </main>
       </div>
       <Footer />
