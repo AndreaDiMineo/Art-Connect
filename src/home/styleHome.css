@@ -1,0 +1,352 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap");
+
+:root {
+  --blue: #c7e8f3;
+  --purple: #bf9aca;
+  --magenta: #8e4162;
+  --black: #41393e;
+  --pink: #eda2c0;
+}
+
+body {
+  margin: 0px;
+}
+
+.top {
+  background-image: url("https://www.travelandleisure.com/thmb/MEkukyYk2LafCG9V-2g5aCN5KIM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/louvre-museum-paris-BESTMUSEUM0122-0cbd8a63089e4ce9969a2ead829b68e8.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.logoArtConnect {
+  height: 8rem;
+  margin: -1.5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.navLeft {
+  display: flex;
+  margin-left: 1rem;
+}
+
+.navLeft svg {
+  max-width: 20ch;
+}
+
+.navList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navList > li {
+  float: left;
+  margin-left: 1rem;
+}
+
+.navList a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+}
+
+.navList a:hover {
+  text-decoration: underline;
+}
+
+.navRight {
+  margin-right: 1rem;
+}
+
+.dropdown {
+  display: none;
+}
+
+.navRight > button {
+  margin-left: 0.5rem;
+}
+
+.button--transparent {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.button--magenta {
+  background-color: var(--magenta);
+  color: white;
+  border: 1px solid var(--magenta);
+}
+
+header {
+  padding: 3rem 0 20rem 3rem;
+  color: white;
+}
+
+.text--uppercase {
+  text-transform: uppercase;
+}
+
+h1,
+h3,
+h4 {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+header h1 {
+  margin: 0;
+}
+
+.upcomingSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--blue);
+  color: var(--black);
+  padding: 2rem;
+}
+.upcomingSection input[type="text"] {
+  width: 75ch;
+  padding: 0.25rem;
+  max-width: 60%;
+}
+
+.featuredEvents {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--black);
+  color: white;
+  padding: 2rem;
+}
+
+.featuredTitle * {
+  margin: 0.5rem 0 0 0;
+}
+
+.featuredTitle h3 {
+  color: var(--blue);
+}
+
+.featuredArtists {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.featuredArtists > div {
+  max-width: 100%;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+.artist {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.artist img {
+  max-width: 100%;
+}
+
+.artistVenue {
+  color: lightgrey;
+}
+
+.trendingSection {
+  background-color: var(--blue);
+  padding: 3rem;
+}
+
+.trendingTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trendingTitle h3 {
+  color: var(--magenta);
+  margin: 0;
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.genres button {
+  background-color: transparent;
+  border: 1px solid var(--magenta);
+  border-radius: 12px;
+  padding: 0.5rem 2rem;
+  color: var(--magenta);
+}
+
+footer {
+  background-color: var(--magenta);
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+footer a {
+  color: white;
+}
+
+.footerTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footerTop svg {
+  max-width: 20ch;
+}
+
+.footerTop p {
+  margin: 0;
+}
+
+.footerCenter {
+  margin: 1rem;
+}
+
+.footerBottom {
+  display: flex;
+  gap: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .top {
+    background-image: linear-gradient(var(--magenta), var(--pink));
+    color: white;
+  }
+
+  .navLeft > ul {
+    display: none;
+  }
+  .navRight > * {
+    display: none;
+  }
+  .dropdown {
+    display: inline;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  header {
+    padding-bottom: 10rem;
+  }
+  .upcomingSection {
+    display: none;
+  }
+  .featuredEvents {
+    align-items: center;
+  }
+  .featuredArtists {
+    flex-wrap: wrap;
+  }
+
+  .featuredArtists > * {
+    width: 100%;
+  }
+
+  .artist img {
+    width: 100%;
+  }
+
+  .genres {
+    justify-content: left;
+  }
+
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    gap: 1rem;
+  }
+
+  .mobileMenu > * {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+    gap: 1rem;
+  }
+
+  .mobileMenu .navList {
+    gap: 1rem;
+    margin: 0;
+  }
+
+  .mobileMenu .navList a {
+    color: black;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+  }
+
+  .mobileMenu svg path {
+    fill: black;
+    stroke: black;
+  }
+
+  .mobileMenu > .navLeft > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .mobileMenu > .navRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .mobileMenu > .navRight > button {
+    display: inline-block;
+    width: 80%;
+  }
+  .mobileMenu > .navRight > .button--transparent {
+    border-color: var(--magenta);
+    color: var(--magenta);
+  }
+  .xMenuMobile {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 16px;
+    color: black;
+  }
+}
+
+button:hover {
+  color: white;
+  background-color: var(--black);
+  border-color: var(--black);
+}
+
+.none {
+  display: none;
+}

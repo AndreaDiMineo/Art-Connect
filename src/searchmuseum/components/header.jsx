@@ -12,7 +12,6 @@ const Nav = () => {
             alt="logo"
           />
         </Link>
-
         <nav className="navLinks">
           <button className="linkBtn">
             <Link className="btn-links" to={"/dashboard"}>
