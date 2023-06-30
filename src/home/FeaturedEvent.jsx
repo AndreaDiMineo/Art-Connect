@@ -9,6 +9,7 @@ const FeaturedEvent = () => {
       "Kim Petras",
       "Björk",
       "Liam Gallagher",
+      "Alicia Keys",
       "Depeche Mode",
       "Muse",
       "Anderson .Paak",
