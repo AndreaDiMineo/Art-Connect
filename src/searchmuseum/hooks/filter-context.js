@@ -22,40 +22,46 @@ export const useFilter = () => {
   //Lista musei
   const testMuseums = [
     {
-      name: "Museo1",
-      km: 10,
-      category: "Storia",
-      rating: 4.8,
-    },
-    {
-      name: "Museo2",
-      km: 5,
-      category: "Tecnologia",
-      rating: 3.2,
-    },
-    {
-      name: "Museo3",
-      km: 43,
-      category: "Storia naturale",
-      rating: 5,
-    },
-    {
-      name: "Museo4",
-      km: 11,
+      name: "Museo d’Arte Antica",
       category: "Arte",
-      rating: 1.6,
-    },
-    {
-      name: "Museo5",
-      km: 3,
-      category: "Arte",
-      rating: 3.9,
-    },
-    {
-      name: "Museo6",
-      km: 1,
-      category: "Storia",
       rating: 4.5,
+      latitude: 45.4706206,
+      longitude: 9.1783847,
+    },
+    {
+      name: "Museo Civico di Storia Naturale di Milano",
+      category: "Storia naturale",
+      rating: 4.4,
+      latitude: 45.4727722,
+      longitude: 9.2015613,
+    },
+    {
+      name: "Museo Nazionale della Scienza e della Tecnologia Leonardo da Vinci",
+      category: "Scienza",
+      rating: 4.5,
+      latitude: 45.4627137,
+      longitude: 9.1703315,
+    },
+    {
+      name: 'Antiquarium "Alda Levi"',
+      category: "Storia",
+      rating: 4.2,
+      latitude: 45.4578203,
+      longitude: 9.1792501,
+    },
+    {
+      name: "Museo Bagatti Valsecchi",
+      category: "Arte",
+      rating: 4.7,
+      latitude: 45.4694746,
+      longitude: 9.1948634,
+    },
+    {
+      name: "Museo del Risorgimento",
+      category: "Storia",
+      rating: 4.4,
+      latitude: 45.4722222,
+      longitude: 9.1891267,
     },
   ];
   const [museums, setMuseums] = useState(testMuseums);
