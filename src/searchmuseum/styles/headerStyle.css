@@ -10,6 +10,7 @@
 
 .logo {
   width: 5rem;
+  cursor: pointer;
 }
 
 .navLinks {
@@ -22,7 +23,7 @@
   transition: 0.5s;
   padding: 0 2rem;
   color: white;
-  cursor: grab;
+  cursor: pointer;
 }
 
 .linkBtn:hover {
@@ -55,11 +56,11 @@
 }
 
 .headerRightIcons img {
-  cursor: grab;
+  cursor: pointer;
 }
 
 .profileIcon a {
-  cursor: grab;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {

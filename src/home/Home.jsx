@@ -1,5 +1,4 @@
 import FeauturedEvent from "./FeaturedEvent";
-import Button from "react-bootstrap/Button";
 import "./styleHome.css";
 import React from "react";
 const Home = () => {
@@ -29,10 +28,7 @@ const Home = () => {
               </li>
             </ul>
           </div>
-          <div className="navRight">
-            <Button variant="outline-primary">Log In</Button>
-            <Button variant="outline-primary">Log In</Button>
-          </div>
+          <div className="navRight"></div>
         </nav>
         <span className="xMenuMobile none">X</span>
         <header style={{ color: "black" }}>
