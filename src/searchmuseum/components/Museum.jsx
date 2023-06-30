@@ -1,4 +1,4 @@
-import MuseumProfile from "../../museumprofile/museumprofile";
+import MuseumProfile from "../../museumprofile/components/museumprofile";
 import "../styles/museumStyle.css";
 
 const Museum = ({ name, km, category, rating }) => {
