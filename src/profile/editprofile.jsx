@@ -1,10 +1,10 @@
 import "./stylesedit.css";
 import Footer from "../homepage/footer";
 import Header from "../searchmuseum/components/header";
-
+import React from "react";
 export default function EditProfile() {
   return (
-    <>
+    <React.Fragment>
       <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -98,6 +98,6 @@ export default function EditProfile() {
         </div>
       </div>
       <Footer />
-    </>
+    </React.Fragment>
   );
 }

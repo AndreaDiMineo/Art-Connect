@@ -1,20 +1,18 @@
 import { Link } from "react-router-dom";
 import "../styles/headerStyle.css";
-
+import React from "react";import React from "react";
 const Nav = () => {
   return (
     <header className="header">
       <div className="headerLeft">
-        <Link to={"/"}>
-          <img
-            className="logo"
-            src="https://i.ibb.co/sq7qsF4/logo-Art-Connect-White.png"
-            title="ArtConnect"
-            alt="Logo ArtConnect"
-          />
-        </Link>
-        <nav className="navLinks">
-          <button className="linkBtn">
+<<<<<<< ssName="linkBtn">
+            <Link className="btn-links" to={"/dashboard"}>
+              Musei
+            </Link>
+          </button>
+          <button className="linkBtn">Eventi</button>
+          <button className="linkBtn">Assistenza</button>
+<<<<<<< </nav>ssName="linkBtn">
             <Link className="btn-links" to={"/dashboard"}>
               Musei
             </Link>

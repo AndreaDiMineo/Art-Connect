@@ -3,6 +3,7 @@ import { useState } from "react";
 import Footer from "../homepage/footer";
 import Header from "../searchmuseum/components/header";
 import { Link } from "react-router-dom";
+import React from "react";
 
 export default function Profile() {
   const [toggle, setToggle] = useState(false);
@@ -16,7 +17,7 @@ export default function Profile() {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -141,6 +142,6 @@ export default function Profile() {
         </div>
       </div>
       <Footer />
-    </div>
+    </React.Fragment>
   );
 }

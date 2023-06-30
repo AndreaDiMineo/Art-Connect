@@ -5,7 +5,7 @@ import { FuncContext } from "./context";
 const ForgetYourPassword = () => {
   const { toggle, Forget } = useContext(FuncContext);
   return (
-    <>
+    <React.Fragment>
       <section class="vh-100">
         <div class="container-fluid h-custom">
           <div class="row d-flex justify-content-center align-items-center h-100">
@@ -61,7 +61,7 @@ const ForgetYourPassword = () => {
           </div>
         </div>
       </section>
-    </>
+    </React.Fragment>
   );
 };
 

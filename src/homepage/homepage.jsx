@@ -1,6 +1,6 @@
 import Footer from "./footer";
 import HomepageHeader from "./homepageHeader";
-
+import React from "react";
 const Homepage = () => {
   return (
     <div>

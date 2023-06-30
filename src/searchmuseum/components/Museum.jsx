@@ -1,6 +1,6 @@
 import MuseumProfile from "../../museumprofile/components/museumprofile";
 import "../styles/museumStyle.css";
-
+import React from "react";
 const Museum = ({ name, km, category, rating }) => {
   const clickProfile = () => {
     return (

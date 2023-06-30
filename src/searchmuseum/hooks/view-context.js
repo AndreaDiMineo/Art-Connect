@@ -1,5 +1,5 @@
 import { useState, createContext } from "react";
-
+import React from "react";
 export const useView = (
   initialValue = {
     longitude: 9.190766,
