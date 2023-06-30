@@ -14,13 +14,13 @@ const MAPBOX_TOKEN =
   "pk.eyJ1IjoiYWRlcGVkcmluaSIsImEiOiJjbGlrMzd2dWEwZWI5M2trZG5wem04eWV5In0.xku2He5nmX0r89rngZndlQ";
 
 export const Background = () => {
-    const main = document.querySelector(".rootSearchMuseum");
-    const mapSection = document.querySelector(".mainRight");
-    return {
-      main,
-      mapSection
-    }
-  }
+  const main = document.querySelector(".rootSearchMuseum");
+  const mapSection = document.querySelector(".mainRight");
+  return {
+    main,
+    mapSection,
+  };
+};
 
 const SearchMuseum = () => {
   //Gestione mappa
