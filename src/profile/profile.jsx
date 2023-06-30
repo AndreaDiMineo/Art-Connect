@@ -27,7 +27,7 @@ export default function Profile() {
         <div className="main-body">
           <div className="row gutters-sm">
             <div className="col-md-4 mb-3">
-              <div className="card">
+              <div className="cardProfile">
                 <div className="card-body">
                   <div className="d-flex flex-column align-items-center text-center">
                     <img
@@ -64,7 +64,7 @@ export default function Profile() {
               </div>
             </div>
             <div className="col-md-8">
-              <div className="card mb-3">
+              <div className="cardProfile mb-3">
                 <div className="card-body">
                   <div className="row">
                     <div className="col-sm-3">
@@ -119,7 +119,7 @@ export default function Profile() {
               </div>
               <div className="row gutters-sm">
                 <div className="col-sm-6 mb-3">
-                  <div className="card h-100">
+                  <div className="cardProfile h-100">
                     <div className="card-body">
                       <h6 className="d-flex align-items-center mb-3">
                         Visited Museums
@@ -128,7 +128,7 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="col-sm-6 mb-3">
-                  <div className="card h-100">
+                  <div className="cardProfile h-100">
                     <div className="card-body">
                       <h6 className="d-flex align-items-center mb-3">
                         Reviews

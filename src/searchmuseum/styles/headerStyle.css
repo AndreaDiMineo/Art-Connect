@@ -18,26 +18,22 @@
 }
 
 .linkBtn {
-  background-color: transparent;
   border: 0;
-  transition: 0.5s;
   padding: 0 2rem;
-  color: white;
   cursor: pointer;
+  transition: 0.5s;
+  background-color: transparent;
+  color: white;
+}
+
+.linkBtn * {
+  color: inherit;
+  text-decoration: none;
 }
 
 .linkBtn:hover {
   background-color: lightblue;
-}
-
-.btn-links {
-  color: white;
-  text-decoration: none;
-}
-
-.btn-links:hover {
   color: black;
-  text-decoration: none;
 }
 
 .headerRight {
@@ -51,7 +47,6 @@
   display: flex;
   align-items: center;
   position: relative;
-  left: -1.5rem;
   gap: 1rem;
 }
 

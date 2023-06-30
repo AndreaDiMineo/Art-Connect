@@ -51,6 +51,11 @@
   border-radius: 8px;
   padding: 0.5rem 0rem 0.5rem 0.5rem;
   width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .geoInput .mapPin {
@@ -59,18 +64,17 @@
 
 .mapPin,
 .mapFilter {
-  top: 1rem;
-  right: -0.5rem;
-  width: 1.7rem;
-  height: 1.7rem;
+  top: 0.25rem;
+  right: 0rem;
+  width: 1.5rem;
+  height: 1.5em;
   cursor: pointer;
 }
 
 .geoFilter {
   width: 10%;
-  height: 3rem;
+  height: 2rem;
   margin-left: 1rem;
-  margin-top: 1.5%;
   background-color: blue;
   display: flex;
   justify-content: center;
@@ -81,7 +85,6 @@
 .museums {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
   gap: 1rem;
 }
 

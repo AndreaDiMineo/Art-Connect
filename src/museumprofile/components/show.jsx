@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Show() {
   return (
-    <React.Fragment>
+    <div className="showContainer">
       <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -59,6 +59,6 @@ export default function Show() {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </div>
   );
 }
