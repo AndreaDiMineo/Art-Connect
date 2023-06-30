@@ -15,6 +15,7 @@ const FeaturedEvent = () => {
       "Muse",
       "Anderson .Paak",
       "Florence and the Machine",
+      "Beyonce",
     ];
 
     const fetchEvents = async () => {
