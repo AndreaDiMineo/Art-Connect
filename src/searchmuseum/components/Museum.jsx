@@ -3,7 +3,6 @@ import "../styles/museumStyle.css";
 
 const Museum = ({ name, km, category, rating }) => {
   const clickProfile = () => {
-    console.log("Clicked");
     return (
       <div>
         <MuseumProfile />

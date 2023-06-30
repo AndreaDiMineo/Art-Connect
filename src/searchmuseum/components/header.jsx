@@ -5,11 +5,14 @@ const Nav = () => {
   return (
     <header className="header">
       <div className="headerLeft">
-        <img
-          className="logo"
-          src="https://i.ibb.co/sq7qsF4/logo-Art-Connect-White.png"
-          alt="logo"
-        />
+        <Link className="img-links" to={"/"}>
+          <img
+            className="logo"
+            src="https://i.ibb.co/sq7qsF4/logo-Art-Connect-White.png"
+            alt="logo"
+          />
+        </Link>
+
         <nav className="navLinks">
           <button className="linkBtn">
             <Link className="btn-links" to={"/dashboard"}>
