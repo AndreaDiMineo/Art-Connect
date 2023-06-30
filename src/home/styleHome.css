@@ -8,6 +8,26 @@
   --black: #41393e;
   --pink: #eda2c0;
 }
+.logoHeader {
+  height: -1rem;
+  width: 7rem;
+}
+.collapse {
+  margin-left: -2rem;
+}
+.navbar {
+  height: 6rem;
+}
+.RighSide {
+  display: flex;
+  margin-right: 2rem;
+  align-items: flex-start;
+  height: 3rem;
+}
+#accedi {
+  width: 8rem;
+  margin-left: 1rem;
+}
 
 .top {
   background-image: url("https://www.travelandleisure.com/thmb/MEkukyYk2LafCG9V-2g5aCN5KIM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/louvre-museum-paris-BESTMUSEUM0122-0cbd8a63089e4ce9969a2ead829b68e8.jpg");
@@ -18,13 +38,11 @@
   height: 8rem;
   margin: -1.5rem;
 }
-
 .navHome {
   display: flex;
   justify-content: space-between;
   padding-top: 1rem;
 }
-
 .navLeft {
   display: flex;
   margin-left: 1rem;
@@ -57,7 +75,6 @@
 .navRight {
   margin-right: 1rem;
 }
-
 .dropdown {
   display: none;
 }
@@ -72,15 +89,10 @@
   border: 1px solid white;
 }
 
-.button--magenta {
-  background-color: var(--magenta);
-  color: white;
-  border: 1px solid var(--magenta);
-}
-
 .headerHome {
   padding: 3rem 0 20rem 3rem;
   color: white;
+  height: 37rem;
 }
 
 .text--uppercase {

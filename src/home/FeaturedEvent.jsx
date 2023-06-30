@@ -182,7 +182,7 @@ const FeauturedEvent = () => {
         </div>
       </div>
       <div>
-        <button className="button--magenta">See more events</button>
+        <button className="btn btn-outline-light">See more events</button>
       </div>
     </section>
   );

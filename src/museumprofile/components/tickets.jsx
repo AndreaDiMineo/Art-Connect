@@ -3,7 +3,7 @@ import React from "react";
 const Tickets = () => {
   return (
     <div className="tickets-list">
-      <h3>Biglietti per questo ingresso</h3>
+      <h3 className="ticketH3">Biglietti per questo ingresso</h3>
       <div className="prices-list">
         <div className="row">
           <div className="column">
