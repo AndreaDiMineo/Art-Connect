@@ -3,9 +3,9 @@ import "./styleHome.css";
 import React from "react";
 const Home = () => {
   return (
-    <React.Fragment>
+    <div className="home">
       <div className="top">
-        <nav>
+        <nav className="navHome">
           <div className="navLeft">
             <picture>
               <img
@@ -31,7 +31,7 @@ const Home = () => {
           <div className="navRight"></div>
         </nav>
         <span className="xMenuMobile none">X</span>
-        <header style={{ color: "black" }}>
+        <header className="headerHome" style={{ color: "black" }}>
           <p className="text--uppercase">All the fun start here</p>
           <h1>Book your Tickets</h1>
           <h1>For Event and Musei!</h1>
@@ -56,7 +56,7 @@ const Home = () => {
           <div className="genres"></div>
         </section>
       </main>
-    </React.Fragment>
+    </div>
   );
 };
 export default Home;
