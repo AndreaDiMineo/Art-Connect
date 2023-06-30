@@ -42,7 +42,7 @@ const SearchMuseum = () => {
     fetch(API)
       .then((res) => res.json())
       .then((json) => {
-        if (json != "") {
+        if (json !== "") {
           setCenter(json[0].lon, json[0].lat);
         } else {
           alert("Nessun risultato trovato");
@@ -70,6 +70,7 @@ const SearchMuseum = () => {
   } = useContext(FilterContext);
   const [orderView, setOrderView] = useState(false);
   const [categoryView, setCategoryView] = useState(false);
+  const [filteredMuseums, setFilteredMuseums] = useState([...museums]);
 
   //Ordina musei
   const orderMuseums = (museum, order) => {
@@ -93,15 +94,7 @@ const SearchMuseum = () => {
   const changeOrder = (e) => {
     const id = e.target.id;
     const classList = e.target.classList;
-    switch (id) {
-      case "default":
-      case "rating":
-      case "closest":
-        clickOrder(id);
-        break;
-      default:
-        break;
-    }
+    clickOrder(id);
     const selectedOrder = document.querySelector(".selectedOrder");
     selectedOrder.classList.remove("selectedOrder");
     classList.add("selectedOrder");
@@ -109,23 +102,17 @@ const SearchMuseum = () => {
 
   //Categorie
   const filterMuseums = (museums, category) => {
-    return category === "all"
-      ? museums
-      : museums.filter((v) => v.category.toLowerCase() === category);
+    const filter =
+      category === "all"
+        ? museums
+        : museums.filter((v) => v.category.toLowerCase() === category);
+    //setFilteredMuseums([...filter]);
+    return filter;
   };
   const changeCategory = (e) => {
     const id = e.target.id;
     const classList = e.target.classList;
-    switch (id) {
-      case "storia":
-      case "arte":
-      case "tecnologia":
-      case "all":
-        clickCategory(id);
-        break;
-      default:
-        break;
-    }
+    clickCategory(id);
     const selectedCategory = document.querySelector(".selectedCategory");
     selectedCategory.classList.remove("selectedCategory");
     classList.add("selectedCategory");
@@ -133,7 +120,6 @@ const SearchMuseum = () => {
 
   //Aggiorna i musei
   const Museums = () => {
-    console.log("UPDATE " + order + "   " + category);
     const mus = orderMuseums(filterMuseums(museums, category), order);
     return (
       <div className="museums">
@@ -144,6 +130,20 @@ const SearchMuseum = () => {
             category={v.category}
             rating={v.rating}
             key={v.name}
+          />
+        ))}
+      </div>
+    );
+  };
+  const MarkerMuseum = () => {
+    return (
+      <div>
+        {museums.map((v) => (
+          <Marker
+            longitude={v.longitude}
+            latitude={v.latitude}
+            color="blue"
+            onClick={() => alert(v.name)}
           />
         ))}
       </div>
@@ -219,32 +219,38 @@ const SearchMuseum = () => {
                   {categoryView ? (
                     <div className="filterView">
                       <p
-                        className={"all" === order ? "selectedCategory" : ""}
+                        className={"all" === category ? "selectedCategory" : ""}
                         id="all"
                         onClick={changeCategory}
                       >
                         Tutte
                       </p>
                       <p
-                        className={"storia" === order ? "selectedCategory" : ""}
+                        className={
+                          "storia" === category ? "selectedCategory" : ""
+                        }
                         id="storia"
                         onClick={changeCategory}
                       >
                         Storia
                       </p>
                       <p
-                        className={"arte" === order ? "selectedCategory" : ""}
+                        className={
+                          "arte" === category ? "selectedCategory" : ""
+                        }
                         id="arte"
                         onClick={changeCategory}
                       >
                         Arte
                       </p>
                       <p
-                        className={"arte" === order ? "selectedCategory" : ""}
-                        id="tecnologia"
+                        className={
+                          "scienza" === category ? "selectedCategory" : ""
+                        }
+                        id="scienza"
                         onClick={changeCategory}
                       >
-                        Tecnologia
+                        Scienza
                       </p>
                     </div>
                   ) : (
@@ -273,6 +279,7 @@ const SearchMuseum = () => {
                 color="red"
               />
               <NavigationControl />
+              {museums ? <MarkerMuseum /> : <></>}
             </Map>
           </div>
         </section>
