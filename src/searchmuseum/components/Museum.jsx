@@ -2,7 +2,8 @@ import MuseumProfile from "../../museumprofile/museumprofile";
 import "../styles/museumStyle.css";
 
 const Museum = ({ name, km, category, rating }) => {
-  const ClickProfile = () => {
+  const clickProfile = () => {
+    console.log("Clicked");
     return (
       <div>
         <MuseumProfile />
@@ -16,7 +17,7 @@ const Museum = ({ name, km, category, rating }) => {
           className="museumImg"
           alt=""
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Field_Museum_of_Natural_History.jpg/1280px-Field_Museum_of_Natural_History.jpg"
-          onClick={ClickProfile}
+          onClick={clickProfile}
         />
       </div>
       <div className="museumCardRight">

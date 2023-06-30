@@ -2,8 +2,8 @@ import { useState, createContext } from "react";
 
 export const useView = (
   initialValue = {
-    longitude: 9.22,
-    latitude: 45.45,
+    longitude: 9.190766,
+    latitude: 45.4641968,
     zoom: 12,
   }
 ) => {
