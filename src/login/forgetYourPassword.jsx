@@ -20,15 +20,14 @@ const ForgetYourPassword = () => {
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
               <form>
                 <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                  <h3>Find your account</h3>
+                  <h3>Dimenticato La Password?</h3>
                 </div>
                 <div className="divider d-flex align-items-center my-4">
                   <p className="text-center fw-bold mx-3 mb-0"></p>
                 </div>
                 <div class="form-outline">
                   <label class="form-label" for="form3Example3">
-                    Please enter your email or mobile number to search for your
-                    account.
+                    Inserire email o numero di telefono.
                   </label>
                   <div class="input-group mb-3">
                     <input
@@ -53,7 +52,7 @@ const ForgetYourPassword = () => {
                     Cancel
                   </button>
                   <button type="button" class="btn btn-primary">
-                    Send email
+                    Invia email
                   </button>
                 </div>
               </form>
