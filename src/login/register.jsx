@@ -1,6 +1,7 @@
 import "./style.css";
 import React, { useContext } from "react";
 import { FuncContext } from "./context";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const { passwordNascondi, passwordInfo, showInfoPassword } =
@@ -176,9 +177,9 @@ const Register = () => {
                   />
                   <label class="form-check-label" for="form2Example3g">
                     Accetto tutte le dichiarazioni{" "}
-                    <a href="#!" class="text-body">
+                    <Link to={"#"} class="text-body">
                       <u>Termini di servizio</u>
-                    </a>
+                    </Link>
                     <span style={{ color: "red" }}> *</span>
                   </label>
                 </div>
@@ -206,9 +207,9 @@ const Register = () => {
 
                 <p class="text-center text-muted mt-3 mb-0">
                   Hai già un account?{" "}
-                  <a href="login" class="fw-bold text-body">
+                  <Link to={"/login"} class="fw-bold text-body">
                     <u style={{ color: "red" }}>Accedi</u>
-                  </a>
+                  </Link>
                 </p>
               </form>
             </div>
