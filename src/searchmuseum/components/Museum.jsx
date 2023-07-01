@@ -38,7 +38,7 @@ const Museum = ({ name, km, category, rating }) => {
         />
       </div>
       <div className="museumCardRight">
-        <h3 className="museumTitle">Field Museum of Natural History</h3>
+        <h3 className="museumTitle">Museo Civico di Storia Naturale</h3>
         <div className="museumSubtitle">
           <div className="museumDistance">
             <img
