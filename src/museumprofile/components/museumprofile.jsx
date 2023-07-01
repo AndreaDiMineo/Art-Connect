@@ -52,7 +52,7 @@ const MuseumProfile = () => {
                     </div>
                 </div>
                 <div className="museum-info">
-                    <h1>Field Museum of Natural History</h1>
+                    <h1>Museo Civico di Storia Naturale</h1>
                     <h3>Descrizione</h3>
                     <h3>Informazioni</h3>
                     <p><b>Indirizzo:</b> Via San Vittore, 21, 20123, Milano</p>
