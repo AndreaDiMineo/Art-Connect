@@ -40,7 +40,7 @@ export default function Profile() {
                       <h4>Username</h4>
                       {!toggle ? (
                         <button className="btn btn-primary" onClick={follow}>
-                          Follow
+                          Segui
                         </button>
                       ) : (
                         <button
@@ -52,11 +52,11 @@ export default function Profile() {
                             borderColor: "#2c56e8",
                           }}
                         >
-                          Followed
+                          Seguito
                         </button>
                       )}
                       <button className="btn btn-outline-primary">
-                        Message
+                        Messaggia
                       </button>
                     </div>
                   </div>
@@ -68,9 +68,9 @@ export default function Profile() {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Full Name</h6>
+                      <h6 className="mb-0">Nome Intero</h6>
                     </div>
-                    <div className="col-sm-9 text-secondary">Name Surname</div>
+                    <div className="col-sm-9 text-secondary">Nome Cognome</div>
                   </div>
                   <hr />
                   <div className="row">
@@ -90,14 +90,14 @@ export default function Profile() {
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Language</h6>
+                      <h6 className="mb-0">Lingua</h6>
                     </div>
-                    <div className="col-sm-9 text-secondary">English</div>
+                    <div className="col-sm-9 text-secondary">Inglese</div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">N. Visited Museums</h6>
+                      <h6 className="mb-0">N. Musei Visitati</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">0</div>
                   </div>
@@ -105,13 +105,13 @@ export default function Profile() {
                   <div className="row">
                     <div className="col-sm-10">
                       <Link className="btn-settings" to={"/edit-profile"}>
-                        Edit Profile
+                        Modifica Profilo
                       </Link>
                       <a
                         className="btn-settings"
                         href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills"
                       >
-                        Change Password
+                        Cambia Password
                       </a>
                     </div>
                   </div>
@@ -122,7 +122,7 @@ export default function Profile() {
                   <div className="cardProfile h-100">
                     <div className="card-body">
                       <h6 className="d-flex align-items-center mb-3">
-                        Visited Museums
+                        Musei Visitati
                       </h6>
                     </div>
                   </div>
@@ -131,7 +131,7 @@ export default function Profile() {
                   <div className="cardProfile h-100">
                     <div className="card-body">
                       <h6 className="d-flex align-items-center mb-3">
-                        Reviews
+                        Recensioni Fatte
                       </h6>
                     </div>
                   </div>
