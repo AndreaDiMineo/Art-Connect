@@ -24,7 +24,7 @@ const Register = () => {
                   id="one"
                   class="d-flex flex-row align-items-center justify-content-center"
                 >
-                  <p class="lead fw-normal mb-1 me-3">Register with</p>
+                  <p class="lead fw-normal mb-1 me-3">Registrati con</p>
                   <picture style={{ marginRight: "10px" }}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -82,11 +82,11 @@ const Register = () => {
                 </div>
 
                 <div class="divider d-flex align-items-center my-2">
-                  <p class="text-center fw-bold mx-3 mb-0">Or</p>
+                  <p class="text-center fw-bold mx-3 mb-0">Oppure</p>
                 </div>
                 <div class="form-outline mb-2 ">
                   <label class="form-label" for="form3Example1cg">
-                    Name<span style={{ color: "red" }}> *</span>
+                    Nome<span style={{ color: "red" }}> *</span>
                   </label>
                   <input
                     type="text"
@@ -96,7 +96,7 @@ const Register = () => {
                 </div>
                 <div class="form-outline ">
                   <label class="form-label" for="form3Example1cg">
-                    Surname<span style={{ color: "red" }}> *</span>
+                    Cognome<span style={{ color: "red" }}> *</span>
                   </label>
                   <input
                     type="text"
@@ -107,7 +107,7 @@ const Register = () => {
 
                 <div class="form-outline ">
                   <label class="form-label" for="form3Example3">
-                    Email address<span style={{ color: "red" }}> *</span>
+                    Indirizzo email<span style={{ color: "red" }}> *</span>
                   </label>
                   <div class="input-group ">
                     <input
@@ -146,14 +146,14 @@ const Register = () => {
                   />
                   {showInfoPassword && (
                     <p>
-                      Password must contain at least 8 characters with uppercase
-                      letters and at least one number and one special character.
+                      La password deve contenere più di 8 characters con almeno
+                      una lettera maiuscola, un numero e un carattere speciale.
                     </p>
                   )}
                 </div>
 
                 <label class="form-label" for="form3Example3cg">
-                  Select your language<span style={{ color: "red" }}> *</span>
+                  Seleziona la lingua<span style={{ color: "red" }}> *</span>
                 </label>
                 <select
                   class="form-select form-select-sm mb-3"
@@ -175,9 +175,9 @@ const Register = () => {
                     id="form2Example3cg"
                   />
                   <label class="form-check-label" for="form2Example3g">
-                    I agree all statements in{" "}
+                    Accetto tutte le dichiarazioni{" "}
                     <a href="#!" class="text-body">
-                      <u>Terms of service</u>
+                      <u>Termini di servizio</u>
                     </a>
                     <span style={{ color: "red" }}> *</span>
                   </label>
@@ -190,7 +190,7 @@ const Register = () => {
                     id="form2Example3cg"
                   />
                   <label class="form-check-label" for="form2Example3g">
-                    I agree to receiving notifications
+                    Acconsento di ricevere notifiche
                   </label>
                 </div>
 
@@ -200,14 +200,14 @@ const Register = () => {
                     class="btn btn-primary btn-lg"
                     id="login-btn"
                   >
-                    Create Account
+                    Crea Account
                   </button>
                 </div>
 
                 <p class="text-center text-muted mt-3 mb-0">
-                  Have already an account?{" "}
+                  Hai già un account?{" "}
                   <a href="login" class="fw-bold text-body">
-                    <u style={{ color: "red" }}>Login here</u>
+                    <u style={{ color: "red" }}>Accedi</u>
                   </a>
                 </p>
               </form>
