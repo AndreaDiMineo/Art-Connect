@@ -32,7 +32,7 @@ const Form = () => {
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
               <form>
                 <div class="d-flex flex-row align-items-center justify-content-center">
-                  <p className="lead fw-normal mb-0 me-3">Sign in with</p>
+                  <p className="lead fw-normal mb-0 me-3">Accedi con</p>
                   <picture style={{ marginRight: "10px" }}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -90,12 +90,12 @@ const Form = () => {
                 </div>
 
                 <div className="divider d-flex align-items-center my-4">
-                  <p className="text-center fw-bold mx-3 mb-0">Or</p>
+                  <p className="text-center fw-bold mx-3 mb-0">Oppure</p>
                 </div>
 
                 <div className="form-outline mb-4">
                   <label className="form-label" htmlFor="form3Example3">
-                    Email address
+                    Indirizzo email
                   </label>
                   <div className="input-group mb-3">
                     <input
@@ -125,8 +125,8 @@ const Form = () => {
                   />
                   {showInfoPassword && (
                     <p>
-                      Password must contain at least 8 characters with uppercase
-                      letters and at least one number and one special character.
+                      La password deve contenere più di 8 caratteri con almeno
+                      una lettera maiuscola, un numero e un carattere speciale.
                     </p>
                   )}
                 </div>
@@ -144,7 +144,7 @@ const Form = () => {
                     </label>
                   </div>
                   <a href="passwordreset" className="text-body">
-                    Forgot password?
+                    Dimenticato la password?
                   </a>
                 </div>
 
@@ -154,12 +154,12 @@ const Form = () => {
                     className="btn btn-primary btn-lg"
                     id="login-btn"
                   >
-                    Login
+                    Accedi
                   </button>
                   <p className="small fw-bold mt-2 pt-1 mb-0">
-                    Don't have an account?{" "}
+                    Non hai un account?{" "}
                     <a href="register" className="link-danger">
-                      Register
+                      Registrati
                     </a>
                   </p>
                 </div>
