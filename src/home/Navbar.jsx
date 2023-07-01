@@ -29,7 +29,7 @@ const NavBar = () => {
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                  Events
+                  Eventi
                 </a>
               </li>
             </ul>
@@ -42,7 +42,7 @@ const NavBar = () => {
                 id="floatingInput"
                 placeholder="Search"
               />
-              <label for="floatingInput">Search</label>
+              <label for="floatingInput">Cerca</label>
             </div>
             <Link to="/login">
               <button id="accedi" type="button" class="btn btn-outline-light">
