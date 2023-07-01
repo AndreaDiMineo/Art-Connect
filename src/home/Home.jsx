@@ -18,9 +18,9 @@ const Home = () => {
         <div className="top">
           <NavBar />
           <header className="headerHome" style={{ color: "black" }}>
-            <p className="text--uppercase">All the fun start here</p>
-            <h1>Book your Tickets</h1>
-            <h1>For Event and Musei!</h1>
+            <p className="text--uppercase">Da qui inizia la festa</p>
+            <h1>Musei Ed Eventi</h1>
+            <h1>Prenota i Tuoi Biglietti!</h1>
           </header>
         </div>
         <main>
