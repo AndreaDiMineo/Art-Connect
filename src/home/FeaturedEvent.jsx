@@ -70,8 +70,8 @@ const FeaturedEvent = () => {
   return (
     <section className="featuredEvents">
       <div className="featuredTitle">
-        <h3>Featured events</h3>
-        <p>Be sure not to miss these events</p>
+        <h3>Eventi in primo piano</h3>
+        <p>Non fatevi scappare questi eventi da brivido!</p>
       </div>
       <div className="featuredArtists list-group list-group-horizontal position-relative overflow-auto w-120 musei-container">
         {filteredEvents.map((event) => {
