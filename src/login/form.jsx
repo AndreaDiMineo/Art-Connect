@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import "./form.css";
 import { FuncContext } from "./context";
-import Register from "./register";
-import ForgetYourPassword from "./forgetYourPassword";
+import { Link } from "react-router-dom";
 
 const Form = () => {
   const {
@@ -143,9 +142,9 @@ const Form = () => {
                       Remember me
                     </label>
                   </div>
-                  <a href="passwordreset" className="text-body">
+                  <Link to={"/passwordreset"} className="text-body">
                     Dimenticato la password?
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="text-center text-lg-start mt-4 pt-2">
@@ -158,9 +157,9 @@ const Form = () => {
                   </button>
                   <p className="small fw-bold mt-2 pt-1 mb-0">
                     Non hai un account?{" "}
-                    <a href="register" className="link-danger">
+                    <Link to={"/register"} className="link-danger">
                       Registrati
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </form>
