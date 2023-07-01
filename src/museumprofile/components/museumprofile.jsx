@@ -18,7 +18,7 @@ const MuseumProfile = () => {
         setShow(stato)
     }
     return(
-        <div className="card">
+        <div className="museum-card">
             <img
             className="museum-img"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Field_Museum_of_Natural_History.jpg/1280px-Field_Museum_of_Natural_History.jpg"
