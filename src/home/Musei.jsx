@@ -33,8 +33,8 @@ const Musei = () => {
   return (
     <section className="featuredEvents" style={{}}>
       <div className="featuredTitle">
-        <h3>Museum</h3>
-        <p>Be sure not to miss these events</p>
+        <h3>Museo</h3>
+        <p>Non fatevi scappare questi eventi da brivido!</p>
       </div>
       <div className="featuredArtists list-group list-group-horizontal position-relative overflow-auto w-120 musei-container">
         {musei.map((museo) => (
