@@ -15,7 +15,7 @@ const Nav = () => {
         </Link>
         <nav className="navLinks">
           <button className="linkBtn">
-            <Link className="link--btn" to={"/dashboard"}>
+            <Link className="link--btn" to={"/museums"}>
               Musei
             </Link>
           </button>
