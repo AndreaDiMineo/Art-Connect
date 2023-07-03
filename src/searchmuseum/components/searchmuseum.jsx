@@ -163,6 +163,7 @@ const SearchMuseum = () => {
             latitude={v.latitude}
             color="blue"
             onClick={() => alert(v.name)}
+            key={v.name}
           />
         ))}
       </div>
@@ -194,12 +195,12 @@ const SearchMuseum = () => {
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
       />
       <NavBar />
       <div className="rootSearchMuseum">
         <main className="pageSearchMuseum">
-          <h1 class="titleSearchMuseum">Cosa vuoi visitare?</h1>
+          <h1 className="titleSearchMuseum">Cosa vuoi visitare?</h1>
           <section className="mainSearchMuseum">
             <div className="mainLeft">
               <div className="geo">
