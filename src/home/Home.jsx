@@ -1,7 +1,7 @@
 import FeauturedEvent from "./FeaturedEvent";
 import "./styleHome.css";
 import React from "react";
-import NavBar from "./Navbar.jsx";
+import Navbar from "./Navbar.jsx";
 import Musei from "./Musei";
 import Footer from "./footer";
 import Nav from "../searchmuseum/components/header";
@@ -19,7 +19,7 @@ const Home = () => {
       />
       <div className="home">
         <div className="top">
-          {!logged === true ? <NavBar /> : <Nav />}
+          {!logged === true ? <Navbar /> : <Nav />}
           <header className="headerHome" style={{ color: "black" }}>
             <p className="text--uppercase">Da qui inizia la festa</p>
             <h1>Musei Ed Eventi</h1>
