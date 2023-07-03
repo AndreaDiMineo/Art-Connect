@@ -2,7 +2,7 @@ import "./style.css";
 import React, { useContext } from "react";
 import { FuncContext } from "./context";
 import { Link, useNavigate } from "react-router-dom";
-import app from "./databaseHandler";
+import app from "../database/databaseHandler";
 
 const db = app.firestore();
 const storage = app.storage();
@@ -10,11 +10,13 @@ const storage = app.storage();
 const Register = () => {
   const navigate = useNavigate();
   const addData = async () => {
-    const name = document.querySelector(".nameInput").value;
-    const surname = document.querySelector(".surnameInput").value;
-    const username = document.querySelector(".usernameInput").value;
-    const email = document.querySelector(".emailInput").value;
-    const password = document.querySelector(".passwordInput").value;
+    const form = document.querySelector("form");
+    const inputs = form.querySelectorAll("input");
+    const name = inputs[0].value;
+    const surname = inputs[1].value;
+    const username = inputs[2].value;
+    const email = inputs[3].value;
+    const password = inputs[4].value;
     await db
       .collection("Utente")
       .add({ name, surname, username, email, password });
@@ -97,7 +99,6 @@ const Register = () => {
             type="text"
             id="form3Example1cg"
             class="form-control form-control-md"
-            className="nameInput"
           />
         </div>
         <div class="form-outline ">
@@ -108,7 +109,6 @@ const Register = () => {
             type="text"
             id="form3Example1cg"
             class="form-control form-control-md"
-            className="surnameInput"
           />
         </div>
 
@@ -123,7 +123,6 @@ const Register = () => {
               placeholder="Enter your email "
               aria-label="Enter your email"
               aria-describedby="basic-addon2"
-              className="emailInput"
             />
             <span class="input-group-text" id="basic-addon2">
               @example.com
@@ -138,7 +137,6 @@ const Register = () => {
             type="text"
             id="form3Example3cg"
             class="form-control form-control-md"
-            className="usernameInput"
           />
         </div>
 
@@ -150,7 +148,6 @@ const Register = () => {
             type="password"
             id="form3Example4cg"
             class="form-control form-control-md"
-            className="passwordInput"
             onClick={passwordInfo}
             onBlur={passwordNascondi}
           />

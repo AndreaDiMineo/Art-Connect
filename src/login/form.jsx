@@ -1,8 +1,8 @@
-import React, { useState, useContext, useNavigate } from "react";
+import React, { useState, useContext } from "react";
 import "./form.css";
 import { FuncContext } from "./context";
-import { Link } from "react-router-dom";
-import app from "./databaseHandler";
+import { Link, useNavigate } from "react-router-dom";
+import app from "../database/databaseHandler";
 
 const db = app.firestore();
 const storage = app.storage();
@@ -11,13 +11,16 @@ const Form = () => {
   const [utenti, setUtenti] = useState([]);
   const navigate = useNavigate();
   const addData = async () => {
-    const email = document.querySelector(".emailInput").value;
-    const password = document.querySelector(".passwordInput").value;
+    const form = document.querySelector("form");
+    const inputs = form.querySelectorAll("input");
     const snapshot = await db.collection("Utente").get();
     const utenteData = snapshot.docs.map((doc) => doc.data());
     setUtenti(utenteData);
     utenti.map((utente) => {
-      if (email === utente.email && password === utente.password) {
+      if (
+        inputs[0].value === utente.email &&
+        inputs[1].value === utente.password
+      ) {
         navigate("/dashboard");
       } else {
         alert("Username e/o password sbagliato/i");
@@ -115,7 +118,6 @@ const Form = () => {
                       placeholder="Enter your email"
                       aria-label="Enter your email"
                       aria-describedby="basic-addon2"
-                      className="emailInput"
                     />
                     <span className="input-group-text" id="basic-addon2">
                       @example.com
@@ -132,7 +134,6 @@ const Form = () => {
                     id="password"
                     class="form-control form-control-lg"
                     placeholder="Enter password"
-                    className="passwordInput"
                     onClick={passwordInfo}
                     onBlur={passwordNascondi}
                   />
