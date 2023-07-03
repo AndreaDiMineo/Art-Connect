@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
-<<<<<<< HEAD
 import { db } from "../firebaseConfig";
-=======
-import app from "../login/databaseHandler";
 
-const db = app.firestore();
-const storage = app.storage();
->>>>>>> c2e64675d1a099b7e39be612e059d1a90d715e14
+=
 
 const Musei = () => {
   const [musei, setMusei] = useState([]);
