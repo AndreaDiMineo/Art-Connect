@@ -9,7 +9,8 @@ import { ViewContext } from "../hooks/view-context";
 import { FilterContext } from "../hooks/filter-context";
 import Museum from "./Museum";
 import Footer from "../../homepage/footer";
-import NavBar from "../../home/Navbar";
+import Navbar from "../../home/Navbar";
+import { useMain } from "../../login/context";
 
 const MAPBOX_TOKEN =
   "pk.eyJ1IjoiYWRlcGVkcmluaSIsImEiOiJjbGlrMzd2dWEwZWI5M2trZG5wem04eWV5In0.xku2He5nmX0r89rngZndlQ";
@@ -187,6 +188,8 @@ const SearchMuseum = () => {
     );
   };
 
+  const { logged } = useMain();
+
   //HTML
   return (
     <>
@@ -196,7 +199,7 @@ const SearchMuseum = () => {
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
         crossorigin="anonymous"
       />
-      <NavBar />
+      {!logged === true ? <Navbar /> : <Nav />}
       <div className="rootSearchMuseum">
         <main className="pageSearchMuseum">
           <h1 class="titleSearchMuseum">Cosa vuoi visitare?</h1>
