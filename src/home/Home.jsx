@@ -1,11 +1,14 @@
 import FeauturedEvent from "./FeaturedEvent";
 import "./styleHome.css";
 import React from "react";
-
-import NavBar from "./Navbar";
+import NavBar from "./Navbar.jsx";
 import Musei from "./Musei";
-import Footer from "./Footer";
+import Footer from "./footer";
+import Nav from "../searchmuseum/components/header";
+import { useMain } from "../login/context";
+
 const Home = () => {
+  const { logged } = useMain();
   return (
     <React.Fragment>
       <link
@@ -16,7 +19,7 @@ const Home = () => {
       />
       <div className="home">
         <div className="top">
-          <NavBar />
+          {!logged === true ? <NavBar /> : <Nav />}
           <header className="headerHome" style={{ color: "black" }}>
             <p className="text--uppercase">Da qui inizia la festa</p>
             <h1>Musei Ed Eventi</h1>
