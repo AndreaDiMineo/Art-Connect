@@ -2,7 +2,7 @@ import "./style.css";
 import React, { useContext } from "react";
 import { FuncContext } from "./context";
 import { Link, useNavigate } from "react-router-dom";
-import app from "./databaseHandler";
+import app from "../database/databaseHandler";
 
 const db = app.firestore();
 const storage = app.storage();
