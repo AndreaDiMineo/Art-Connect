@@ -1,5 +1,3 @@
-//import "bootstrap/dist/css/bootstrap.min.css";
-//import "bootstrap/dist/js/bootstrap.bundle.min";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -16,6 +14,7 @@ import Reset from "./login/resetpassword";
 import MuseumProfile from "./museumprofile/components/museumprofile";
 import EditProfile from "./profile/editprofile";
 import Home from "./home/Home";
+import SearchEvents from "./home/searchEvents";
 import DescMusei from "./MuseiHome/descrizione-Musei";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -25,7 +24,9 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <div>
-        <Home />
+        <FuncProvider>
+          <Home />
+        </FuncProvider>
       </div>
     ),
   },
@@ -68,7 +69,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/dashboard",
+    path: "/museums",
     element: (
       <div>
         <ViewProvider>
@@ -107,6 +108,18 @@ const router = createBrowserRouter([
       </div>
     ),
   },
+  {
+    path: "/events",
+    element: (
+      <div>
+        <ViewProvider>
+          <FilterProvider>
+            <SearchEvents />
+          </FilterProvider>
+        </ViewProvider>
+      </div>
+    ),
+  },
 ]);
 
 root.render(
@@ -119,3 +132,4 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
