@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
-//import { db as dbmusei } from "../firebaseConfig";
-import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/storage";
+import { db } from "../firebaseConfig";
 
-const db = firebase.firestore();
 const Musei = () => {
   const [musei, setMusei] = useState([]);
   useEffect(() => {
@@ -15,6 +11,7 @@ const Musei = () => {
     };
     fetchMusei();
   }, []);
+  console.log(musei);
   return (
     <section className="featuredEvents" style={{}}>
       <div className="featuredTitle">
