@@ -3,11 +3,10 @@ import "./form.css";
 import { FuncContext } from "./context";
 import { Link, useNavigate } from "react-router-dom";
 import app from "../database/databaseHandler";
-
-const db = app.firestore();
-const storage = app.storage();
+ const db = app.firestore();
 
 const Form = () => {
+ 
   const [utenti, setUtenti] = useState([]);
   const navigate = useNavigate();
   const addData = async () => {

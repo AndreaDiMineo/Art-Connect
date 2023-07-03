@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { db } from "../firebaseConfig";
+import { appDb } from "../firebaseConfig";
+
+const db = appDb.firestore();
 
 const Musei = () => {
   const [musei, setMusei] = useState([]);
@@ -7,6 +9,7 @@ const Musei = () => {
     const fetchMusei = async () => {
       const snapshot = await db.collection("musei").get();
       const museiData = snapshot.docs.map((doc) => doc.data());
+      console.log(museiData);
       setMusei(museiData);
     };
     fetchMusei();
