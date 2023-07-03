@@ -16,6 +16,7 @@ import Reset from "./login/resetpassword";
 import MuseumProfile from "./museumprofile/components/museumprofile";
 import EditProfile from "./profile/editprofile";
 import Home from "./home/Home";
+import DescMusei from "./MuseiHome/descrizione-Musei";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -25,6 +26,14 @@ const router = createBrowserRouter([
     element: (
       <div>
         <Home />
+      </div>
+    ),
+  },
+  {
+    path: "/descrizioneMusei",
+    element: (
+      <div>
+        <DescMusei />
       </div>
     ),
   },
