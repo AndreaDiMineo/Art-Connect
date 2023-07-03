@@ -18,4 +18,6 @@ if (!firebase.apps.length) {
   app = firebase.app(); // if already initialized, use that one
 }
 
+
+
 export default app;
