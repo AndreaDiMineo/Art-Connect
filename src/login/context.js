@@ -30,18 +30,13 @@ export const useMain = () => {
     else setTogglePass(true);
   };
 
-  const submitForm = (event) => {
-    event.preventDefault();
-    const { email, password } = event.target;
-    if (email.value === "amine@login.com" && validatePassword(password.value)) {
-      setLogged(true);
-    } else {
-      alert("Error");
-    }
+  const auth = () => {
+    setLogged(true);
   };
+
   return {
     toggle,
-    submitForm,
+    auth,
     register,
     passwordNascondi,
     passwordInfo,
@@ -57,7 +52,7 @@ export const FuncContext = createContext();
 export const FuncProvider = ({ children }) => {
   const {
     toggle,
-    submitForm,
+    auth,
     register,
     passwordNascondi,
     passwordInfo,
@@ -70,7 +65,7 @@ export const FuncProvider = ({ children }) => {
     <FuncContext.Provider
       value={{
         toggle,
-        submitForm,
+        auth,
         register,
         passwordNascondi,
         passwordInfo,
