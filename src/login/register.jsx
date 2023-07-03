@@ -9,7 +9,7 @@ const storage = app.storage();
 
 const Register = () => {
   const navigate = useNavigate();
-  const { registration } = useMain();
+  const { auth } = useMain();
   const addData = async () => {
     const form = document.querySelector("form");
     const inputs = form.querySelectorAll("input");
@@ -21,7 +21,7 @@ const Register = () => {
     await db
       .collection("Utente")
       .add({ name, surname, username, email, password });
-    registration();
+    auth();
     navigate(["/museums"]);
   };
   const { passwordNascondi, passwordInfo, showInfoPassword } =
