@@ -9,6 +9,7 @@ import { ViewContext } from "../hooks/view-context";
 import { FilterContext } from "../hooks/filter-context";
 import Museum from "./Museum";
 import Footer from "../../homepage/footer";
+import NavBar from "../../home/Navbar";
 
 const MAPBOX_TOKEN =
   "pk.eyJ1IjoiYWRlcGVkcmluaSIsImEiOiJjbGlrMzd2dWEwZWI5M2trZG5wem04eWV5In0.xku2He5nmX0r89rngZndlQ";
@@ -188,140 +189,150 @@ const SearchMuseum = () => {
 
   //HTML
   return (
-    <div className="rootSearchMuseum">
-      <Header />
-      <main className="pageSearchMuseum">
-        <h1 class="titleSearchMuseum">Cosa vuoi visitare?</h1>
-        <section className="mainSearchMuseum">
-          <div className="mainLeft">
-            <div className="geo">
-              <div className="search">
-                <div className="geoInput">
-                  <input
-                    id="geoInput_input"
-                    className="geoInput_input"
-                    placeholder="Inserire la tua città o un museo specifico"
-                    onKeyUp={CheckGeoInput}
-                  />
-                  <img
-                    className="mapPin"
-                    src="https://i.ibb.co/4JWWxhz/map-pin.png"
-                    alt=""
-                    onClick={getLocation}
-                  />
+    <>
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+        crossorigin="anonymous"
+      />
+      <NavBar />
+      <div className="rootSearchMuseum">
+        <main className="pageSearchMuseum">
+          <h1 class="titleSearchMuseum">Cosa vuoi visitare?</h1>
+          <section className="mainSearchMuseum">
+            <div className="mainLeft">
+              <div className="geo">
+                <div className="search">
+                  <div className="geoInput">
+                    <input
+                      id="geoInput_input"
+                      className="geoInput_input"
+                      placeholder="Inserire la tua città o un museo specifico"
+                      onKeyUp={CheckGeoInput}
+                    />
+                    <img
+                      className="mapPin"
+                      src="https://i.ibb.co/4JWWxhz/map-pin.png"
+                      alt=""
+                      onClick={getLocation}
+                    />
+                  </div>
+                  <div className="geoFilter">
+                    <img
+                      className="mapFilter"
+                      src="https://i.ibb.co/PxsVrr6/filter.png"
+                      alt=""
+                      onClick={clickFilter}
+                    />
+                  </div>
                 </div>
-                <div className="geoFilter">
-                  <img
-                    className="mapFilter"
-                    src="https://i.ibb.co/PxsVrr6/filter.png"
-                    alt=""
-                    onClick={clickFilter}
-                  />
-                </div>
+                {filter ? (
+                  <div className="filters">
+                    <p onClick={() => setOrderView((v) => (v = !v))}>Ordina</p>
+                    {orderView ? (
+                      <div className="orderView">
+                        <p
+                          className={"default" === order ? "selectedOrder" : ""}
+                          id="default"
+                          onClick={changeOrder}
+                        >
+                          Default
+                        </p>
+                        <p
+                          className={"rating" === order ? "selectedOrder" : ""}
+                          id="rating"
+                          onClick={changeOrder}
+                        >
+                          Più valutato
+                        </p>
+                        <p
+                          className={"closest" === order ? "selectedOrder" : ""}
+                          id="closest"
+                          onClick={changeOrder}
+                        >
+                          Più vicini
+                        </p>
+                      </div>
+                    ) : (
+                      <p></p>
+                    )}
+                    <p onClick={() => setCategoryView((v) => (v = !v))}>
+                      Categoria
+                    </p>
+                    {categoryView ? (
+                      <div className="filterView">
+                        <p
+                          className={
+                            "all" === category ? "selectedCategory" : ""
+                          }
+                          id="all"
+                          onClick={changeCategory}
+                        >
+                          Tutte
+                        </p>
+                        <p
+                          className={
+                            "storia" === category ? "selectedCategory" : ""
+                          }
+                          id="storia"
+                          onClick={changeCategory}
+                        >
+                          Storia
+                        </p>
+                        <p
+                          className={
+                            "arte" === category ? "selectedCategory" : ""
+                          }
+                          id="arte"
+                          onClick={changeCategory}
+                        >
+                          Arte
+                        </p>
+                        <p
+                          className={
+                            "scienza" === category ? "selectedCategory" : ""
+                          }
+                          id="scienza"
+                          onClick={changeCategory}
+                        >
+                          Scienza
+                        </p>
+                      </div>
+                    ) : (
+                      <p></p>
+                    )}
+                  </div>
+                ) : (
+                  <p></p>
+                )}
               </div>
-              {filter ? (
-                <div className="filters">
-                  <p onClick={() => setOrderView((v) => (v = !v))}>Ordina</p>
-                  {orderView ? (
-                    <div className="orderView">
-                      <p
-                        className={"default" === order ? "selectedOrder" : ""}
-                        id="default"
-                        onClick={changeOrder}
-                      >
-                        Default
-                      </p>
-                      <p
-                        className={"rating" === order ? "selectedOrder" : ""}
-                        id="rating"
-                        onClick={changeOrder}
-                      >
-                        Più valutato
-                      </p>
-                      <p
-                        className={"closest" === order ? "selectedOrder" : ""}
-                        id="closest"
-                        onClick={changeOrder}
-                      >
-                        Più vicini
-                      </p>
-                    </div>
-                  ) : (
-                    <p></p>
-                  )}
-                  <p onClick={() => setCategoryView((v) => (v = !v))}>
-                    Categoria
-                  </p>
-                  {categoryView ? (
-                    <div className="filterView">
-                      <p
-                        className={"all" === category ? "selectedCategory" : ""}
-                        id="all"
-                        onClick={changeCategory}
-                      >
-                        Tutte
-                      </p>
-                      <p
-                        className={
-                          "storia" === category ? "selectedCategory" : ""
-                        }
-                        id="storia"
-                        onClick={changeCategory}
-                      >
-                        Storia
-                      </p>
-                      <p
-                        className={
-                          "arte" === category ? "selectedCategory" : ""
-                        }
-                        id="arte"
-                        onClick={changeCategory}
-                      >
-                        Arte
-                      </p>
-                      <p
-                        className={
-                          "scienza" === category ? "selectedCategory" : ""
-                        }
-                        id="scienza"
-                        onClick={changeCategory}
-                      >
-                        Scienza
-                      </p>
-                    </div>
-                  ) : (
-                    <p></p>
-                  )}
-                </div>
-              ) : (
-                <p></p>
-              )}
+              <Museums />
             </div>
-            <Museums />
-          </div>
-          <div className="mainRight">
-            <Map
-              {...view}
-              onMove={(evt) => {
-                setViewState(evt.viewState);
-              }}
-              style={{ width: "100%", height: "60vh" }}
-              mapStyle="mapbox://styles/mapbox/streets-v9"
-              mapboxAccessToken={MAPBOX_TOKEN}
-            >
-              <Marker
-                longitude={marker.longitude}
-                latitude={marker.latitude}
-                color="red"
-              />
-              <NavigationControl />
-              <MarkerMuseum />
-            </Map>
-          </div>
-        </section>
-        <Footer />
-      </main>
-    </div>
+            <div className="mainRight">
+              <Map
+                {...view}
+                onMove={(evt) => {
+                  setViewState(evt.viewState);
+                }}
+                style={{ width: "100%", height: "60vh" }}
+                mapStyle="mapbox://styles/mapbox/streets-v9"
+                mapboxAccessToken={MAPBOX_TOKEN}
+              >
+                <Marker
+                  longitude={marker.longitude}
+                  latitude={marker.latitude}
+                  color="red"
+                />
+                <NavigationControl />
+                <MarkerMuseum />
+              </Map>
+            </div>
+          </section>
+          <Footer />
+        </main>
+      </div>
+    </>
   );
 };
 export default SearchMuseum;

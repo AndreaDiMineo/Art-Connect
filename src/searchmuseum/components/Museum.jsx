@@ -43,7 +43,7 @@ const Museum = ({ name, km, category, rating }) => {
         />
       </div>
       <div className="museumCardRight">
-        <h3 className="museumTitle"> {name}</h3>
+        <h4 className="museumTitle"> {name}</h4>
         <div className="museumSubtitle">
           <div className="museumDistance">
             <img
