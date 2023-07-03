@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { db } from "../firebaseConfig";
+import { db as dbFirenze } from "../firebaseConfig";
+
 const MuseiFirenze = () => {
   const [musei, setMusei] = useState([]);
 
   useEffect(() => {
     const fetchMusei = async () => {
-      const snapshot = await db.collection("imageFirenze").get();
+      const snapshot = await dbFirenze.collection("imageFirenze").get();
       const museiData = snapshot.docs.map((doc) => doc.data());
       setMusei(museiData);
     };
