@@ -1,4 +1,4 @@
-/*import firebase from "firebase/app";
+import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/storage";
 
@@ -19,4 +19,4 @@ if (!firebase.apps.length) {
 
 const db = firebase.firestore();
 const storage = firebase.storage();
-export { firebase, db, storage };*/
+export { firebase, db, storage };
