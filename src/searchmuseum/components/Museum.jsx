@@ -1,18 +1,20 @@
-import MuseumProfile, { MuseumStats } from "../../museumprofile/components/museumprofile";
+import MuseumProfile, {
+  MuseumStats,
+} from "../../museumprofile/components/museumprofile";
 import "../styles/museumStyle.css";
 import { useState } from "react";
 import { Background } from "./searchmuseum";
 
 const Museum = ({ name, km, category, rating }) => {
-  const [ profile, setProfile ] = useState(false);
+  const [profile, setProfile] = useState(false);
   const { main, mapSection } = Background();
   const card = document.querySelector(".museumCard");
   const ClickProfile = (stato) => {
-    main.addEventListener('click', () => {
+    main.addEventListener("click", () => {
       setProfile(false);
       main.style.backgroundColor = "";
       mapSection.style.display = "block";
-    })
+    });
     setProfile(stato);
     if (stato === true) {
       card.style.position = "relative";
@@ -22,19 +24,22 @@ const Museum = ({ name, km, category, rating }) => {
       main.style.top = 0;
       main.style.overflow = "auto";
       main.style.backgroundColor = "rgba(0,0,0,0.7)";
-    }
-    else {
+    } else {
       main.style.backgroundColor = "";
       mapSection.style.display = "block";
     }
-  }
+  };
   return (
     <div className="museumCard">
       <div className="museumCardLeft">
         <img
           className="museumImg"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Field_Museum_of_Natural_History.jpg/1280px-Field_Museum_of_Natural_History.jpg"
-          onClick={!profile === true ? () => ClickProfile(true) : () => ClickProfile(false)}
+          onClick={
+            !profile === true
+              ? () => ClickProfile(true)
+              : () => ClickProfile(false)
+          }
         />
       </div>
       <div className="museumCardRight">
@@ -66,7 +71,7 @@ const Museum = ({ name, km, category, rating }) => {
           <p>{rating}</p>
         </div>
       </div>
-      { !profile === true ? null : <MuseumProfile/> }
+      {!profile === true ? null : <MuseumProfile />}
     </div>
   );
 };

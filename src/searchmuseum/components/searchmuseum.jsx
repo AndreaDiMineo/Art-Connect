@@ -324,5 +324,4 @@ const SearchMuseum = () => {
     </div>
   );
 };
-
 export default SearchMuseum;
