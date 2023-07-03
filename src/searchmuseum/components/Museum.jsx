@@ -43,7 +43,7 @@ const Museum = ({ name, km, category, rating }) => {
         />
       </div>
       <div className="museumCardRight">
-        <h3 className="museumTitle">Museo Civico di Storia Naturale</h3>
+        <h3 className="museumTitle"> {name}</h3>
         <div className="museumSubtitle">
           <div className="museumDistance">
             <img
@@ -71,7 +71,14 @@ const Museum = ({ name, km, category, rating }) => {
           <p>{rating}</p>
         </div>
       </div>
-      {!profile === true ? null : <MuseumProfile />}
+      {!profile === true ? null : (
+        <MuseumProfile
+          name={name}
+          km={km}
+          category={category}
+          rating={rating}
+        />
+      )}
     </div>
   );
 };
