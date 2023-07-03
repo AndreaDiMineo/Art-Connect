@@ -15,17 +15,13 @@ const MuseiFirenze = () => {
     fetchMusei();
   }, []);
 
-  console.log(musei[2] && musei[2].image);
-
   return (
     <>
-      {/* Carousel wrapper */}
       <div
         id="carouselBasicExample"
         className="carousel slide carousel-fade"
         data-mdb-ride="carousel"
       >
-        {/* Indicators */}
         <div className="carousel-indicators">
           <button
             type="button"
@@ -48,9 +44,9 @@ const MuseiFirenze = () => {
             aria-label="Slide 3"
           />
         </div>
-        {/* Inner */}
+   
         <div className="carousel-inner">
-          {/* Single item */}
+    
           <div className="carousel-item active">
             {musei[1] && musei[1].image ? (
               <img
