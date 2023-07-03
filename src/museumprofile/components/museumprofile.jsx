@@ -6,7 +6,8 @@ import Tickets from "./tickets";
 import { useState } from "react";
 import Show from "./show";
 
-const MuseumProfile = ({ title, km, rating, category }) => {
+const MuseumProfile = () => {
+  const { rating, category } = useContext(FilterContext);
   const [list, setList] = useState(false);
   const [show, setShow] = useState(false);
 
@@ -17,7 +18,7 @@ const MuseumProfile = ({ title, km, rating, category }) => {
     setShow(stato);
   };
   return (
-    <div className="card">
+    <div className="museum-card">
       <img
         className="museum-img"
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Field_Museum_of_Natural_History.jpg/1280px-Field_Museum_of_Natural_History.jpg"
@@ -30,19 +31,19 @@ const MuseumProfile = ({ title, km, rating, category }) => {
               src="https://i.ibb.co/4JWWxhz/map-pin.png"
               alt=""
             />
-            <p>{parseFloat(km).toFixed(2)}km</p>
+            <p>4km</p>
             <img
               className="museum_icons"
               src="https://i.ibb.co/Lh7YZq8/grid.png"
               alt=""
             />
-            <p>{category}</p>
+            <p>{!category ? "Storia" : "Arte"}</p>
             <img
               className="museum_icons"
               src="https://i.ibb.co/CsM31z2/star.png"
               alt=""
             />
-            <p>{rating}</p>
+            <p>{!rating ? 4.0 : 5.0}</p>
           </div>
           <div className="btns">
             <button className="museum-btn">Sito web</button>
@@ -60,7 +61,7 @@ const MuseumProfile = ({ title, km, rating, category }) => {
           </div>
         </div>
         <div className="museum-info">
-          <h1>{title}</h1>
+          <h1>Museo Civico di Storia Naturale</h1>
           <h3>Descrizione</h3>
           <h3>Informazioni</h3>
           <p>

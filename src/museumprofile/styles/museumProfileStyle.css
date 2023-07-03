@@ -1,4 +1,4 @@
-.card {
+.museum-card {
   background-color: #d9d9d9;
   border-radius: 10px;
   width: 55rem;
@@ -28,8 +28,6 @@
 
 .stats-btns {
   margin-top: 5%;
-  margin-left: 2.5%;
-  width: 25%;
 }
 
 .stats {
@@ -37,19 +35,17 @@
   flex-direction: row;
 }
 
+.stats img {
+  margin: 3%;
+}
+
 .museum-info {
-  align-self: center;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 .museum-profile {
   display: flex;
   flex-direction: row;
-}
-
-.museum_icons {
-  width: 1.5rem;
-  height: 1.5em;
 }
 
 ul {

@@ -1,12 +1,12 @@
-h1 {
+.ShowH1 {
   text-align: center;
 }
 
-h2 {
+.ShowH2 {
   max-width: 90%;
 }
 
-p {
+.ShowP {
   max-width: 90%;
 }
 

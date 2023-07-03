@@ -9,14 +9,19 @@ export default function Show() {
         rel="stylesheet"
       />
       <div className="container">
-        <h1>Mostre contenute all'interno</h1>
+        <h1
+          className="ShowH1
+        "
+        >
+          Mostre contenute all'interno
+        </h1>
         <div className="show">
           <a href="https://imgbb.com/">
             <img src="https://i.ibb.co/vQfNpmR/image.png" alt="image" />
           </a>
           <div className="desc">
-            <h2>Sociocromie</h2>
-            <p>
+            <h2 className="ShowH2">Sociocromie</h2>
+            <p className="ShowP">
               Una mostra curata da Giulio Ceppi - architetto, designer e
               fondatore di Total Tool - per ripercorrere 100 anni attraverso il
               colore, il colore vivo della lingua parlata, che diventa storia e
@@ -35,8 +40,10 @@ export default function Show() {
             <img src="https://i.ibb.co/ZB6Kryf/image.png" alt="image" />
           </a>
           <div className="desc">
-            <h2>Robotic voice activated word kicking machine</h2>
-            <p>
+            <h2 className="ShowH2">
+              Robotic voice activated word kicking machine
+            </h2>
+            <p className="ShowHP">
               Scopriamo l’opera di Neil Mendoza, un'esplorazione surreale del
               linguaggio e della relazione che instauriamo quando parliamo con
               le macchine, come gli assistenti vocali basati sull’intelligenza

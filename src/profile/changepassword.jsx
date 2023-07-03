@@ -28,7 +28,7 @@ export default function ChangePassword() {
               alt="image"
               id="signupLogoChangePWD"
             />
-            <h2 className="formTitleChangePWD">Change your password</h2>
+            <h2 className="formTitleChangePWD">Cambia password</h2>
             <div className="inputDivChangePWD">
               <label className="inputLabelChangePWD" htmlFor="password">
                 Email
@@ -37,7 +37,7 @@ export default function ChangePassword() {
             </div>
             <div className="inputDivChangePWD">
               <label className="inputLabelChangePWD" htmlFor="password">
-                New Password
+                Nuova Password
               </label>
               <input
                 type="password"
@@ -48,7 +48,7 @@ export default function ChangePassword() {
             </div>
             <div className="inputDivChangePWD">
               <label className="inputLabelChangePWD" htmlFor="confirmPassword">
-                Confirm Password
+                Conferma Password
               </label>
               <input
                 type="password"
@@ -63,7 +63,7 @@ export default function ChangePassword() {
                 name="showHide"
                 onClick={showHidePWD}
               />
-              <label className="showpwdLabelChangePWD">Show password</label>
+              <label className="showpwdLabelChangePWD">Mostra password</label>
             </label>
             <div className="buttonWrapperChangePWD">
               <button
@@ -71,7 +71,7 @@ export default function ChangePassword() {
                 id="submitButton"
                 className="btn btn-primary"
               >
-                <span>Confirm</span>
+                <span>Conferma</span>
               </button>
             </div>
           </form>

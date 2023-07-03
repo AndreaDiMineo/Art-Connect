@@ -15,7 +15,7 @@ export default function EditProfile() {
         <div className="row">
           <div className="col-xl-4">
             <div className="card mb-4 mb-xl-0">
-              <div className="card-header">Profile Picture</div>
+              <div className="card-header">Foto Profilo</div>
               <div className="card-body text-center">
                 <img
                   className="img-account-profile rounded-circle mb-2"
@@ -23,23 +23,22 @@ export default function EditProfile() {
                   alt=""
                 />
                 <div className="small font-italic text-muted mb-4">
-                  JPG or PNG no larger than 5 MB
+                  JPG o PNG non più di 5 MB
                 </div>
                 <button className="btn btn-primary" type="button">
-                  Upload new image
+                  Carica nuova immagine
                 </button>
               </div>
             </div>
           </div>
           <div className="col-xl-8">
             <div className="card mb-4">
-              <div className="card-header">Account Details</div>
+              <div className="card-header">Dettagli Account</div>
               <div className="card-body">
                 <form>
                   <div className="mb-3">
                     <label className="small mb-1" htmlFor="inputUsername">
-                      Username (how your name will appear to other users on the
-                      site)
+                      Username (come il tuo nome danzerà nella mente degli altri utenti sul sito)
                     </label>
                     <input
                       className="form-control"
@@ -52,7 +51,7 @@ export default function EditProfile() {
                   <div className="row gx-3 mb-3">
                     <div className="col-md-6">
                       <label className="small mb-1" htmlFor="inputFirstName">
-                        First name
+                        Nome
                       </label>
                       <input
                         className="form-control"
@@ -64,7 +63,7 @@ export default function EditProfile() {
                     </div>
                     <div className="col-md-6">
                       <label className="small mb-1" htmlFor="inputLastName">
-                        Last name
+                        Cognome
                       </label>
                       <input
                         className="form-control"
@@ -77,7 +76,7 @@ export default function EditProfile() {
                   </div>
                   <div className="mb-3">
                     <label className="small mb-1" htmlFor="inputEmailAddress">
-                      Email address
+                      Indirizzo email
                     </label>
                     <input
                       className="form-control"
@@ -89,7 +88,7 @@ export default function EditProfile() {
                   </div>
 
                   <button className="btn btn-primary" type="button">
-                    Save changes
+                    Salva modifiche
                   </button>
                 </form>
               </div>
