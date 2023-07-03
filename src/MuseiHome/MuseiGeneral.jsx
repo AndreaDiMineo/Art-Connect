@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { appDb } from "../firebaseConfig";
 
 const db = appDb.firestore();
+
 const MuseiFirenze = () => {
   const [musei, setMusei] = useState([]);
+  const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
     const fetchMusei = async () => {
@@ -15,91 +17,60 @@ const MuseiFirenze = () => {
     fetchMusei();
   }, []);
 
+  const goToPreviousImage = () => {
+    setCurrentImage(
+      (prevImage) => (prevImage - 1 + musei.length) % musei.length
+    );
+  };
+
+  const goToNextImage = () => {
+    setCurrentImage((prevImage) => (prevImage + 1) % musei.length);
+  };
+
+  const goToCurrentImage = (index) => {
+    setCurrentImage(index);
+  };
+
   return (
     <>
       <div
-        id="carouselBasicExample"
-        className="carousel slide carousel-fade"
-        data-mdb-ride="carousel"
+        id="carouselExampleIndicators"
+        className="carousel slide"
+        data-bs-ride="carousel"
+        style={{ marginTop: "6rem" }}
       >
         <div className="carousel-indicators">
-          <button
-            type="button"
-            data-mdb-target="#carouselBasicExample"
-            data-mdb-slide-to={0}
-            className="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          />
-          <button
-            type="button"
-            data-mdb-target="#carouselBasicExample"
-            data-mdb-slide-to={1}
-            aria-label="Slide 2"
-          />
-          <button
-            type="button"
-            data-mdb-target="#carouselBasicExample"
-            data-mdb-slide-to={2}
-            aria-label="Slide 3"
-          />
-        </div>
-   
-        <div className="carousel-inner">
-    
-          <div className="carousel-item active">
-            {musei[1] && musei[1].image ? (
-              <img
-                src={musei[1].image}
-                className="d-block w-100"
-                alt="Sunset Over the City"
-              />
-            ) : (
-              <div>No image available</div>
-            )}
-            <div className="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </div>
-          </div>
-          {/* Single item */}
-          <div className="carousel-item">
-            {musei[2] && musei[2].image ? (
-              <img
-                src={musei[2].image}
-                className="d-block w-100"
-                alt="Sunset Over the City"
-              />
-            ) : (
-              <div>No image available</div>
-            )}
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-          {/* Single item */}
-          <div className="carousel-item">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp"
-              className="d-block w-100"
-              alt="Cliff Above a Stormy Sea"
+          {musei.map((museo, index) => (
+            <button
+              key={index}
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to={index}
+              className={index === currentImage ? "active" : ""}
+              aria-current={index === currentImage ? "true" : "false"}
+              aria-label={`Slide ${index + 1}`}
+              onClick={() => goToCurrentImage(index)}
             />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
-        {/* Inner */}
-        {/* Controls */}
+        <div className="carousel-inner">
+          {musei.map((museo, index) => (
+            <div
+              key={index}
+              className={`carousel-item ${
+                index === currentImage ? "active" : ""
+              }`}
+            >
+              <img src={museo.image} className="d-block w-100" alt="..." />
+            </div>
+          ))}
+        </div>
         <button
           className="carousel-control-prev"
           type="button"
-          data-mdb-target="#carouselBasicExample"
-          data-mdb-slide="prev"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+          onClick={goToPreviousImage}
         >
           <span className="carousel-control-prev-icon" aria-hidden="true" />
           <span className="visually-hidden">Previous</span>
@@ -107,15 +78,16 @@ const MuseiFirenze = () => {
         <button
           className="carousel-control-next"
           type="button"
-          data-mdb-target="#carouselBasicExample"
-          data-mdb-slide="next"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+          onClick={goToNextImage}
         >
           <span className="carousel-control-next-icon" aria-hidden="true" />
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      {/* Carousel wrapper */}
     </>
   );
 };
+
 export default MuseiFirenze;
