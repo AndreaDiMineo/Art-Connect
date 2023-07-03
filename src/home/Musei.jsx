@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
 
-=
-
 const Musei = () => {
   const [musei, setMusei] = useState([]);
   const immagini = [
@@ -10,7 +8,7 @@ const Musei = () => {
     "https://i.ibb.co/BV4vQbc/British-Museum-from-NE-2.jpg",
     "https://i.ibb.co/bKZdzS6/visite-guidate-ai-Musei-Vaticani-1.jpg",
     "https://i.ibb.co/SVYwdVp/download.jpg",
-    "https://i.ibb.co/jfmhjjb/download-1.jpg"
+    "https://i.ibb.co/jfmhjjb/download-1.jpg",
   ];
 
   useEffect(() => {
@@ -50,9 +48,7 @@ const Musei = () => {
             <div className="card-body">
               <h4 className="artistName">{museo.nome}</h4>
               <p className="artistVenue">{museo.indirizzo}</p>
-              <p className="artistDate">
-                Indirizzo: {museo.indirizzo}
-              </p>
+              <p className="artistDate">Indirizzo: {museo.indirizzo}</p>
               <p>{museo.desc}</p>
             </div>
           </div>
