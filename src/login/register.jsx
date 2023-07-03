@@ -1,11 +1,15 @@
 import "./style.css";
 import React, { useContext } from "react";
-import { FuncContext } from "./context";
+import { FuncContext, useMain } from "./context";
 import { Link, useNavigate } from "react-router-dom";
 import app from "../database/databaseHandler";
+
 const db = app.firestore();
+const storage = app.storage();
+
 const Register = () => {
   const navigate = useNavigate();
+  const { registration } = useMain();
   const addData = async () => {
     const form = document.querySelector("form");
     const inputs = form.querySelectorAll("input");
@@ -17,7 +21,8 @@ const Register = () => {
     await db
       .collection("Utente")
       .add({ name, surname, username, email, password });
-    navigate("/dashboard");
+    registration();
+    navigate(["/museums"]);
   };
   const { passwordNascondi, passwordInfo, showInfoPassword } =
     useContext(FuncContext);
