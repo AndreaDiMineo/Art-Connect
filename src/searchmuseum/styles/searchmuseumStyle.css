@@ -44,6 +44,7 @@
 .geoInput {
   position: relative;
   width: 90%;
+  margin-bottom: 2%;
 }
 
 .geoInput_input {
