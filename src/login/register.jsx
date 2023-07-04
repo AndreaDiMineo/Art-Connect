@@ -1,6 +1,6 @@
 import "./style.css";
 import React, { useContext } from "react";
-import { FuncContext, useMain } from "./context";
+import { FuncContext } from "./context";
 import { Link, useNavigate } from "react-router-dom";
 import app from "../database/databaseHandler";
 
@@ -9,7 +9,7 @@ const storage = app.storage();
 
 const Register = () => {
   const navigate = useNavigate();
-  const { auth } = useMain();
+  const { auth } = useContext(FuncContext);
   const addData = async () => {
     const form = document.querySelector("form");
     const inputs = form.querySelectorAll("input");
@@ -18,10 +18,11 @@ const Register = () => {
     const username = inputs[2].value;
     const email = inputs[3].value;
     const password = inputs[4].value;
+    const status = "register";
     await db
       .collection("Utente")
       .add({ name, surname, username, email, password });
-    auth();
+    auth(name, surname, username, email, password, status);
     navigate(["/museums"]);
   };
   const { passwordNascondi, passwordInfo, showInfoPassword } =
