@@ -99,7 +99,7 @@ const Register = () => {
                   id="one"
                   class="d-flex flex-row align-items-center justify-content-center"
                 >
-                  <p class="lead fw-normal mb-1 me-3">Registrati con</p>
+                  <p class="lead fw-normal mb-1 me-3">Register with</p>
                   <picture style={{ marginRight: "10px" }}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

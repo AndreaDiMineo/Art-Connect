@@ -127,13 +127,13 @@ const Form = () => {
 
                 <div className="form-outline mb-4">
                   <label className="form-label" htmlFor="form3Example3">
-                    Email address
+                    Indirizzo email
                   </label>
                   <div className="input-group mb-3">
                     <input
                       type="email"
                       class="form-control form-control-lg"
-                      placeholder="Enter your email"
+                      placeholder="Inserisci il tuo indirizzo email"
                       aria-label="Enter your email"
                       aria-describedby="basic-addon2"
                     />
@@ -148,13 +148,13 @@ const Form = () => {
                     type="password"
                     id="password"
                     class="form-control form-control-lg"
-                    placeholder="Enter password"
+                    placeholder="Inserisci password"
                     onClick={passwordInfo}
                     onBlur={passwordNascondi}
                   />
                   {showInfoPassword && (
                     <p>
-                      La password deve contenere più di 8 caratteri con almeno
+                      La password deve contenere almeno 8 caratteri con almeno
                       una lettera maiuscola, un numero e un carattere speciale.
                     </p>
                   )}
@@ -169,11 +169,11 @@ const Form = () => {
                       id="form2Example3"
                     />
                     <label className="form-check-label" htmlFor="form2Example3">
-                      Remember me
+                      Ricordami
                     </label>
                   </div>
                   <Link to={"/passwordreset"} className="text-body">
-                    Dimenticato la password?
+                    Password dimenticata?
                   </Link>
                 </div>
 
