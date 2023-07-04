@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FuncContext } from "../login/context";
 import { useContext } from "react";
+import "../searchmuseum/styles/headerStyle.css"
 const NavBar = () => {
   const location = useLocation(); // once ready it returns the 'window.location' object
   const [url, setUrl] = useState(null);

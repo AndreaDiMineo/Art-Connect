@@ -39,8 +39,6 @@ const Form = () => {
             status
           );
           navigate(["/museums"]);
-        } else {
-          alert("Username e/o password sbagliato/i");
         }
       });
     }
