@@ -35,9 +35,10 @@ const Form = () => {
           utente.password,
           status
         );
-        navigate("/");
         loginControl = true;
+        navigate("/");
       }
+      console.log(utente);
     });
     if (loginControl === false) {
       alert("Username e/o password sbagliato/i");
