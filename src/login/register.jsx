@@ -10,7 +10,8 @@ const storage = app.storage();
 const Register = () => {
   const navigate = useNavigate();
   const { auth } = useContext(FuncContext);
-  const addData = async () => {
+  const addData = async (e) => {
+    e.preventDefault();
     const form = document.querySelector("form");
     const inputs = form.querySelectorAll("input");
     const name = inputs[0].value;
@@ -21,23 +22,10 @@ const Register = () => {
     const checkbox1 = inputs[5].checked;
     const checkbox2 = form.querySelector("#notifiche").checked;
     const status = "register";
-    if (
-      (name === "" &&
-        surname === "" &&
-        username === "" &&
-        email === "" &&
-        password === "" &&
-        checkbox1 === false) ||
-      name === "" ||
-      surname === "" ||
-      username === "" ||
-      email === "" ||
-      password === "" ||
-      checkbox1 === false
-    ) {
-      alert("Riempi tutti i campi obbligatori");
-    } else if (!checkPassword(password)) {
+    if (!checkPassword(password)) {
       alert("Password errata");
+    } else if (!validateEmail(email)) {
+      alert("Email non valida");
     } else {
       const currentDate = new Date();
       await db.collection("Utente").add({
@@ -51,6 +39,7 @@ const Register = () => {
       });
       auth(username, password, status);
       navigate(["/museums"]);
+      console.log("done");
     }
   };
   const { passwordNascondi, passwordInfo, showInfoPassword } =
@@ -78,6 +67,14 @@ const Register = () => {
 
   const containsNumbers = (str) => {
     return /[0-9]/.test(str);
+  };
+
+  const validateEmail = (email) => {
+    // Regular expression pattern for email validation
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Check if the email matches the pattern
+    return emailPattern.test(email);
   };
 
   return (
@@ -167,6 +164,7 @@ const Register = () => {
                     type="text"
                     id="form3Example1cg"
                     class="form-control form-control-md"
+                    required
                   />
                 </div>
                 <div class="form-outline ">
@@ -177,6 +175,7 @@ const Register = () => {
                     type="text"
                     id="form3Example1cg"
                     class="form-control form-control-md"
+                    required
                   />
                 </div>
 
@@ -191,6 +190,7 @@ const Register = () => {
                       placeholder="Inserisci il tuo indirizzo email"
                       aria-label="Enter your email"
                       aria-describedby="basic-addon2"
+                      required
                     />
                   </div>
                 </div>
@@ -202,6 +202,7 @@ const Register = () => {
                     type="text"
                     id="form3Example3cg"
                     class="form-control form-control-md"
+                    required
                   />
                 </div>
 
@@ -215,6 +216,7 @@ const Register = () => {
                     class="form-control form-control-md"
                     onClick={passwordInfo}
                     onBlur={passwordNascondi}
+                    required
                   />
                   {showInfoPassword && (
                     <p>
@@ -232,8 +234,9 @@ const Register = () => {
                   class="form-select form-select-sm mb-3"
                   aria-label="Default select example"
                 >
-                  <option selected></option>
-                  <option value="1">Italiano</option>
+                  <option selected value="1">
+                    Italiano
+                  </option>
                   <option value="2">English</option>
                   <option value="3">Español</option>
                   <option value="4">Deutsch</option>
@@ -247,6 +250,7 @@ const Register = () => {
                     value=""
                     id="form2Example3cg"
                     className="checkboxInput1"
+                    required
                   />
                   <label class="form-check-label" for="form2Example3g">
                     Accetto tutte le dichiarazioni{" "}
