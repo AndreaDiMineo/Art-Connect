@@ -8,27 +8,6 @@
   --black: #41393e;
   --pink: #eda2c0;
 }
-.logoHeader {
-  height: -1rem;
-  width: 7rem;
-}
-.collapse {
-  margin-left: -2rem;
-}
-.navbar {
-  height: 6rem;
-}
-.RighSide {
-  display: flex;
-  margin-right: 2rem;
-  align-items: flex-start;
-  height: 3rem;
-}
-#accedi {
-  width: 8rem;
-  margin-left: 1rem;
-}
-
 .top {
   background-image: url("https://www.travelandleisure.com/thmb/MEkukyYk2LafCG9V-2g5aCN5KIM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/louvre-museum-paris-BESTMUSEUM0122-0cbd8a63089e4ce9969a2ead829b68e8.jpg");
   background-repeat: no-repeat;
@@ -38,11 +17,13 @@
   height: 8rem;
   margin: -1.5rem;
 }
+
 .navHome {
   display: flex;
   justify-content: space-between;
   padding-top: 1rem;
 }
+
 .navLeft {
   display: flex;
   margin-left: 1rem;
@@ -75,6 +56,7 @@
 .navRight {
   margin-right: 1rem;
 }
+
 .dropdown {
   display: none;
 }
@@ -89,22 +71,43 @@
   border: 1px solid white;
 }
 
+.button--magenta {
+  background-color: var(--magenta);
+  color: white;
+  border: 1px solid var(--magenta);
+}
+
 .headerHome {
   padding: 3rem 0 20rem 3rem;
   color: white;
-  height: 37rem;
 }
 
 .text--uppercase {
   text-transform: uppercase;
 }
 
-.headerHome h1 {
+.home h1,
+.home h3,
+.home h4 {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.home h1 {
+  font-size: 4rem;
+}
+
+.home h3 {
+  font-size: 2rem;
+}
+
+.home h4 {
+  font-size: 1.5rem;
+}
+
+.home header h1 {
   margin: 0;
 }
-.musei-container {
-  padding: 10px; /* Aggiungi il valore del padding che desideri */
-}
+
 .upcomingSection {
   display: flex;
   flex-direction: column;
@@ -118,21 +121,12 @@
   padding: 0.25rem;
   max-width: 60%;
 }
-@media (min-width: 576px) {
-  .card-group.card-group-scroll {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-  }
-}
 
-.card-group.card-group-scroll > .card {
-  flex-basis: 35%;
-}
 .featuredEvents {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: steelblue;
+  background-color: var(--black);
   color: white;
   padding: 2rem;
 }
@@ -143,6 +137,113 @@
 
 .featuredTitle h3 {
   color: var(--blue);
+  position: relative;
+  bottom: -3rem;
+  margin-bottom: 4%;
+  left: -1.5rem;
+}
+
+.inputEvents {
+  background-color: lightgrey;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  padding: 0.5rem 0rem 0.5rem 0.5rem;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rootSearchEvent {
+  box-sizing: border-box;
+  margin-top: 6rem;
+}
+
+.pageSearchEvent {
+  margin: 1.5rem;
+}
+
+.titleSearchEvent {
+  text-align: center;
+  margin-left: 1%;
+  font-size: 32px !important;
+}
+
+.mainSearchEvent {
+  margin: 0.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+}
+
+.mainLeft {
+  width: 30%;
+}
+.mainRight {
+  width: 70%;
+  padding-left: 4rem;
+}
+
+.geo {
+  display: flex;
+  flex-direction: column;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+}
+
+.geoInput {
+  position: relative;
+  width: 90%;
+}
+
+.geoInput_input {
+  background-color: lightgrey;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  padding: 0.5rem 0rem 0.5rem 0.5rem;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.geoInput .mapPinEvents {
+  position: absolute;
+}
+
+.mapPinEvents {
+  top: 0.50rem;
+  right: 0.3rem;
+  width: 1.5rem;
+  height: 1.5em;
+  cursor: pointer;
+}
+
+.map {
+  width: 100%;
+  height: 60vh;
+  border-radius: 8px;
+  background-color: lightgrey;
+}
+
+@media only screen and (max-width: 1000px) {
+  .mainSearchEvent {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  .mainLeft {
+    width: 100%;
+  }
+  .mainRight {
+    width: 100%;
+    padding: 0;
+  }
 }
 
 .featuredArtists {
@@ -202,7 +303,44 @@
   padding: 0.5rem 2rem;
   color: var(--magenta);
 }
-/*
+
+.home footer {
+  background-color: var(--magenta);
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.home footer a {
+  color: white;
+}
+
+.footerTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footerTop svg {
+  max-width: 20ch;
+}
+
+.footerTop p {
+  margin: 0;
+}
+
+.footerCenter {
+  margin: 1rem;
+}
+
+.footerBottom {
+  display: flex;
+  gap: 0.5rem;
+}
+
 @media screen and (max-width: 600px) {
   .top {
     background-image: linear-gradient(var(--magenta), var(--pink));
@@ -218,10 +356,10 @@
   .dropdown {
     display: inline;
   }
-  h1 {
+  .home h1 {
     font-size: 3rem;
   }
-  header {
+  .headerHome {
     padding-bottom: 10rem;
   }
   .upcomingSection {
@@ -305,7 +443,28 @@
   }
 }
 
-button:hover {
+.logoHeader {
+  height: -1rem;
+  width: 7rem;
+}
+.collapse {
+  margin-left: -2rem;
+}
+.navbar {
+  height: 6rem;
+}
+.RighSide {
+  display: flex;
+  margin-right: 2rem;
+  align-items: flex-start;
+  height: 3rem;
+}
+#accedi {
+  width: 8rem;
+  margin-left: 1rem;
+}
+
+.home button:hover {
   color: white;
   background-color: var(--black);
   border-color: var(--black);
@@ -314,4 +473,3 @@ button:hover {
 .none {
   display: none;
 }
-*/
