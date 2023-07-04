@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "./forget.css";
 import { FuncContext } from "./context";
+import { Link } from "react-router-dom";
 
 const ForgetYourPassword = () => {
   const { toggle, Forget } = useContext(FuncContext);
@@ -49,7 +50,7 @@ const ForgetYourPassword = () => {
                     class="btn btn-secondary"
                     id="cancel"
                   >
-                    Cancel
+                    <Link to={"/login"} className="disableLink">Cancel</Link>
                   </button>
                   <button type="button" class="btn btn-primary">
                     Invia email
