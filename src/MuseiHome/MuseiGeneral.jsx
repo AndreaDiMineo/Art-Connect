@@ -37,7 +37,7 @@ const MuseiFirenze = () => {
         id="carouselExampleIndicators"
         className="carousel slide"
         data-bs-ride="carousel"
-        style={{ marginTop: "6rem" }}
+        style={{ marginTop: "6.29rem" }}
       >
         <div className="carousel-indicators">
           {musei.map((museo, index) => (
