@@ -50,6 +50,7 @@ const SearchMuseum = () => {
   };
   const getCoordsLocation = (pos) => {
     setCenter(pos.coords.longitude, pos.coords.latitude);
+    setMuseumView(true);
   };
 
   //Geocoding: ricerca per nome
