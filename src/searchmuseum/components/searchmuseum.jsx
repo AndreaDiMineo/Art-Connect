@@ -152,8 +152,6 @@ const SearchMuseum = () => {
     if (museums[0].km === undefined) {
       updateMuseums(marker.longitude, marker.latitude);
     }
-    const data = [];
-    mus.map((v) => data.push(v.km, v.category, v.rating, v.name));
     return (
       <div className="museums">
         {mus.map((museo) => (
