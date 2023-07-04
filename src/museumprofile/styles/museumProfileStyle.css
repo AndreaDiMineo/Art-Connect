@@ -10,13 +10,13 @@
   border-radius: 2%;
 }
 
-.museum-btn {
-  background-color: blue;
-  color: white;
-  height: 3rem;
-  width: 8rem;
-  margin: 10%;
-  cursor: grab;
+.btns button {
+    background-color: blue;
+    color: white;
+    height: 4rem;
+    width: 8rem;
+    margin: 10%;
+    cursor: grab;
 }
 
 .stats-btns,
