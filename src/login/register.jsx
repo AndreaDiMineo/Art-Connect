@@ -18,12 +18,18 @@ const Register = () => {
     const username = inputs[2].value;
     const email = inputs[3].value;
     const password = inputs[4].value;
+    const checkbox1 = inputs[5].value;
     const status = "register";
-    await db
-      .collection("Utente")
-      .add({ name, surname, username, email, password });
-    auth(name, surname, username, email, password, status);
-    navigate(["/museums"]);
+    if ((name === "" && surname === "" && username === "" && email === "" && password === "" && checkbox1 === false) || (name === "" || surname === "" || username === "" || email === "" || password === "" || checkbox1 === false)) {
+      alert("Riempi tutti i campi obbligatori");
+    }
+    else {
+      await db
+        .collection("Utente")
+        .add({ name, surname, username, email, password });
+      auth(name, surname, username, email, password, status);
+      navigate(["/museums"]);
+    }
   };
   const { passwordNascondi, passwordInfo, showInfoPassword } =
     useContext(FuncContext);
@@ -156,8 +162,8 @@ const Register = () => {
           />
           {showInfoPassword && (
             <p>
-              Password must contain at least 8 characters with uppercase letters
-              and at least one number and one special character.
+              La password deve contenere più di 8 caratteri con almeno
+              una lettera maiuscola, un numero e un carattere speciale.
             </p>
           )}
         </div>
