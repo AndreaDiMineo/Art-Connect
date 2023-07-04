@@ -99,7 +99,7 @@ const Register = () => {
                   id="one"
                   class="d-flex flex-row align-items-center justify-content-center"
                 >
-                  <p class="lead fw-normal mb-1 me-3">Register with</p>
+                  <p class="lead fw-normal mb-1 me-3">Registrati con</p>
                   <picture style={{ marginRight: "10px" }}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -161,7 +161,7 @@ const Register = () => {
                 </div>
                 <div class="form-outline mb-2 ">
                   <label class="form-label" for="form3Example1cg">
-                    Name<span style={{ color: "red" }}> *</span>
+                    Nome<span style={{ color: "red" }}> *</span>
                   </label>
                   <input
                     type="text"
@@ -171,7 +171,7 @@ const Register = () => {
                 </div>
                 <div class="form-outline ">
                   <label class="form-label" for="form3Example1cg">
-                    Surname<span style={{ color: "red" }}> *</span>
+                    Cognome<span style={{ color: "red" }}> *</span>
                   </label>
                   <input
                     type="text"
@@ -182,13 +182,13 @@ const Register = () => {
 
                 <div class="form-outline ">
                   <label class="form-label" for="form3Example3">
-                    Email address<span style={{ color: "red" }}> *</span>
+                    Indirizzo email<span style={{ color: "red" }}> *</span>
                   </label>
                   <div class="input-group ">
                     <input
                       type="email"
                       class="form-control form-control-md"
-                      placeholder="Enter your email "
+                      placeholder="Inserisci il tuo indirizzo email"
                       aria-label="Enter your email"
                       aria-describedby="basic-addon2"
                     />
@@ -225,15 +225,16 @@ const Register = () => {
                 </div>
 
                 <label class="form-label" for="form3Example3cg">
-                  Select your language<span style={{ color: "red" }}> *</span>
+                  Seleziona la tua lingua
+                  <span style={{ color: "red" }}> *</span>
                 </label>
                 <select
                   class="form-select form-select-sm mb-3"
                   aria-label="Default select example"
                 >
                   <option selected></option>
-                  <option value="1">English</option>
-                  <option value="2">Italiano</option>
+                  <option value="1">Italiano</option>
+                  <option value="2">English</option>
                   <option value="3">Español</option>
                   <option value="4">Deutsch</option>
                   <option value="5">Français</option>
