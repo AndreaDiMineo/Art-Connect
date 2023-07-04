@@ -5,16 +5,20 @@ const db = appDb.firestore();
 
 const MainFirenze = () => {
   const [musei, setMusei] = useState([]);
+  console.log(musei);
 
   useEffect(() => {
     const fetchMusei = async () => {
+      console.log(db);
       const snapshot = await db.collection("GalleriaFirenze").get();
       const museiData = snapshot.docs.map((doc) => doc.data());
       setMusei(museiData);
+      console.log(museiData);
     };
 
     fetchMusei();
   }, []);
+  console.log(musei);
   return (
     <div>
       <h1>{musei[1].titolo}</h1>
