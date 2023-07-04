@@ -15,10 +15,11 @@ const Register = () => {
     const inputs = form.querySelectorAll("input");
     const name = inputs[0].value;
     const surname = inputs[1].value;
-    const username = inputs[2].value;
-    const email = inputs[3].value;
+    const username = inputs[3].value;
+    const email = inputs[2].value;
     const password = inputs[4].value;
-    const checkbox1 = inputs[5].value;
+    const checkbox1 = inputs[5].checked;
+    const checkbox2 = form.querySelector("#notifiche").checked;
     const status = "register";
     if (
       (name === "" &&
@@ -35,16 +36,50 @@ const Register = () => {
       checkbox1 === false
     ) {
       alert("Riempi tutti i campi obbligatori");
+    } else if (!checkPassword(password)) {
+      alert("Password errata");
     } else {
-      await db
-        .collection("Utente")
-        .add({ name, surname, username, email, password });
-      auth(name, surname, username, email, password, status);
+      const currentDate = new Date();
+      await db.collection("Utente").add({
+        idUtente: currentDate.getTime(),
+        nome: name,
+        cognome: surname,
+        username,
+        email,
+        password,
+        notifica: checkbox2,
+      });
+      auth(username, password, status);
       navigate(["/museums"]);
     }
   };
   const { passwordNascondi, passwordInfo, showInfoPassword } =
     useContext(FuncContext);
+  const checkPassword = (psw) => {
+    if (
+      psw.length >= 8 &&
+      containsSpecialCharacters(psw) &&
+      containsUppercase(psw) &&
+      containsNumbers(psw)
+    ) {
+      return true;
+    }
+    return false;
+  };
+
+  const containsSpecialCharacters = (str) => {
+    var specialCharacters = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+    return specialCharacters.test(str);
+  };
+
+  const containsUppercase = (str) => {
+    return /[A-Z]/.test(str);
+  };
+
+  const containsNumbers = (str) => {
+    return /[0-9]/.test(str);
+  };
+
   return (
     <>
       <section class="vh-100">
@@ -126,7 +161,7 @@ const Register = () => {
                 </div>
                 <div class="form-outline mb-2 ">
                   <label class="form-label" for="form3Example1cg">
-                    Name<span style={{ color: "red" }}> *</span>
+                    Nome<span style={{ color: "red" }}> *</span>
                   </label>
                   <input
                     type="text"
@@ -136,7 +171,7 @@ const Register = () => {
                 </div>
                 <div class="form-outline ">
                   <label class="form-label" for="form3Example1cg">
-                    Surname<span style={{ color: "red" }}> *</span>
+                    Cognome<span style={{ color: "red" }}> *</span>
                   </label>
                   <input
                     type="text"
@@ -147,19 +182,16 @@ const Register = () => {
 
                 <div class="form-outline ">
                   <label class="form-label" for="form3Example3">
-                    Email address<span style={{ color: "red" }}> *</span>
+                    Indirizzo email<span style={{ color: "red" }}> *</span>
                   </label>
                   <div class="input-group ">
                     <input
                       type="email"
                       class="form-control form-control-md"
-                      placeholder="Enter your email "
+                      placeholder="Inserisci il tuo indirizzo email"
                       aria-label="Enter your email"
                       aria-describedby="basic-addon2"
                     />
-                    <span class="input-group-text" id="basic-addon2">
-                      @example.com
-                    </span>
                   </div>
                 </div>
                 <div class="form-outline ">
@@ -186,22 +218,23 @@ const Register = () => {
                   />
                   {showInfoPassword && (
                     <p>
-                      La password deve contenere più di 8 caratteri con almeno
+                      La password deve contenere almeno 8 caratteri con almeno
                       una lettera maiuscola, un numero e un carattere speciale.
                     </p>
                   )}
                 </div>
 
                 <label class="form-label" for="form3Example3cg">
-                  Select your language<span style={{ color: "red" }}> *</span>
+                  Seleziona la tua lingua
+                  <span style={{ color: "red" }}> *</span>
                 </label>
                 <select
                   class="form-select form-select-sm mb-3"
                   aria-label="Default select example"
                 >
                   <option selected></option>
-                  <option value="1">English</option>
-                  <option value="2">Italiano</option>
+                  <option value="1">Italiano</option>
+                  <option value="2">English</option>
                   <option value="3">Español</option>
                   <option value="4">Deutsch</option>
                   <option value="5">Français</option>
@@ -228,7 +261,7 @@ const Register = () => {
                     class="form-check-input me-2"
                     type="checkbox"
                     value=""
-                    id="form2Example3cg"
+                    id="notifiche"
                     className="checkboxInput2"
                   />
                   <label class="form-check-label" for="form2Example3g">
@@ -242,7 +275,7 @@ const Register = () => {
                     class="btn btn-primary btn-lg"
                     id="login-btn"
                   >
-                    Create Account
+                    Crea account
                   </button>
                 </div>
 

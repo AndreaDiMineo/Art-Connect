@@ -23,24 +23,19 @@ const ForgetYourPassword = () => {
                 <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                   <h3>Recupera Password</h3>
                 </div>
-                <div className="divider d-flex align-items-center my-4">
-                  <p className="text-center fw-bold mx-3 mb-0"></p>
-                </div>
+                <div className="divider d-flex align-items-center my-4"></div>
                 <div class="form-outline">
                   <label class="form-label" for="form3Example3">
-                    Inserire email o numero di telefono.
+                    Inserire email
                   </label>
                   <div class="input-group mb-3">
                     <input
                       type="email"
                       class="form-control form-control-lg"
-                      placeholder="Enter your email "
+                      placeholder="Inserisci il tuo indirizzo email "
                       aria-label="Enter your email"
                       aria-describedby="basic-addon2"
                     />
-                    <span class="input-group-text" id="basic-addon2">
-                      @example.com
-                    </span>
                   </div>
                 </div>
                 <div class="button-group">
@@ -50,7 +45,9 @@ const ForgetYourPassword = () => {
                     class="btn btn-secondary"
                     id="cancel"
                   >
-                    <Link to={"/login"} className="disableLink">Cancel</Link>
+                    <Link to={"/login"} className="disableLink">
+                      Cancella
+                    </Link>
                   </button>
                   <button type="button" class="btn btn-primary">
                     Invia email
