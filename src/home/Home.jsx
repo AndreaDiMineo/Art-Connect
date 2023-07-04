@@ -5,10 +5,10 @@ import Navbar from "./Navbar.jsx";
 import Musei from "./Musei";
 import Footer from "./footer";
 import Nav from "../searchmuseum/components/header";
-import { useMain } from "../login/context";
+import { FuncContext } from "../login/context";
 
 const Home = () => {
-  const { logged } = useMain();
+  const { logged } = useContext(FuncContext);
   return (
     <React.Fragment>
       <link
