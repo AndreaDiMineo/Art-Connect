@@ -9,6 +9,7 @@ const storage = app.storage();
 
 const Register = () => {
   const navigate = useNavigate();
+  const { auth } = useContext(FuncContext);
   const addData = async () => {
     const form = document.querySelector("form");
     const inputs = form.querySelectorAll("input");
@@ -17,10 +18,12 @@ const Register = () => {
     const username = inputs[2].value;
     const email = inputs[3].value;
     const password = inputs[4].value;
+    const status = "register";
     await db
       .collection("Utente")
       .add({ name, surname, username, email, password });
-    navigate("/dashboard");
+    auth(name, surname, username, email, password, status);
+    navigate(["/museums"]);
   };
   const { passwordNascondi, passwordInfo, showInfoPassword } =
     useContext(FuncContext);

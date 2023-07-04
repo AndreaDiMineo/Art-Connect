@@ -6,6 +6,7 @@ export const useMain = () => {
   const [logged, setLogged] = useState(false);
   const [toggle, setToggle] = useState(true);
   const [togglePass, setTogglePass] = useState(false);
+  const credentials = [];
 
   const validatePassword = (password) => {
     const regex =
@@ -30,18 +31,20 @@ export const useMain = () => {
     else setTogglePass(true);
   };
 
-  const submitForm = (event) => {
-    event.preventDefault();
-    const { email, password } = event.target;
-    if (email.value === "amine@login.com" && validatePassword(password.value)) {
+  const auth = (name, surname, username, email, password, status) => {
+    if (status === "register") {
+      credentials.push(name, surname, username, email, password);
       setLogged(true);
     } else {
-      alert("Error");
+      setLogged(true);
     }
   };
+
   return {
     toggle,
-    submitForm,
+    auth,
+    logged,
+    credentials,
     register,
     passwordNascondi,
     passwordInfo,
@@ -57,7 +60,9 @@ export const FuncContext = createContext();
 export const FuncProvider = ({ children }) => {
   const {
     toggle,
-    submitForm,
+    auth,
+    logged,
+    credentials,
     register,
     passwordNascondi,
     passwordInfo,
@@ -70,7 +75,9 @@ export const FuncProvider = ({ children }) => {
     <FuncContext.Provider
       value={{
         toggle,
-        submitForm,
+        auth,
+        logged,
+        credentials,
         register,
         passwordNascondi,
         passwordInfo,

@@ -1,9 +1,13 @@
 import "./styles.css";
-import { useState } from "react";
-import Footer from "../homepage/footer";
-import Header from "../searchmuseum/components/header";
+import { useContext, useEffect, useState } from "react";
+import Footer from "../home/footer";
+import Nav from "../searchmuseum/components/header";
 import { Link } from "react-router-dom";
-import React from "react";
+import app from "../database/databaseHandler";
+import { FuncContext } from "../login/context";
+
+const db = app.firestore();
+const storage = app.storage();
 
 export default function Profile() {
   const [toggle, setToggle] = useState(false);
@@ -16,18 +20,20 @@ export default function Profile() {
     }
   };
 
+  const { credentials } = useContext(FuncContext);
+
   return (
-    <React.Fragment>
+    <>
       <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         rel="stylesheet"
       />
-      <Header />
+      <Nav/>
       <div className="container">
         <div className="main-body">
           <div className="row gutters-sm">
             <div className="col-md-4 mb-3">
-              <div className="cardProfile">
+              <div className="card">
                 <div className="card-body">
                   <div className="d-flex flex-column align-items-center text-center">
                     <img
@@ -37,10 +43,10 @@ export default function Profile() {
                       width={150}
                     />
                     <div className="mt-4">
-                      <h4>Username</h4>
+                      <h4>{credentials[2]}</h4>
                       {!toggle ? (
                         <button className="btn btn-primary" onClick={follow}>
-                          Segui
+                          Follow
                         </button>
                       ) : (
                         <button
@@ -52,11 +58,11 @@ export default function Profile() {
                             borderColor: "#2c56e8",
                           }}
                         >
-                          Seguito
+                          Followed
                         </button>
                       )}
                       <button className="btn btn-outline-primary">
-                        Messaggia
+                        Message
                       </button>
                     </div>
                   </div>
@@ -64,13 +70,13 @@ export default function Profile() {
               </div>
             </div>
             <div className="col-md-8">
-              <div className="cardProfile mb-3">
+              <div className="card mb-3">
                 <div className="card-body">
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Nome Intero</h6>
+                      <h6 className="mb-0">Full Name</h6>
                     </div>
-                    <div className="col-sm-9 text-secondary">Nome Cognome</div>
+                    <div className="col-sm-9 text-secondary">{credentials[0]} {credentials[1]}</div>
                   </div>
                   <hr />
                   <div className="row">
@@ -83,35 +89,38 @@ export default function Profile() {
                         className="__cf_email__"
                         data-cfemail="781e110838120d13150d10561914"
                       >
-                        example@gmail.com
+                        {credentials[3]}
                       </a>
                     </div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Lingua</h6>
+                      <h6 className="mb-0">Language</h6>
                     </div>
-                    <div className="col-sm-9 text-secondary">Inglese</div>
+                    <div className="col-sm-9 text-secondary">English</div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">N. Musei Visitati</h6>
+                      <h6 className="mb-0">N. Visited Museums</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">0</div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-sm-10">
-                      <Link className="btn-settings" to={"/edit-profile"}>
-                        Modifica Profilo
+                      <Link
+                        className="btn-settings"
+                        to={"/edit-profile"}
+                      >
+                        Edit Profile
                       </Link>
                       <a
                         className="btn-settings"
                         href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills"
                       >
-                        Cambia Password
+                        Change Password
                       </a>
                     </div>
                   </div>
@@ -119,19 +128,19 @@ export default function Profile() {
               </div>
               <div className="row gutters-sm">
                 <div className="col-sm-6 mb-3">
-                  <div className="cardProfile h-100">
+                  <div className="card h-100">
                     <div className="card-body">
                       <h6 className="d-flex align-items-center mb-3">
-                        Musei Visitati
+                        Visited Museums
                       </h6>
                     </div>
                   </div>
                 </div>
                 <div className="col-sm-6 mb-3">
-                  <div className="cardProfile h-100">
+                  <div className="card h-100">
                     <div className="card-body">
                       <h6 className="d-flex align-items-center mb-3">
-                        Recensioni Fatte
+                        Reviews
                       </h6>
                     </div>
                   </div>
@@ -142,6 +151,6 @@ export default function Profile() {
         </div>
       </div>
       <Footer />
-    </React.Fragment>
+    </>
   );
 }
