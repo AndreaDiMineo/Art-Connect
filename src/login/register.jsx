@@ -37,8 +37,8 @@ const Register = () => {
         password,
         notifica: checkbox2,
       });
-      auth(username, password, status);
-      navigate(["/museums"]);
+      auth(name, surname, username, email, password, status);
+      navigate("/");
       console.log("done");
     }
   };
