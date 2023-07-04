@@ -1,6 +1,7 @@
 import NavBar from "../home/Navbar";
 import MuseiFirenze from "./MuseiGeneral";
-
+import Footer from "../home/Footer";
+import Main-Firenze from "./MainMusei";
 const DescMusei = () => {
   return (
     <>
@@ -12,6 +13,8 @@ const DescMusei = () => {
       />
       <NavBar />
       <MuseiFirenze />
+      <Main-Firenze/>
+      <Footer />
     </>
   );
 };
