@@ -1,53 +1,92 @@
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "../styles/headerStyle.css";
-import React from "react";
 const Nav = () => {
+  const location = useLocation(); // once ready it returns the 'window.location' object
+  const [url, setUrl] = useState(null);
+  useEffect(() => {
+    setUrl(location.pathname);
+  }, [location]);
   return (
-    <header className="header">
-      <div className="headerLeft">
-        <Link className="btn-links" to={"/"}>
-          <img
-            className="logo"
-            src="https://i.ibb.co/sq7qsF4/logo-Art-Connect-White.png"
-            title="ArtConnect"
-            alt="logo"
-          />
-        </Link>
-        <nav className="navLinks">
-          <button className="linkBtn">
-            <Link className="link--btn" to={"/museums"}>
-              Musei
-            </Link>
-          </button>
-          <button className="linkBtn">Eventi</button>
-          <button className="linkBtn">Assistenza</button>
-        </nav>
-      </div>
-      <div className="headerRight">
-        <div className="headerRightIcons">
-          <img
-            className="globe"
-            src="https://i.ibb.co/M24xQDv/globe.png"
-            title="Cambia lingua"
-            alt="Cambia lingua"
-          />
-          <img
-            className="globe"
-            src="https://i.ibb.co/CWYtHLZ/bell.png"
-            title="Notifiche"
-            alt="Notifiche"
-          />
-          <a href="profile">
+    <React.Fragment>
+      <nav
+        className="navbar  fixed-top bg-dark border-bottom border-bottom-dark navbar-expand"
+        data-bs-theme="dark"
+      >
+        <div className="container-fluid">
+          <Link className="navbar-brand" to={"/"}>
             <img
-              className="globe"
-              src="https://i.ibb.co/YLNmppN/icons8-person-24.png"
-              title="Profilo"
-              alt="Profilo"
+              className="logoHeader"
+              src="https://i.ibb.co/RY9k5Yk/logo-Art-Connect-White.png"
+              alt="ArtConnect"
             />
-          </a>
+          </Link>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link
+                  className={"nav-link " + (url === "/" ? " active" : "")}
+                  to={"/"}
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className={"nav-link" + (url === "/museums" ? " active" : "")}
+                  to={"/museums"}
+                >
+                  Musei
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className={"nav-link" + (url === "/events" ? " active" : "")}
+                  to={"/events"}
+                >
+                  Eventi
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="RighSide">
+            <div className="form-floating-sm mb-0 ">
+              <input
+                type="text"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Ricerca"
+              />
+              <label htmlFor="floatingInput">Cerca</label>
+            </div>
+            <div className="headerRight">
+              <div className="headerRightIcons">
+                <img
+                  className="globe"
+                  src="https://i.ibb.co/M24xQDv/globe.png"
+                  title="Cambia lingua"
+                  alt="Cambia lingua"
+                />
+                <img
+                  className="globe"
+                  src="https://i.ibb.co/CWYtHLZ/bell.png"
+                  title="Notifiche"
+                  alt="Notifiche"
+                />
+                <a href="profile">
+                  <img
+                    className="globe"
+                    src="https://i.ibb.co/YLNmppN/icons8-person-24.png"
+                    title="Profilo"
+                    alt="Profilo"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </header>
+      </nav>
+    </React.Fragment>
   );
 };
 

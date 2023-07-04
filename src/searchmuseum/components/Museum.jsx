@@ -8,7 +8,6 @@ import { Background } from "./searchmuseum";
 const Museum = ({ name, km, category, rating }) => {
   const [profile, setProfile] = useState(false);
   const { main, mapSection } = Background();
-  const card = document.querySelector(".museumCard");
   const ClickProfile = (stato) => {
     main.addEventListener("click", () => {
       setProfile(false);
@@ -16,6 +15,7 @@ const Museum = ({ name, km, category, rating }) => {
       mapSection.style.display = "block";
     });
     setProfile(stato);
+    const card = document.querySelector(".museumCard");
     if (stato === true) {
       card.style.position = "relative";
       mapSection.style.display = "none";

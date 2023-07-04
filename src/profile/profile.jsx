@@ -5,11 +5,14 @@ import Nav from "../searchmuseum/components/header";
 import { Link } from "react-router-dom";
 import app from "../database/databaseHandler";
 import { FuncContext } from "../login/context";
+import { useNavigate } from "react-router-dom";
 
 const db = app.firestore();
 const storage = app.storage();
 
 export default function Profile() {
+  const navigate = useNavigate();
+  const { logged } = useContext(FuncContext);
   const [toggle, setToggle] = useState(false);
 
   const follow = () => {
@@ -22,11 +25,19 @@ export default function Profile() {
 
   const { credentials } = useContext(FuncContext);
 
+  useEffect(() => {
+    if (!logged) {
+      navigate("/login");
+    }
+  }, []);
+
   return (
     <>
       <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+        crossOrigin="anonymous"
       />
       <Nav />
       <div className="container">
