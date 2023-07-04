@@ -8,7 +8,7 @@ import { ViewContext } from "../searchmuseum/hooks/view-context";
 import { FilterContext } from "../searchmuseum/hooks/filter-context";
 import Footer from "./Footer";
 import Nav from "../searchmuseum/components/header";
-import { useMain } from "../login/context";
+import { FuncContext } from "../login/context";
 
 const SearchEvents = () => {
   const [events, setEvents] = useState([]);
@@ -91,17 +91,19 @@ const SearchEvents = () => {
     setCenter(pos.coords.longitude, pos.coords.latitude);
   };
 
-  const Geocoding = (ricerca) => {
+  const Geocoding = async (ricerca) => {
     const API = "https://geocode.maps.co/search?q=" + encodeURI(ricerca);
-    fetch(API)
-      .then((res) => res.json())
-      .then((json) => {
-        if (json !== "") {
-          setCenter(json[0].lon, json[0].lat);
-        } else {
-          alert("Nessun risultato trovato");
-        }
-      });
+    try {
+      const response = await fetch(API);
+      const eventsData = await response.json();
+      if (eventsData !== "") {
+        setCenter(eventsData[0].lon, eventsData[0].lat);
+      } else {
+        alert("Nessun risultato trovato");
+      }
+    } catch (error) {
+      console.error("Errore nel caricamento", error);
+    }
   };
 
   const {
@@ -120,7 +122,7 @@ const SearchEvents = () => {
     );
   };
 
-  const { logged } = useMain();
+  const { logged } = useContext(FuncContext);
 
   return (
     <div className="rootSearchEvent">
