@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles.css';
 
 const CookiePopup = () => {
   const [showPopup, setShowPopup] = useState(true);
