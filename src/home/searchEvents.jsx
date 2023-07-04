@@ -42,7 +42,7 @@ const SearchEvents = () => {
     if (e.key === "Enter" || e.keyCode === 13) {
         const ricerca = e.target.value;
         const ris = [];
-        if (ricerca !== "") {
+        if (ricerca !== "") {          
             const encodedArtist = encodeURI(ricerca);
             const url = `https://rest.bandsintown.com/artists/${encodedArtist}/events?app_id=YOUR_APP_ID&date=upcoming`;
     

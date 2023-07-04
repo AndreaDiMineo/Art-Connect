@@ -24,11 +24,11 @@ export default function Show() {
             <p className="ShowP">
               Una mostra curata da Giulio Ceppi - architetto, designer e
               fondatore di Total Tool - per ripercorrere 100 anni attraverso il
-              colore, il colore vivo della lingua parlata, che diventa storia e
+              colore vivo della lingua parlata, che diventa storia e
               fatto vissuto. 25 cromotipi raccontano eventi di natura politica,
-              sociale, culturale e sportiva tra brigate rosse e black bloc,
+              sociale, culturale e sportiva, tra brigate rosse e black bloc,
               notte bianca e telefono azzurro, quote rosa e tute blu, green
-              economy e black friday, pallone d'oro e maglia rosa fino alle più
+              economy e black friday, pallone d'oro e maglia rosa, fino alle più
               recenti zone rosse.
             </p>
             <button className="btn btn-primary">Prenota</button>
@@ -44,7 +44,7 @@ export default function Show() {
               Robotic voice activated word kicking machine
             </h2>
             <p className="ShowHP">
-              Scopriamo l’opera di Neil Mendoza, un'esplorazione surreale del
+              Scopriamo l’opera di Neil Mendoza: un'esplorazione surreale del
               linguaggio e della relazione che instauriamo quando parliamo con
               le macchine, come gli assistenti vocali basati sull’intelligenza
               artificiale. Attraverso l’installazione osserviamo in che modo le
