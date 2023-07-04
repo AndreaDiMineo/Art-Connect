@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { appDb } from "../firebaseConfig";
-
+import { Link, useLocation } from "react-router-dom";
 const db = appDb.firestore();
 
 const Musei = () => {
+  const location = useLocation(); // once ready it returns the 'window.location' object
+  const [url, setUrl] = useState(null);
+  useEffect(() => {
+    setUrl(location.pathname);
+  }, [location]);
   const [musei, setMusei] = useState([]);
   useEffect(() => {
     const fetchMusei = async () => {
@@ -40,7 +45,19 @@ const Musei = () => {
               alt={museo.nome}
             />
             <div className="card-body">
-              <h4 className="artistName">{museo.nome}</h4>
+              {museo.nome === "Galleria degli Uffizi" ? (
+                <h4 className="artistName">
+                  <Link
+                    className={"nav-link " + (url === "/" ? " active" : "")}
+                    to={"/descrizioneMusei"}
+                  >
+                    {museo.nome}
+                  </Link>
+                </h4>
+              ) : (
+                <h4 className="artistName">{museo.nome}</h4>
+              )}
+
               <p className="artistVenue">{museo.Citta}</p>
               <p className="artistDate">
                 Anno di costruzione: {museo.annoCostruzione}
