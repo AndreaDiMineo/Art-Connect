@@ -32,7 +32,7 @@ const SearchMuseum = () => {
     latitude: ref.current.latitude,
     longitude: ref.current.longitude,
   });
-  
+
   //Imposto centro mappa
   const setCenter = (lng, lat) => {
     setView(lng, lat);
@@ -74,11 +74,10 @@ const SearchMuseum = () => {
       }
     }
   };
-  
-  //_________________________________
-  //_________________________________
-  //_________________________________
 
+  //_________________________________
+  //_________________________________
+  //_________________________________
 
   //Gestione filtri
   const {
@@ -95,7 +94,7 @@ const SearchMuseum = () => {
   const [categoryView, setCategoryView] = useState(false);
   const [filteredMuseums, setFilteredMuseums] = useState([...museums]);
   const [museumView, setMuseumView] = useState(false);
-  
+
   //Calcola distanza (tra centro e museo)
   const calculateDistance = (lng1, lat1, lng2, lat2) => {
     return Math.sqrt(Math.pow(lng2 - lng1, 2) + Math.pow(lat2 - lat1, 2)) * 100;
@@ -158,7 +157,7 @@ const SearchMuseum = () => {
     return (
       <div className="museums">
         {mus.map((museo) => (
-          <Museum name={museo.nome} data={data} info={museo} />
+          <Museum info={museo} />
         ))}
       </div>
     );
