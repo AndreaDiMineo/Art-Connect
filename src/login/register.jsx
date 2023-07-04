@@ -96,6 +96,11 @@ const Register = () => {
                   id="one"
                   class="d-flex flex-row align-items-center justify-content-center"
                 >
+                  <img
+                    className="logoHeader"
+                    src="https://i.ibb.co/dLNs635/logo-Art-Connect-Black.png"
+                    alt="ArtConnect"
+                  />
                   <p class="lead fw-normal mb-1 me-3">Register with</p>
                   <picture style={{ marginRight: "10px" }}>
                     <svg
