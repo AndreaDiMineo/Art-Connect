@@ -5,12 +5,16 @@ import { Link, useNavigate } from "react-router-dom";
 import app from "../database/databaseHandler";
 
 const db = app.firestore();
-const storage = app.storage();
 
 const Form = () => {
   const [utenti, setUtenti] = useState([]);
   const navigate = useNavigate();
   const { auth } = useContext(FuncContext);
+  // const emailRef = useRef(null);
+  // jsx :  ref={emailRef}
+  // const passwordRef = useRef(null);
+  // jsx : ref={passwordRef}
+
   const addData = async (evento) => {
     evento.preventDefault();
     const status = "login";
