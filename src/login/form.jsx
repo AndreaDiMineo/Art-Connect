@@ -20,7 +20,9 @@ const Form = () => {
     const snapshot = await db.collection("Utente").get();
     const utenteData = snapshot.docs.map((doc) => doc.data());
     setUtenti(utenteData);
-    utenti.map((utente) => {
+    const utentiDb = [...utenti];
+    let loginControl = false;
+    utentiDb.map((utente) => {
       if (
         inputs[0].value === utente.email &&
         inputs[1].value === utente.password
@@ -34,8 +36,12 @@ const Form = () => {
           status
         );
         navigate("/");
+        loginControl = true;
       }
     });
+    if (loginControl === false) {
+      alert("Username e/o password sbagliato/i");
+    }
   };
   const { passwordNascondi, passwordInfo, showInfoPassword } =
     useContext(FuncContext);
