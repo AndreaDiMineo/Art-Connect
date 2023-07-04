@@ -11,10 +11,6 @@ import { FuncContext } from "../../login/context";
 import Museum from "./Museum";
 import Footer from "../../home/Footer";
 import Navbar from "../../home/Navbar";
-import app from "../../database/databaseHandler";
-
-const db = app.firestore();
-const storage = app.storage();
 
 const MAPBOX_TOKEN =
   "pk.eyJ1IjoiYWRlcGVkcmluaSIsImEiOiJjbGlrMzd2dWEwZWI5M2trZG5wem04eWV5In0.xku2He5nmX0r89rngZndlQ";
@@ -148,20 +144,11 @@ const SearchMuseum = () => {
     if (museums[0].km === undefined) {
       updateMuseums(marker.longitude, marker.latitude);
     }
-    const [musei, setMusei] = useState([]);
-    const fetchInfo = async () => {
-      const snapshot = await db.collection("Museo").get();
-      const museiData = snapshot.docs.map((doc) => doc.data());
-      setMusei(museiData);
-    };
-    fetchInfo();
     const data = [];
-    {
-      mus.map((v) => data.push(v.km, v.category, v.rating, v.name));
-    }
+    mus.map((v) => data.push(v.km, v.category, v.rating, v.name));
     return (
       <div className="museums">
-        {musei.map((museo) => (
+        {mus.map((museo) => (
           <Museum name={museo.nome} data={data} info={museo} />
         ))}
       </div>

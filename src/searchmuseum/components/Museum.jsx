@@ -8,15 +8,18 @@ const db = app.firestore();
 const storage = app.storage();
 
 const Museum = ({ name, data, info }) => {
-  const [ profile, setProfile ] = useState(false);
+  console.log(name);
+  console.log(data);
+  console.log(info);
+  const [profile, setProfile] = useState(false);
   const { main, mapSection } = Background();
   const card = document.querySelector(".museumCard");
   const ClickProfile = (stato) => {
-    main.addEventListener('click', () => {
+    main.addEventListener("click", () => {
       setProfile(false);
       main.style.backgroundColor = "";
       mapSection.style.display = "block";
-    })
+    });
     setProfile(stato);
     if (stato === true) {
       //card.style.position = "relative";
@@ -26,19 +29,22 @@ const Museum = ({ name, data, info }) => {
       main.style.top = 0;
       main.style.overflow = "auto";
       main.style.opacity = 0.5;
-    }
-    else {
+    } else {
       main.style.backgroundColor = "";
       mapSection.style.display = "block";
     }
-  }
+  };
   return (
     <div className="museumCard">
       <div className="museumCardLeft">
         <img
           className="museumImg"
           src={info.url}
-          onClick={!profile === true ? () => ClickProfile(true) : () => ClickProfile(false)}
+          onClick={
+            !profile === true
+              ? () => ClickProfile(true)
+              : () => ClickProfile(false)
+          }
         />
       </div>
       <div className="museumCardRight">

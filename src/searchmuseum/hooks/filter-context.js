@@ -1,5 +1,10 @@
 import { createContext, useState } from "react";
 import React from "react";
+import app from "../../database/databaseHandler";
+
+const db = app.firestore();
+const storage = app.storage();
+
 export const useFilter = () => {
   //Filtro attivo/disattivo
   const [filter, setFilter] = useState(false);
@@ -64,7 +69,14 @@ export const useFilter = () => {
       longitude: 9.1891267,
     },
   ];
+
   const [museums, setMuseums] = useState(testMuseums);
+  /*const fetchInfo = async () => {
+    const snapshot = await db.collection("Museo").get();
+    const museiData = snapshot.docs.map((doc) => doc.data());
+    setMuseums(museiData);
+  };
+  fetchInfo();*/
   return {
     clickFilter,
     filter,
