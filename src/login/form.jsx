@@ -64,6 +64,13 @@ const Form = () => {
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
               <form onSubmit={addData}>
                 <div class="d-flex flex-row align-items-center justify-content-center">
+                 <Link className="navbar-brand" to={"/"}>
+                <img
+                 className="logoHeader"
+                 src="https://i.ibb.co/dLNs635/logo-Art-Connect-Black.png"
+                 alt="ArtConnect"
+                />
+                 </Link>
                   <p className="lead fw-normal mb-0 me-3">Sign in with</p>
                   <picture style={{ marginRight: "10px" }}>
                     <svg
