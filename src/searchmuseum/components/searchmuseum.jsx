@@ -8,7 +8,7 @@ import { useState, useContext, useRef } from "react";
 import { ViewContext } from "../hooks/view-context";
 import { FilterContext } from "../hooks/filter-context";
 import { FuncContext } from "../../login/context";
-import Museum from "./museum";
+import Museum from "./Museum";
 import Footer from "../../home/Footer";
 import Navbar from "../../home/Navbar";
 import app from "../../database/databaseHandler";
@@ -153,20 +153,16 @@ const SearchMuseum = () => {
       const snapshot = await db.collection("Museo").get();
       const museiData = snapshot.docs.map((doc) => doc.data());
       setMusei(museiData);
-    }
+    };
     fetchInfo();
     const data = [];
-    {mus.map((v) => 
-      data.push(v.km, v.category, v.rating, v.name)
-    )}
+    {
+      mus.map((v) => data.push(v.km, v.category, v.rating, v.name));
+    }
     return (
       <div className="museums">
         {musei.map((museo) => (
-          <Museum
-            name={museo.nome}
-            data={data}
-            info={museo}
-          />
+          <Museum name={museo.nome} data={data} info={museo} />
         ))}
       </div>
     );
