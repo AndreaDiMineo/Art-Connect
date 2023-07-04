@@ -21,6 +21,13 @@ const ForgetYourPassword = () => {
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
               <form>
                 <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                  <Link className="navbar-brand" to={"/"}>
+                    <img
+                      className="logoHeader"
+                      src="https://i.ibb.co/dLNs635/logo-Art-Connect-Black.png"
+                      alt="ArtConnect"
+                    />
+                  </Link>
                   <h3>Recupera Password</h3>
                 </div>
                 <div className="divider d-flex align-items-center my-4"></div>
