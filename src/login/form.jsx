@@ -18,15 +18,19 @@ const Form = () => {
   const addData = async (evento) => {
     evento.preventDefault();
     const status = "login";
+    //questi 
     const form = document.querySelector("form");
     const inputs = form.querySelectorAll("input");
-
+//=>
+     //const emailValue = emailRef.current.value;
+    //const passwordValue = passwordRef.current.value;
     const snapshot = await db.collection("Utente").get();
     const utenteData = snapshot.docs.map((doc) => doc.data());
     setUtenti(utenteData);
     const utentiDb = [...utenti];
     let loginControl = false;
     utentiDb.map((utente) => {
+     //  if (emailValue === utente.email && passwordValue === utente.password) { 
       if (
         inputs[0].value === utente.email &&
         inputs[1].value === utente.password
