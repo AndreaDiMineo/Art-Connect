@@ -41,7 +41,7 @@ const NavBar = () => {
               <li className="nav-item">
                 <Link
                   className={"nav-link" + (url === "/events" ? " active" : "")}
-                  to={"/"}
+                  to={"/events"}
                 >
                   Eventi
                 </Link>
