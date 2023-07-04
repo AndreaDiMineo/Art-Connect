@@ -1,7 +1,6 @@
 import "../styles/searchmuseumStyle.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import Nav from "./header";
 import { React } from "react";
 import { Map, Marker, NavigationControl } from "react-map-gl";
 import { useState, useContext, useRef } from "react";
@@ -10,7 +9,6 @@ import { FilterContext } from "../hooks/filter-context";
 import Museum from "./Museum";
 import Footer from "../../homepage/footer";
 import Navbar from "../../home/Navbar";
-import { useMain } from "../../login/context";
 
 const MAPBOX_TOKEN =
   "pk.eyJ1IjoiYWRlcGVkcmluaSIsImEiOiJjbGlrMzd2dWEwZWI5M2trZG5wem04eWV5In0.xku2He5nmX0r89rngZndlQ";
@@ -192,8 +190,6 @@ const SearchMuseum = () => {
     );
   };
 
-  const { logged } = useMain();
-
   //HTML
   return (
     <>
@@ -203,7 +199,7 @@ const SearchMuseum = () => {
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
         crossOrigin="anonymous"
       />
-      {!logged === true ? <Navbar /> : <Nav />}
+      <Navbar />
       <div className="rootSearchMuseum">
         <main className="pageSearchMuseum">
           <h1 className="titleSearchMuseum">Cosa vuoi visitare?</h1>
