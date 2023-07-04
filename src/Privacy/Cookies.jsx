@@ -8,7 +8,6 @@ const CookiePopup = () => {
   };
 
   const handleDecline = () => {
-    // Aggiungi qui la logica per gestire il rifiuto dei cookies
     setShowPopup(false);
   };
 
