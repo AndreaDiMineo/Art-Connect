@@ -72,11 +72,13 @@ const router = createBrowserRouter([
     path: "/museums",
     element: (
       <div>
-        <ViewProvider>
-          <FilterProvider>
-            <SearchMuseum />
-          </FilterProvider>
-        </ViewProvider>
+        <FuncProvider>
+          <ViewProvider>
+            <FilterProvider>
+              <SearchMuseum />
+            </FilterProvider>
+          </ViewProvider>
+        </FuncProvider>
       </div>
     ),
   },
@@ -84,9 +86,11 @@ const router = createBrowserRouter([
     path: "/profile",
     element: (
       <div>
-        <FilterProvider>
-          <Profile />
-        </FilterProvider>
+        <FuncProvider>
+          <FilterProvider>
+            <Profile />
+          </FilterProvider>
+        </FuncProvider>
       </div>
     ),
   },
@@ -94,7 +98,9 @@ const router = createBrowserRouter([
     path: "/edit-profile",
     element: (
       <div>
-        <EditProfile />
+        <FuncProvider>
+          <EditProfile />
+        </FuncProvider>
       </div>
     ),
   },
@@ -112,11 +118,13 @@ const router = createBrowserRouter([
     path: "/events",
     element: (
       <div>
-        <ViewProvider>
-          <FilterProvider>
-            <SearchEvents />
-          </FilterProvider>
-        </ViewProvider>
+        <FuncProvider>
+          <ViewProvider>
+            <FilterProvider>
+              <SearchEvents />
+            </FilterProvider>
+          </ViewProvider>
+        </FuncProvider>
       </div>
     ),
   },
