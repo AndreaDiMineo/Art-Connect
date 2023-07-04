@@ -1,7 +1,7 @@
 import "../styles/searchmuseumStyle.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import Header from "./header";
+import Nav from "./header";
 import { React } from "react";
 import { Map, Marker, NavigationControl } from "react-map-gl";
 import { useState, useContext, useRef } from "react";
@@ -164,6 +164,7 @@ const SearchMuseum = () => {
             latitude={v.latitude}
             color="blue"
             onClick={() => alert(v.name)}
+            key={v.name}
           />
         ))}
       </div>
@@ -197,12 +198,12 @@ const SearchMuseum = () => {
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
       />
       {!logged === true ? <Navbar /> : <Nav />}
       <div className="rootSearchMuseum">
         <main className="pageSearchMuseum">
-          <h1 class="titleSearchMuseum">Cosa vuoi visitare?</h1>
+          <h1 className="titleSearchMuseum">Cosa vuoi visitare?</h1>
           <section className="mainSearchMuseum">
             <div className="mainLeft">
               <div className="geo">
@@ -240,21 +241,21 @@ const SearchMuseum = () => {
                           id="default"
                           onClick={changeOrder}
                         >
-                          Default
+                          Più rilevanti
                         </p>
                         <p
                           className={"rating" === order ? "selectedOrder" : ""}
                           id="rating"
                           onClick={changeOrder}
                         >
-                          Più valutato
+                          Migliori
                         </p>
                         <p
                           className={"closest" === order ? "selectedOrder" : ""}
                           id="closest"
                           onClick={changeOrder}
                         >
-                          Più vicini
+                          Vicino a te
                         </p>
                       </div>
                     ) : (

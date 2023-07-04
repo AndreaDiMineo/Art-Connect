@@ -4,17 +4,18 @@
 }
 
 .pageSearchMuseum {
-  margin: 1rem;
+  margin: 1.5rem;
 }
 
 .titleSearchMuseum {
-  text-align: left;
+  text-align: center;
   margin-left: 1%;
   font-size: 32px !important;
 }
 
 .mainSearchMuseum {
   margin: 0.5rem;
+  margin-top: 1.5rem;
   display: flex;
 }
 
