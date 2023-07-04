@@ -1,6 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 const NavBar = () => {
+  const location = useLocation(); // once ready it returns the 'window.location' object
+  const [url, setUrl] = useState(null);
+  useEffect(() => {
+    setUrl(location.pathname);
+  }, [location]);
   return (
     <React.Fragment>
       <nav
@@ -9,26 +14,37 @@ const NavBar = () => {
       >
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            <img
-              className="logoHeader"
-              src="https://i.ibb.co/RY9k5Yk/logo-Art-Connect-White.png"
-              alt="ArtConnect"
-            />
+            <Link to={"/"}>
+              <img
+                className="logoHeader"
+                src="https://i.ibb.co/RY9k5Yk/logo-Art-Connect-White.png"
+                alt="ArtConnect"
+              />
+            </Link>
           </a>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to={"/"}>
+                <Link
+                  className={"nav-link " + (url === "/" ? " active" : "")}
+                  to={"/"}
+                >
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={"/museums"}>
+                <Link
+                  className={"nav-link" + (url === "/museums" ? " active" : "")}
+                  to={"/museums"}
+                >
                   Musei
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={"/"}>
+                <Link
+                  className={"nav-link" + (url === "/events" ? " active" : "")}
+                  to={"/"}
+                >
                   Eventi
                 </Link>
               </li>
