@@ -203,7 +203,7 @@ const SearchMuseum = () => {
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
         crossOrigin="anonymous"
       />
-      {!logged === true ? <Navbar /> : <Nav />}
+      {!logged === true ? <Nav /> : <Nav />}
       <div className="rootSearchMuseum">
         <main className="pageSearchMuseum">
           <h1 className="titleSearchMuseum">Cosa vuoi visitare?</h1>
