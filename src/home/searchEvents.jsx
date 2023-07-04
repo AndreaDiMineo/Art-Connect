@@ -6,7 +6,7 @@ import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import { Map, Marker, NavigationControl } from "react-map-gl";
 import { ViewContext } from "../searchmuseum/hooks/view-context";
 import { FilterContext } from "../searchmuseum/hooks/filter-context";
-import Footer from "./footer";
+import Footer from "./Footer";
 import Nav from "../searchmuseum/components/header";
 import { useMain } from "../login/context";
 
