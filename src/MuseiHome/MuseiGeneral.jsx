@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { appDb } from "../firebaseConfig";
 
 const db = appDb.firestore();
@@ -14,7 +14,7 @@ const MuseiFirenze = () => {
       setMusei(museiData);
     };
 
-    fetchMusei(musei);
+    fetchMusei();
   }, []);
 
   const goToPreviousImage = () => {
@@ -61,7 +61,12 @@ const MuseiFirenze = () => {
                 index === currentImage ? "active" : ""
               }`}
             >
-              <img src={museo.image} className="d-block w-100" alt="..." />
+              <img
+                src={museo.image}
+                className="d-block w-100"
+                alt="..."
+                style={{ height: "400px", objectFit: "cover" }}
+              />
             </div>
           ))}
         </div>
