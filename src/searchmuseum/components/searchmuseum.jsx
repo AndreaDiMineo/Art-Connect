@@ -1,7 +1,7 @@
 import "../styles/searchmuseumStyle.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import Header from "./header";
+import Nav from "./header";
 import { React } from "react";
 import { Map, Marker, NavigationControl } from "react-map-gl";
 import { useState, useContext, useRef } from "react";
@@ -241,21 +241,21 @@ const SearchMuseum = () => {
                           id="default"
                           onClick={changeOrder}
                         >
-                          Default
+                          Più rilevanti
                         </p>
                         <p
                           className={"rating" === order ? "selectedOrder" : ""}
                           id="rating"
                           onClick={changeOrder}
                         >
-                          Più valutato
+                          Migliori
                         </p>
                         <p
                           className={"closest" === order ? "selectedOrder" : ""}
                           id="closest"
                           onClick={changeOrder}
                         >
-                          Più vicini
+                          Vicino a te
                         </p>
                       </div>
                     ) : (

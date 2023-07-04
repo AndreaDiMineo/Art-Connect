@@ -3,9 +3,10 @@ import "./styleHome.css";
 import React from "react";
 import Navbar from "./Navbar.jsx";
 import Musei from "./Musei";
-import Footer from "./footer";
+import Footer from "./Footer";
 import Nav from "../searchmuseum/components/header";
 import { FuncContext } from "../login/context";
+import { useContext } from "react";
 
 const Home = () => {
   const { logged } = useContext(FuncContext);

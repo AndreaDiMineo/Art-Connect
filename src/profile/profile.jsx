@@ -1,6 +1,6 @@
 import "./styles.css";
 import { useContext, useEffect, useState } from "react";
-import Footer from "../home/footer";
+import Footer from "../home/Footer";
 import Nav from "../searchmuseum/components/header";
 import { Link } from "react-router-dom";
 import app from "../database/databaseHandler";
@@ -28,7 +28,7 @@ export default function Profile() {
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         rel="stylesheet"
       />
-      <Nav/>
+      <Nav />
       <div className="container">
         <div className="main-body">
           <div className="row gutters-sm">
@@ -76,7 +76,9 @@ export default function Profile() {
                     <div className="col-sm-3">
                       <h6 className="mb-0">Full Name</h6>
                     </div>
-                    <div className="col-sm-9 text-secondary">{credentials[0]} {credentials[1]}</div>
+                    <div className="col-sm-9 text-secondary">
+                      {credentials[0]} {credentials[1]}
+                    </div>
                   </div>
                   <hr />
                   <div className="row">
@@ -110,10 +112,7 @@ export default function Profile() {
                   <hr />
                   <div className="row">
                     <div className="col-sm-10">
-                      <Link
-                        className="btn-settings"
-                        to={"/edit-profile"}
-                      >
+                      <Link className="btn-settings" to={"/edit-profile"}>
                         Edit Profile
                       </Link>
                       <a
