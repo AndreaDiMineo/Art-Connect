@@ -1,42 +1,42 @@
 import { useEffect, useState } from "react";
 import { appDb } from "../firebaseConfig";
 
-const db = appDb.firestore();
+const dbA = appDb.firestore();
 
 const MainFirenze = () => {
-  const [musei, setMusei] = useState([]);
-  console.log(musei);
+  const [GalleriaFirenze, setMuseiF] = useState([]);
 
   useEffect(() => {
-    const fetchMusei = async () => {
-      console.log(db);
-      const snapshot = await db.collection("GalleriaFirenze").get();
-      const museiData = snapshot.docs.map((doc) => doc.data());
-      setMusei(museiData);
-      console.log(museiData);
+    const fetchMuseiF = async () => {
+      const snapshot = await dbA.collection("GalleriaFirenze").get();
+
+      const GalleriaFirenze = snapshot.docs.map((doc) => doc.data());
+      setMuseiF(GalleriaFirenze);
     };
 
-    fetchMusei();
+    fetchMuseiF();
   }, []);
-  console.log(musei);
+
   return (
-    <div>
-      <h1>{musei[1].titolo}</h1>
-      <h3>{musei[1].sottotitolo}</h3>
+    <div style={{ margin: "4rem" }}>
+      <h1 style={{ textAlign: "center", marginBottom: "4rem" }}>
+        {GalleriaFirenze[0]?.titolo}
+      </h1>
+      <h3>{GalleriaFirenze[0]?.sottotitolo}</h3>
       <article>
-        <p>{musei[1].parg1}</p>
+        <p>{GalleriaFirenze[0]?.parg1}</p>
       </article>
-      <div>
-        <img src={musei[1].image1} />
+      <div style={{ display: "flex", justifyContent: "space-around" }}>
+        <img src={GalleriaFirenze[0]?.image1} />
       </div>
       <article>
-        <p>{musei[1].parg2}</p>
+        <p>{GalleriaFirenze[0]?.parg2}</p>
       </article>
-      <div>
-        <img src={musei[1].image2} />
+    <div style={{ display: "flex", justifyContent: "space-around" }}>
+        <img src={GalleriaFirenze[0]?.image2} />
       </div>
       <article>
-        <p>{musei[1].parg3}</p>
+        <p>{GalleriaFirenze[0]?.parg3}</p>
       </article>
     </div>
   );

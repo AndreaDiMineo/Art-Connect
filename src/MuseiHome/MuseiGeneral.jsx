@@ -14,7 +14,7 @@ const MuseiFirenze = () => {
       setMusei(museiData);
     };
 
-    fetchMusei();
+    fetchMusei(musei);
   }, []);
 
   const goToPreviousImage = () => {
