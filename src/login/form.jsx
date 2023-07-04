@@ -11,39 +11,31 @@ const Form = () => {
   const [utenti, setUtenti] = useState([]);
   const navigate = useNavigate();
   const { auth } = useContext(FuncContext);
-  const addData = async () => {
+  const addData = async (evento) => {
+    evento.preventDefault();
     const status = "login";
     const form = document.querySelector("form");
     const inputs = form.querySelectorAll("input");
-    if (
-      (inputs[0].value === "" && inputs[1].value) ||
-      inputs[0].value === "" ||
-      inputs[1].value === ""
-    ) {
-      alert("Riempi tutti i campi obbligatori");
-    } else {
-      const snapshot = await db.collection("Utente").get();
-      const utenteData = snapshot.docs.map((doc) => doc.data());
-      setUtenti(utenteData);
-      utenti.map((utente) => {
-        if (
-          inputs[0].value === utente.email &&
-          inputs[1].value === utente.password
-        ) {
-          auth(
-            utente.name,
-            utente.surname,
-            utente.username,
-            utente.email,
-            utente.password,
-            status
-          );
-          navigate(["/museums"]);
-        } else {
-          alert("Username e/o password sbagliato/i");
-        }
-      });
-    }
+
+    const snapshot = await db.collection("Utente").get();
+    const utenteData = snapshot.docs.map((doc) => doc.data());
+    setUtenti(utenteData);
+    utenti.map((utente) => {
+      if (
+        inputs[0].value === utente.email &&
+        inputs[1].value === utente.password
+      ) {
+        auth(
+          utente.name,
+          utente.surname,
+          utente.username,
+          utente.email,
+          utente.password,
+          status
+        );
+        navigate("/");
+      }
+    });
   };
   const { passwordNascondi, passwordInfo, showInfoPassword } =
     useContext(FuncContext);
@@ -64,13 +56,13 @@ const Form = () => {
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
               <form onSubmit={addData}>
                 <div class="d-flex flex-row align-items-center justify-content-center">
-                 <Link className="navbar-brand" to={"/"}>
-                <img
-                 className="logoHeader"
-                 src="https://i.ibb.co/dLNs635/logo-Art-Connect-Black.png"
-                 alt="ArtConnect"
-                />
-                 </Link>
+                  <Link className="navbar-brand" to={"/"}>
+                    <img
+                      className="logoHeader"
+                      src="https://i.ibb.co/dLNs635/logo-Art-Connect-Black.png"
+                      alt="ArtConnect"
+                    />
+                  </Link>
                   <p className="lead fw-normal mb-0 me-3">Sign in with</p>
                   <picture style={{ marginRight: "10px" }}>
                     <svg
