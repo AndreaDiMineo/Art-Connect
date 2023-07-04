@@ -4,6 +4,21 @@ import { FuncContext } from "./context";
 import { Link, useNavigate } from "react-router-dom";
 import app from "../database/databaseHandler";
 const db = app.firestore();
+// allora dentro questo codoice si fanno tante chiamate al db una chiamata per ogni campo
+// quindi quesa una modfica che non posso provare
+// questa la prima parte da modificare usando useState perche con querySelector stiamo in js e facciamo tante chaiamte per quello react non riesci a gestire lo stato
+/*
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState(""); 
+// elimino const checkbox1 = inputs[5].checked; perche un campo required
+
+  const [checkbox2, setCheckbox2] = useState(false);
+  poi per ogni campo di input  => onChange={(e) => setName(e.target.value)}
+  
+  */
 
 const Register = () => {
   const navigate = useNavigate();
