@@ -33,6 +33,11 @@ form {
   margin-right: 2rem;
 }
 
+.disableLink {
+  text-decoration: none;
+  color: inherit;
+}
+
 @media (max-width: 450px) {
   .h-custom {
     height: 100%;
