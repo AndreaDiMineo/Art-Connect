@@ -70,7 +70,7 @@ const Museum = ({ info }) => {
           <p>{info.rating}</p>
         </div>
       </div>
-      {!profile === true ? null : <MuseumProfile data={info} />}
+      {!profile === true ? null : <MuseumProfile info={info} />}
     </div>
   );
 };
