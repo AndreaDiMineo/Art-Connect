@@ -275,7 +275,7 @@ const Register = () => {
                     class="btn btn-primary btn-lg"
                     id="login-btn"
                   >
-                    Create Account
+                    Crea account
                   </button>
                 </div>
 
