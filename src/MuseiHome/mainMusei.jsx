@@ -15,8 +15,7 @@ const Main-Firenze = () => {
 
     fetchMusei();
   }, []);
-  return 
-  (<div>
+  return (<div>
    <h1>{musei[1].titolo}</h1>
    <h3>{musei[1].sottotitolo}<h3>
    <article>
@@ -35,7 +34,9 @@ const Main-Firenze = () => {
     <p>{musei[1].parg3}</p>
    </article>
    
-  </div>
-  )
+  </div>) 
+  }
   
-  export default Main-Firenze
+ 
+  
+export default  Main-Firenze
