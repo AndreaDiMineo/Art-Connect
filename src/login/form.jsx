@@ -15,18 +15,23 @@ const Form = () => {
         const status = "login";
         const form = document.querySelector("form");
         const inputs = form.querySelectorAll("input");
-        const snapshot = await db.collection("Utente").get();
-        const utenteData = snapshot.docs.map((doc) => doc.data());
-        setUtenti(utenteData);
-        utenti.map((utente) => {
-            if (inputs[0].value === utente.email && inputs[1].value === utente.password) {
-                auth(utente.name, utente.surname, utente.username, utente.email, utente.password, status);
-                navigate(["/museums"]);
-            }
-            else {
-                alert("Username e/o password sbagliato/i");
-            }
-        })
+        if ((inputs[0].value === "" && inputs[1].value) || (inputs[0].value === "" || inputs[1].value === "")) {
+            alert("Riempi tutti i campi obbligatori");
+        }
+        else {
+            const snapshot = await db.collection("Utente").get();
+            const utenteData = snapshot.docs.map((doc) => doc.data());
+            setUtenti(utenteData);
+            utenti.map((utente) => {
+                if (inputs[0].value === utente.email && inputs[1].value === utente.password) {
+                    auth(utente.name, utente.surname, utente.username, utente.email, utente.password, status);
+                    navigate(["/museums"]);
+                }
+                else {
+                    alert("Username e/o password sbagliato/i");
+                }
+            })
+        }
       };
     const {
         passwordNascondi,
