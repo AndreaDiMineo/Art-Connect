@@ -50,6 +50,7 @@ const SearchMuseum = () => {
   };
   const getCoordsLocation = (pos) => {
     setCenter(pos.coords.longitude, pos.coords.latitude);
+    setMuseumView(true);
   };
 
   //Geocoding: ricerca per nome
@@ -60,6 +61,7 @@ const SearchMuseum = () => {
       .then((json) => {
         if (json !== "") {
           setCenter(json[0].lon, json[0].lat);
+          setMuseumView(true);
         } else {
           alert("Nessun risultato trovato");
         }
@@ -88,6 +90,7 @@ const SearchMuseum = () => {
   const [orderView, setOrderView] = useState(false);
   const [categoryView, setCategoryView] = useState(false);
   const [filteredMuseums, setFilteredMuseums] = useState([...museums]);
+  const [museumView, setMuseumView] = useState(false);
 
   //Ordina musei
   const orderMuseums = (museum, order) => {
@@ -311,7 +314,7 @@ const SearchMuseum = () => {
                   <p></p>
                 )}
               </div>
-              <Museums />
+              {museumView ? <Museums /> : <></>}
             </div>
             <div className="mainRight">
               <Map
@@ -329,7 +332,7 @@ const SearchMuseum = () => {
                   color="red"
                 />
                 <NavigationControl />
-                <MarkerMuseum />
+                {museumView ? <MarkerMuseum /> : <></>}
               </Map>
             </div>
           </section>
