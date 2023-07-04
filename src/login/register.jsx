@@ -15,10 +15,11 @@ const Register = () => {
     const inputs = form.querySelectorAll("input");
     const name = inputs[0].value;
     const surname = inputs[1].value;
-    const username = inputs[2].value;
-    const email = inputs[3].value;
+    const username = inputs[3].value;
+    const email = inputs[2].value;
     const password = inputs[4].value;
-    const checkbox1 = inputs[5].value;
+    const checkbox1 = inputs[5].checked;
+    const checkbox2 = form.querySelector("#notifiche").checked;
     const status = "register";
     if (
       (name === "" &&
@@ -35,16 +36,50 @@ const Register = () => {
       checkbox1 === false
     ) {
       alert("Riempi tutti i campi obbligatori");
+    } else if (!checkPassword(password)) {
+      alert("Password errata");
     } else {
-      await db
-        .collection("Utente")
-        .add({ name, surname, username, email, password });
-      auth(name, surname, username, email, password, status);
+      const currentDate = new Date();
+      await db.collection("Utente").add({
+        idUtente: currentDate.getTime(),
+        nome: name,
+        cognome: surname,
+        username,
+        email,
+        password,
+        notifica: checkbox2,
+      });
+      auth(username, password, status);
       navigate(["/museums"]);
     }
   };
   const { passwordNascondi, passwordInfo, showInfoPassword } =
     useContext(FuncContext);
+  const checkPassword = (psw) => {
+    if (
+      psw.length >= 8 &&
+      containsSpecialCharacters(psw) &&
+      containsUppercase(psw) &&
+      containsNumbers(psw)
+    ) {
+      return true;
+    }
+    return false;
+  };
+
+  const containsSpecialCharacters = (str) => {
+    var specialCharacters = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+    return specialCharacters.test(str);
+  };
+
+  const containsUppercase = (str) => {
+    return /[A-Z]/.test(str);
+  };
+
+  const containsNumbers = (str) => {
+    return /[0-9]/.test(str);
+  };
+
   return (
     <>
       <section class="vh-100">
@@ -157,9 +192,6 @@ const Register = () => {
                       aria-label="Enter your email"
                       aria-describedby="basic-addon2"
                     />
-                    <span class="input-group-text" id="basic-addon2">
-                      @example.com
-                    </span>
                   </div>
                 </div>
                 <div class="form-outline ">
@@ -186,7 +218,7 @@ const Register = () => {
                   />
                   {showInfoPassword && (
                     <p>
-                      La password deve contenere più di 8 caratteri con almeno
+                      La password deve contenere almeno 8 caratteri con almeno
                       una lettera maiuscola, un numero e un carattere speciale.
                     </p>
                   )}
@@ -228,7 +260,7 @@ const Register = () => {
                     class="form-check-input me-2"
                     type="checkbox"
                     value=""
-                    id="form2Example3cg"
+                    id="notifiche"
                     className="checkboxInput2"
                   />
                   <label class="form-check-label" for="form2Example3g">
