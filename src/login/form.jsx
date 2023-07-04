@@ -21,7 +21,7 @@ const Form = () => {
     const utenteData = snapshot.docs.map((doc) => doc.data());
     setUtenti(utenteData);
     const utentiDb = [...utenti];
-    let loginControl = false;
+    let loginControl = true;
     utentiDb.map((utente) => {
       if (
         inputs[0].value === utente.email &&
@@ -37,7 +37,7 @@ const Form = () => {
         );
         navigate("/");
         loginControl = true;
-      }
+      } else loginControl = false;
     });
     if (loginControl === false) {
       alert("Username e/o password sbagliato/i");
