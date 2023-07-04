@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./form.css";
-import { FuncContext, useMain } from "./context";
+import { FuncContext } from "./context";
 import { Link, useNavigate } from "react-router-dom";
 import app from "../database/databaseHandler";
 
@@ -10,8 +10,9 @@ const storage = app.storage();
 const Form = () => {
     const [utenti, setUtenti] = useState([]);
     const navigate = useNavigate();
-    const { auth } = useMain();
+    const { auth } = useContext(FuncContext);
     const addData = async () => {
+        const status = "login";
         const form = document.querySelector("form");
         const inputs = form.querySelectorAll("input");
         const snapshot = await db.collection("Utente").get();
@@ -19,8 +20,8 @@ const Form = () => {
         setUtenti(utenteData);
         utenti.map((utente) => {
             if (inputs[0].value === utente.email && inputs[1].value === utente.password) {
-                auth();
-                navigate("/museums");
+                auth(utente.name, utente.surname, utente.username, utente.email, utente.password, status);
+                navigate(["/museums"]);
             }
             else {
                 alert("Username e/o password sbagliato/i");
