@@ -1,7 +1,7 @@
 import "./styles.css";
 import { useContext, useEffect, useState } from "react";
 import Footer from "../home/Footer";
-import Nav from "../searchmuseum/components/header";
+import Navbar from "../home/Navbar.jsx";
 import { Link } from "react-router-dom";
 import app from "../database/databaseHandler";
 import { FuncContext } from "../login/context";
@@ -39,7 +39,7 @@ export default function Profile() {
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
         crossOrigin="anonymous"
       />
-      <Nav />
+      <Navbar />
       <div className="container">
         <div className="main-body">
           <div className="row gutters-sm">

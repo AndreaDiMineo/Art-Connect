@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { FuncContext } from "../login/context";
+import { useContext } from "react";
 const NavBar = () => {
   const location = useLocation(); // once ready it returns the 'window.location' object
   const [url, setUrl] = useState(null);
   useEffect(() => {
     setUrl(location.pathname);
   }, [location]);
+
+  const { logged } = useContext(FuncContext);
   return (
     <React.Fragment>
       <nav
@@ -58,15 +62,42 @@ const NavBar = () => {
               />
               <label htmlFor="floatingInput">Cerca</label>
             </div>
-            <Link to="/login">
-              <button
-                id="accedi"
-                type="button"
-                className="btn btn-outline-light"
-              >
-                Accedi
-              </button>
-            </Link>
+            {!logged ? (
+              <Link to="/login">
+                <button
+                  id="accedi"
+                  type="button"
+                  className="btn btn-outline-light"
+                >
+                  Accedi
+                </button>
+              </Link>
+            ) : (
+              <div className="headerRight">
+                <div className="headerRightIcons">
+                  <img
+                    className="globe"
+                    src="https://i.ibb.co/M24xQDv/globe.png"
+                    title="Cambia lingua"
+                    alt="Cambia lingua"
+                  />
+                  <img
+                    className="globe"
+                    src="https://i.ibb.co/CWYtHLZ/bell.png"
+                    title="Notifiche"
+                    alt="Notifiche"
+                  />
+                  <a href="profile">
+                    <img
+                      className="globe"
+                      src="https://i.ibb.co/YLNmppN/icons8-person-24.png"
+                      title="Profilo"
+                      alt="Profilo"
+                    />
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </nav>
