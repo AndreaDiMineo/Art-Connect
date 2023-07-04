@@ -6,6 +6,7 @@ export const useMain = () => {
   const [logged, setLogged] = useState(false);
   const [toggle, setToggle] = useState(true);
   const [togglePass, setTogglePass] = useState(false);
+  const credentials = [];
 
   const validatePassword = (password) => {
     const regex =
@@ -30,13 +31,20 @@ export const useMain = () => {
     else setTogglePass(true);
   };
 
-  const auth = () => {
-    setLogged(true);
+  const auth = (name, surname, username, email, password, status) => {
+    if (status === "register") {
+      credentials.push(name, surname, username, email, password);
+      setLogged(true);
+    } else {
+      setLogged(true);
+    }
   };
 
   return {
     toggle,
     auth,
+    logged,
+    credentials,
     register,
     passwordNascondi,
     passwordInfo,
@@ -53,6 +61,8 @@ export const FuncProvider = ({ children }) => {
   const {
     toggle,
     auth,
+    logged,
+    credentials,
     register,
     passwordNascondi,
     passwordInfo,
@@ -66,6 +76,8 @@ export const FuncProvider = ({ children }) => {
       value={{
         toggle,
         auth,
+        logged,
+        credentials,
         register,
         passwordNascondi,
         passwordInfo,
