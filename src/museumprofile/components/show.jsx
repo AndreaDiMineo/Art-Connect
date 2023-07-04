@@ -4,10 +4,6 @@ import React from "react";
 export default function Show() {
   return (
     <div className="showContainer">
-      <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-      />
       <div className="container">
         <h1
           className="ShowH1
@@ -17,15 +13,15 @@ export default function Show() {
         </h1>
         <div className="show">
           <a href="https://imgbb.com/">
-            <img src="https://i.ibb.co/vQfNpmR/image.png" alt="image" />
+            <img src="https://i.ibb.co/vQfNpmR/image.png" alt="mostra" />
           </a>
           <div className="desc">
             <h2 className="ShowH2">Sociocromie</h2>
             <p className="ShowP">
               Una mostra curata da Giulio Ceppi - architetto, designer e
               fondatore di Total Tool - per ripercorrere 100 anni attraverso il
-              colore vivo della lingua parlata, che diventa storia e
-              fatto vissuto. 25 cromotipi raccontano eventi di natura politica,
+              colore vivo della lingua parlata, che diventa storia e fatto
+              vissuto. 25 cromotipi raccontano eventi di natura politica,
               sociale, culturale e sportiva, tra brigate rosse e black bloc,
               notte bianca e telefono azzurro, quote rosa e tute blu, green
               economy e black friday, pallone d'oro e maglia rosa, fino alle più
@@ -37,7 +33,7 @@ export default function Show() {
         </div>
         <div className="show">
           <a href="https://imgbb.com/">
-            <img src="https://i.ibb.co/ZB6Kryf/image.png" alt="image" />
+            <img src="https://i.ibb.co/ZB6Kryf/image.png" alt="mostra" />
           </a>
           <div className="desc">
             <h2 className="ShowH2">

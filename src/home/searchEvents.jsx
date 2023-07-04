@@ -7,7 +7,6 @@ import { Map, Marker, NavigationControl } from "react-map-gl";
 import { ViewContext } from "../searchmuseum/hooks/view-context";
 import { FilterContext } from "../searchmuseum/hooks/filter-context";
 import Footer from "./Footer";
-import Nav from "../searchmuseum/components/header";
 import { FuncContext } from "../login/context";
 import Tickets from "../museumprofile/components/tickets";
 
@@ -41,31 +40,29 @@ const SearchEvents = () => {
 
   const showEvents = async (e) => {
     if (e.key === "Enter" || e.keyCode === 13) {
-        const ricerca = e.target.value;
-        const ris = [];
-        if (ricerca !== "") {          
-            const encodedArtist = encodeURI(ricerca);
-            const url = `https://rest.bandsintown.com/artists/${encodedArtist}/events?app_id=YOUR_APP_ID&date=upcoming`;
-    
-            try {
-              const response = await fetch(url);
-              const eventsData = await response.json();
+      const ricerca = e.target.value;
+      const ris = [];
+      if (ricerca !== "") {
+        const encodedArtist = encodeURI(ricerca);
+        const url = `https://rest.bandsintown.com/artists/${encodedArtist}/events?app_id=YOUR_APP_ID&date=upcoming`;
 
-              if (eventsData.length !== 0)
-                ris.push(...eventsData);
-              else
-                alert("Nessun risultato trovato");
-            } catch (error) {
-              alert("Nessun risultato trovato");
-              console.error("Errore nel caricamento", error);
-            }
-            setEvents(ris);
+        try {
+          const response = await fetch(url);
+          const eventsData = await response.json();
+
+          if (eventsData.length !== 0) ris.push(...eventsData);
+          else alert("Nessun risultato trovato");
+        } catch (error) {
+          alert("Nessun risultato trovato");
+          console.error("Errore nel caricamento", error);
         }
+        setEvents(ris);
       }
-  }
+    }
+  };
 
   const MAPBOX_TOKEN =
-  "pk.eyJ1IjoiYWRlcGVkcmluaSIsImEiOiJjbGlrMzd2dWEwZWI5M2trZG5wem04eWV5In0.xku2He5nmX0r89rngZndlQ";
+    "pk.eyJ1IjoiYWRlcGVkcmluaSIsImEiOiJjbGlrMzd2dWEwZWI5M2trZG5wem04eWV5In0.xku2He5nmX0r89rngZndlQ";
 
   const { view, setView, setViewState } = useContext(ViewContext);
   const ref = useRef(view);
@@ -107,10 +104,7 @@ const SearchEvents = () => {
     }
   };
 
-  const {
-    museums,
-    setMuseums,
-  } = useContext(FilterContext);
+  const { museums, setMuseums } = useContext(FilterContext);
 
   const updateEvents = (lng, lat) => {
     setMuseums(
@@ -123,18 +117,18 @@ const SearchEvents = () => {
     );
   };
 
-  const [ state, setState ] = useState(false);
+  const [state, setState] = useState(false);
 
   const prenotaBiglietti = () => {
     const main = document.querySelector(".rootSearchEvent");
     const mapSection = document.querySelector(".mainRight");
     const card = document.querySelector(".events");
     setState(true);
-    main.addEventListener('click', () => {
-        setState(false);
-        main.style.backgroundColor = "";
-        mapSection.style.display = "block";
-    })
+    main.addEventListener("click", () => {
+      setState(false);
+      main.style.backgroundColor = "";
+      mapSection.style.display = "block";
+    });
     if (state === true) {
       card.style.position = "relative";
       mapSection.style.display = "none";
@@ -143,24 +137,21 @@ const SearchEvents = () => {
       main.style.top = 0;
       main.style.overflow = "auto";
       main.style.opacity = 0.5;
-    }
-    else {
+    } else {
       main.style.backgroundColor = "";
       mapSection.style.display = "block";
     }
-  }
-
-  const { logged } = useContext(FuncContext);
+  };
 
   return (
     <div className="rootSearchEvent">
-    <link
+      <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
         crossorigin="anonymous"
       />
-        {!logged === true ? <Navbar /> : <Nav />}
+      <Navbar />
       <main className="pageSearchEvent">
         <h1 className="titleSearchEvent">Cosa vuoi vedere?</h1>
         <section className="mainSearchEvent">
@@ -194,52 +185,65 @@ const SearchEvents = () => {
                   const formattedDate = formatEventDate(eventDate);
                   Geocoding(city);
 
-                return (
-                  <div
-                    className="artistContainer"
-                    style={{
-                      boxSizing: "unset !important",
-                      borderRadius: "4px",
-                      border: "1px solid",
-                      padding: "1rem",
-                    }}
-                    key={event.id}
-                  >
-                    <div>
-                      {link && <img src={link} alt={name} />}
-                      <h4 className="eventName">{name}</h4>
-                    </div>
-                    <div>
-                      <p className="eventVenue">{venue}</p>
-                      <p className="eventDate">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={24}
-                          height={24}
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="feather feather-calendar"
+                  return (
+                    <div
+                      className="artistContainer"
+                      style={{
+                        boxSizing: "unset !important",
+                        borderRadius: "4px",
+                        border: "1px solid",
+                        padding: "1rem",
+                      }}
+                      key={event.id}
+                    >
+                      <div>
+                        {link && <img src={link} alt={name} />}
+                        <h4 className="eventName">{name}</h4>
+                      </div>
+                      <div>
+                        <p className="eventVenue">{venue}</p>
+                        <p className="eventDate">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={24}
+                            height={24}
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="feather feather-calendar"
+                          >
+                            <rect
+                              x={3}
+                              y={4}
+                              width={18}
+                              height={18}
+                              rx={2}
+                              ry={2}
+                            />
+                            <line x1={16} y1={2} x2={16} y2={6} />
+                            <line x1={8} y1={2} x2={8} y2={6} />
+                            <line x1={3} y1={10} x2={21} y2={10} />
+                          </svg>
+                          {formattedDate}
+                        </p>
+                      </div>
+                      <div>
+                        <button
+                          className="prenota-btn"
+                          class="btn btn-secondary"
+                          onClick={prenotaBiglietti}
                         >
-                          <rect x={3} y={4} width={18} height={18} rx={2} ry={2} />
-                          <line x1={16} y1={2} x2={16} y2={6} />
-                          <line x1={8} y1={2} x2={8} y2={6} />
-                          <line x1={3} y1={10} x2={21} y2={10} />
-                        </svg>
-                        {formattedDate}
-                      </p>
+                          Prenota biglietti
+                        </button>
+                      </div>
                     </div>
-                    <div>
-                      <button className="prenota-btn" class="btn btn-secondary" onClick={prenotaBiglietti}>Prenota biglietti</button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
+                  );
+                })}
+              </div>
+            </section>
           </div>
           <div className="mainRight">
             <Map
@@ -262,7 +266,7 @@ const SearchEvents = () => {
         </section>
         {!state === true ? null : <Tickets />}
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

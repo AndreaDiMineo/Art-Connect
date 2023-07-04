@@ -1,24 +1,20 @@
 import "../styles/searchmuseumStyle.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import Nav from "./header";
 import { React } from "react";
 import { Map, Marker, NavigationControl } from "react-map-gl";
 import { useState, useContext, useRef } from "react";
 import { ViewContext } from "../hooks/view-context";
 import { FilterContext } from "../hooks/filter-context";
-import { FuncContext } from "../../login/context";
 import Museum from "./Museum";
 import Footer from "../../home/Footer";
 import Navbar from "../../home/Navbar";
-import app from "../../database/databaseHandler";
 
-const db = app.firestore();
-const storage = app.storage();
-
+//Per API mappa
 const MAPBOX_TOKEN =
   "pk.eyJ1IjoiYWRlcGVkcmluaSIsImEiOiJjbGlrMzd2dWEwZWI5M2trZG5wem04eWV5In0.xku2He5nmX0r89rngZndlQ";
 
+//Usato da museumprofile
 export const Background = () => {
   const main = document.querySelector(".geo");
   const mapSection = document.querySelector(".mainRight");
@@ -36,6 +32,8 @@ const SearchMuseum = () => {
     latitude: ref.current.latitude,
     longitude: ref.current.longitude,
   });
+
+  //Imposto centro mappa
   const setCenter = (lng, lat) => {
     setView(lng, lat);
     setMarker({
@@ -43,9 +41,6 @@ const SearchMuseum = () => {
       latitude: lat,
     });
     updateMuseums(lng, lat);
-  };
-  const calculateDistance = (lng1, lat1, lng2, lat2) => {
-    return Math.sqrt(Math.pow(lng2 - lng1, 2) + Math.pow(lat2 - lat1, 2)) * 100;
   };
 
   //Geolocalizzazione
@@ -80,6 +75,10 @@ const SearchMuseum = () => {
     }
   };
 
+  //_________________________________
+  //_________________________________
+  //_________________________________
+
   //Gestione filtri
   const {
     filter,
@@ -95,6 +94,11 @@ const SearchMuseum = () => {
   const [categoryView, setCategoryView] = useState(false);
   const [filteredMuseums, setFilteredMuseums] = useState([...museums]);
   const [museumView, setMuseumView] = useState(false);
+
+  //Calcola distanza (tra centro e museo)
+  const calculateDistance = (lng1, lat1, lng2, lat2) => {
+    return Math.sqrt(Math.pow(lng2 - lng1, 2) + Math.pow(lat2 - lat1, 2)) * 100;
+  };
 
   //Ordina musei
   const orderMuseums = (museum, order) => {
@@ -148,21 +152,10 @@ const SearchMuseum = () => {
     if (museums[0].km === undefined) {
       updateMuseums(marker.longitude, marker.latitude);
     }
-    const [musei, setMusei] = useState([]);
-    const fetchInfo = async () => {
-      const snapshot = await db.collection("Museo").get();
-      const museiData = snapshot.docs.map((doc) => doc.data());
-      setMusei(museiData);
-    };
-    fetchInfo();
-    const data = [];
-    {
-      mus.map((v) => data.push(v.km, v.category, v.rating, v.name));
-    }
     return (
       <div className="museums">
-        {musei.map((museo) => (
-          <Museum name={museo.nome} data={data} info={museo} />
+        {mus.map((museo) => (
+          <Museum info={museo} />
         ))}
       </div>
     );
@@ -201,8 +194,6 @@ const SearchMuseum = () => {
     );
   };
 
-  const { logged } = useContext(FuncContext);
-
   //HTML
   return (
     <>
@@ -212,7 +203,7 @@ const SearchMuseum = () => {
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
         crossOrigin="anonymous"
       />
-      {!logged === true ? <Navbar /> : <Nav />}
+      <Navbar />
       <div className="rootSearchMuseum">
         <main className="pageSearchMuseum">
           <h1 className="titleSearchMuseum">Cosa vuoi visitare?</h1>
