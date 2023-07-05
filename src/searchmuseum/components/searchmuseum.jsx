@@ -130,6 +130,7 @@ const SearchMuseum = () => {
 
   //Categorie
   const filterMuseums = (museums, category) => {
+    console.log(museums);
     const filter =
       category === "all" || category === undefined
         ? museums

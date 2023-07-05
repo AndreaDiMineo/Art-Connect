@@ -25,7 +25,7 @@ export const useFilter = () => {
   };
 
   //Lista musei
-  const testMuseums = [
+  /*const testMuseums = [
     {
       name: "Museo d’Arte Antica",
       category: "Arte",
@@ -80,16 +80,21 @@ export const useFilter = () => {
       address: "Via Borgonuovo, 23, 20121 Milano MI",
       url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Field_Museum_of_Natural_History.jpg/1280px-Field_Museum_of_Natural_History.jpg",
     },
-  ];
-  const [museums, setMuseums] = useState(testMuseums);
+  ];*/
+  const [museums, setMuseums] = useState("");
 
   //Ottiene dati del museo dal database
-  /*const fetchInfo = async () => {
+  const fetchInfo = async () => {
     const snapshot = await db.collection("Museo").get();
     const museiData = snapshot.docs.map((doc) => doc.data());
     setMuseums(museiData);
   };
-  fetchInfo();*/
+  
+  if (!museums) {
+    console.log("USING DATABASE");
+    fetchInfo();
+  }
+
   return {
     clickFilter,
     filter,

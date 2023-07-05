@@ -1,10 +1,11 @@
-import MuseumProfile, { MuseumProfileStats } from "../../museumprofile/components/museumprofile";
+import MuseumProfile, {
+  MuseumProfileStats,
+} from "../../museumprofile/components/museumprofile";
 import "../styles/museumStyle.css";
 import { useState } from "react";
 import { Background } from "./searchmuseum";
 
 const Museum = ({ info }) => {
-  console.log(info);
   const [profile, setProfile] = useState(false);
   const { main, mapSection } = Background();
   const { museumProfile } = MuseumProfileStats();
