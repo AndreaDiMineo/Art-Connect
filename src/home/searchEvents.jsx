@@ -123,12 +123,13 @@ const SearchEvents = () => {
     const main = document.querySelector(".rootSearchEvent");
     const mapSection = document.querySelector(".mainRight");
     const card = document.querySelector(".events");
+    const { arrows } = TicketsStats();
     setState(true);
-    main.addEventListener("click", () => {
-      setState(false);
-      main.style.backgroundColor = "";
-      mapSection.style.display = "block";
-    });
+    main.addEventListener('click', () => {
+        setState(false);
+        main.style.opacity = 1;
+        mapSection.style.display = "block";
+    })
     if (state === true) {
       card.style.position = "relative";
       mapSection.style.display = "none";
@@ -137,11 +138,11 @@ const SearchEvents = () => {
       main.style.top = 0;
       main.style.overflow = "auto";
       main.style.opacity = 0.5;
-    } else {
-      main.style.backgroundColor = "";
-      mapSection.style.display = "block";
+      arrows.forEach((arrow) => {
+        arrow.style.top = "-4.8rem";
+      })
     }
-  };
+  }
 
   return (
     <div className="rootSearchEvent">
