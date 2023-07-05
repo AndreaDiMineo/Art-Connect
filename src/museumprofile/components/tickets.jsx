@@ -3,8 +3,6 @@ import "../styles/ticketsStyle.css"
 
 export const TicketsStats = () => {
     const logos = document.querySelectorAll(".provider-logo");
-    //const column = document.querySelector(".column");
-    //const pr = document.querySelectorAll("p");
     const arrows = document.querySelectorAll(".arrow");
     return {
         logos,
@@ -12,7 +10,7 @@ export const TicketsStats = () => {
     }
 }
 
-const Tickets = ({ info }) => {
+const Tickets = () => {
     return (
         <div className="tickets-list">
             <h3 className="ticketH3">Biglietti per questo ingresso</h3>
@@ -22,7 +20,7 @@ const Tickets = ({ info }) => {
                         <img className="provider-logo" src="https://i.ibb.co/CbJbVZc/image.png"/>
                         <h4>Sito ufficiale</h4>
                         <p>10,00€</p>
-                        <Link to={info.sitoWeb}><img className="arrow" src="https://i.ibb.co/spfwStP/image.png"/></Link>
+                        <img className="arrow" src="https://i.ibb.co/spfwStP/image.png"/>
                         <img className="provider-logo" src="https://i.ibb.co/znPs8rR/musement.png"/>
                         <div className="provider-desc">
                             <h4>Musement</h4>
