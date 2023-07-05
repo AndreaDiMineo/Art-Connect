@@ -11,14 +11,15 @@
 }
 
 .btns button {
-    background-color: blue;
-    color: white;
-    height: 4rem;
-    width: 8rem;
-    margin: 10%;
-    cursor: grab;
+  background-color: blue;
+  color: white;
+  height: 4rem;
+  width: 8rem;
+  margin: 10%;
+  cursor: grab;
 }
 
+.stats,
 .stats-btns,
 .btns,
 .museum-info {
@@ -30,13 +31,14 @@
   margin-top: 5%;
 }
 
-.stats {
+.stats * {
   display: flex;
   flex-direction: row;
 }
 
 .stats img {
   margin: 3%;
+  width: 25%;
 }
 
 .museum-info {

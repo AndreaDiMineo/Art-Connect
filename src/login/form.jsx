@@ -23,10 +23,7 @@ const Form = () => {
     const utentiDb = [...utenti];
     let loginControl = false;
     utentiDb.map((utente) => {
-      if (
-        emailValue === utente.email &&
-        passwordValue === utente.password
-      ) {
+      if (emailValue === utente.email && passwordValue === utente.password) {
         auth(
           utente.name,
           utente.surname,
