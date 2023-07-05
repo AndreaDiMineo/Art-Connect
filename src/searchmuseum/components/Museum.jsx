@@ -1,4 +1,4 @@
-import MuseumProfile from "../../museumprofile/components/museumprofile";
+import MuseumProfile, { MuseumProfileStats } from "../../museumprofile/components/museumprofile";
 import "../styles/museumStyle.css";
 import { useState } from "react";
 import { Background } from "./searchmuseum";
@@ -7,24 +7,23 @@ const Museum = ({ info }) => {
   console.log(info);
   const [profile, setProfile] = useState(false);
   const { main, mapSection } = Background();
+  const { museumProfile } = MuseumProfileStats();
   const ClickProfile = (stato) => {
     main.addEventListener("click", () => {
       setProfile(false);
       main.style.backgroundColor = "";
+      main.style.opacity = 1;
       mapSection.style.display = "block";
     });
     setProfile(stato);
     if (stato === true) {
-      //card.style.position = "relative";
       mapSection.style.display = "none";
       main.style.zIndex = 1;
       main.style.left = 0;
       main.style.top = 0;
       main.style.overflow = "auto";
       main.style.opacity = 0.5;
-    } else {
-      main.style.backgroundColor = "";
-      mapSection.style.display = "block";
+      //museumProfile.style.opacity = 1;
     }
   };
   return (
@@ -32,7 +31,7 @@ const Museum = ({ info }) => {
       <div className="museumCardLeft">
         <img
           className="museumImg"
-          src={info.url}
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Field_Museum_of_Natural_History.jpg/1280px-Field_Museum_of_Natural_History.jpg"
           alt={info.name}
           onClick={
             !profile === true

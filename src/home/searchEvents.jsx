@@ -8,7 +8,7 @@ import { ViewContext } from "../searchmuseum/hooks/view-context";
 import { FilterContext } from "../searchmuseum/hooks/filter-context";
 import Footer from "./Footer";
 import { FuncContext } from "../login/context";
-import Tickets from "../museumprofile/components/tickets";
+import { Tickets } from "../museumprofile/components/tickets";
 
 const SearchEvents = () => {
   const [events, setEvents] = useState([]);
@@ -123,10 +123,11 @@ const SearchEvents = () => {
     const main = document.querySelector(".rootSearchEvent");
     const mapSection = document.querySelector(".mainRight");
     const card = document.querySelector(".events");
+    const { arrows } = TicketsStats();
     setState(true);
     main.addEventListener("click", () => {
       setState(false);
-      main.style.backgroundColor = "";
+      main.style.opacity = 1;
       mapSection.style.display = "block";
     });
     if (state === true) {
@@ -137,9 +138,9 @@ const SearchEvents = () => {
       main.style.top = 0;
       main.style.overflow = "auto";
       main.style.opacity = 0.5;
-    } else {
-      main.style.backgroundColor = "";
-      mapSection.style.display = "block";
+      arrows.forEach((arrow) => {
+        arrow.style.top = "-4.8rem";
+      });
     }
   };
 

@@ -1,22 +1,22 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import "./form.css";
 import { FuncContext } from "./context";
 import { Link, useNavigate } from "react-router-dom";
 import app from "../database/databaseHandler";
 
 const db = app.firestore();
-const storage = app.storage();
 
 const Form = () => {
   const [utenti, setUtenti] = useState([]);
   const navigate = useNavigate();
   const { auth } = useContext(FuncContext);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
   const addData = async (evento) => {
     evento.preventDefault();
     const status = "login";
-    const form = document.querySelector("form");
-    const inputs = form.querySelectorAll("input");
-
+    const emailValue = emailRef.current.value;
+    const passwordValue = passwordRef.current.value;
     const snapshot = await db.collection("Utente").get();
     const utenteData = snapshot.docs.map((doc) => doc.data());
     setUtenti(utenteData);
@@ -24,8 +24,8 @@ const Form = () => {
     let loginControl = false;
     utentiDb.map((utente) => {
       if (
-        inputs[0].value === utente.email &&
-        inputs[1].value === utente.password
+        emailValue === utente.email &&
+        passwordValue === utente.password
       ) {
         auth(
           utente.name,
@@ -35,10 +35,9 @@ const Form = () => {
           utente.password,
           status
         );
-        loginControl = true;
         navigate("/");
+        loginControl = true;
       }
-      console.log(utente);
     });
     if (loginControl === false) {
       alert("Username e/o password sbagliato/i");
@@ -142,6 +141,7 @@ const Form = () => {
                       placeholder="Inserisci il tuo indirizzo email"
                       aria-label="Enter your email"
                       aria-describedby="basic-addon2"
+                      ref={emailRef}
                     />
                   </div>
                 </div>
@@ -157,6 +157,7 @@ const Form = () => {
                     placeholder="Inserisci password"
                     onClick={passwordInfo}
                     onBlur={passwordNascondi}
+                    ref={passwordRef}
                   />
                   {showInfoPassword && (
                     <p>

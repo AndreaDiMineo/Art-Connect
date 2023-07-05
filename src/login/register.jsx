@@ -1,31 +1,39 @@
 import "./style.css";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FuncContext } from "./context";
 import { Link, useNavigate } from "react-router-dom";
 import app from "../database/databaseHandler";
 
 const db = app.firestore();
-const storage = app.storage();
 
 const Register = () => {
   const navigate = useNavigate();
   const { auth } = useContext(FuncContext);
-  const addData = async (e) => {
-    e.preventDefault();
-    const form = document.querySelector("form");
-    const inputs = form.querySelectorAll("input");
-    const name = inputs[0].value;
-    const surname = inputs[1].value;
-    const username = inputs[3].value;
-    const email = inputs[2].value;
-    const password = inputs[4].value;
-    const checkbox1 = inputs[5].checked;
-    const checkbox2 = form.querySelector("#notifiche").checked;
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [checkbox2, setCheckbox2] = useState(false);
+  const addData = async () => {
     const status = "register";
-    if (!checkPassword(password)) {
+    if (
+      (name === "" &&
+        surname === "" &&
+        username === "" &&
+        email === "" &&
+        password === "" &&
+        checkbox2 === false) ||
+      name === "" ||
+      surname === "" ||
+      username === "" ||
+      email === "" ||
+      password === "" ||
+      checkbox2 === false
+    ) {
+      alert("Riempi tutti i campi obbligatori");
+    } else if (!checkPassword(password)) {
       alert("Password errata");
-    } else if (!validateEmail(email)) {
-      alert("Email non valida");
     } else {
       const currentDate = new Date();
       await db.collection("Utente").add({
@@ -37,9 +45,8 @@ const Register = () => {
         password,
         notifica: checkbox2,
       });
-      auth(name, surname, username, email, password, status);
-      navigate("/");
-      console.log("done");
+      auth(username, password, status);
+      navigate(["/museums"]);
     }
   };
   const { passwordNascondi, passwordInfo, showInfoPassword } =
@@ -69,14 +76,6 @@ const Register = () => {
     return /[0-9]/.test(str);
   };
 
-  const validateEmail = (email) => {
-    // Regular expression pattern for email validation
-    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    // Check if the email matches the pattern
-    return emailPattern.test(email);
-  };
-
   return (
     <>
       <section class="vh-100">
@@ -96,13 +95,6 @@ const Register = () => {
                   id="one"
                   class="d-flex flex-row align-items-center justify-content-center"
                 >
-                  <Link className="navbar-brand" to={"/"}>
-                    <img
-                      className="logoHeader"
-                      src="https://i.ibb.co/dLNs635/logo-Art-Connect-Black.png"
-                      alt="ArtConnect"
-                    />
-                  </Link>
                   <p class="lead fw-normal mb-1 me-3">Register with</p>
                   <picture style={{ marginRight: "10px" }}>
                     <svg
@@ -171,7 +163,7 @@ const Register = () => {
                     type="text"
                     id="form3Example1cg"
                     class="form-control form-control-md"
-                    required
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </div>
                 <div class="form-outline ">
@@ -182,7 +174,7 @@ const Register = () => {
                     type="text"
                     id="form3Example1cg"
                     class="form-control form-control-md"
-                    required
+                    onChange={(e) => setSurname(e.target.value)}
                   />
                 </div>
 
@@ -197,7 +189,7 @@ const Register = () => {
                       placeholder="Inserisci il tuo indirizzo email"
                       aria-label="Enter your email"
                       aria-describedby="basic-addon2"
-                      required
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                 </div>
@@ -209,7 +201,7 @@ const Register = () => {
                     type="text"
                     id="form3Example3cg"
                     class="form-control form-control-md"
-                    required
+                    onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
 
@@ -223,7 +215,7 @@ const Register = () => {
                     class="form-control form-control-md"
                     onClick={passwordInfo}
                     onBlur={passwordNascondi}
-                    required
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                   {showInfoPassword && (
                     <p>
@@ -241,9 +233,8 @@ const Register = () => {
                   class="form-select form-select-sm mb-3"
                   aria-label="Default select example"
                 >
-                  <option selected value="1">
-                    Italiano
-                  </option>
+                  <option selected></option>
+                  <option value="1">Italiano</option>
                   <option value="2">English</option>
                   <option value="3">Español</option>
                   <option value="4">Deutsch</option>
@@ -257,7 +248,6 @@ const Register = () => {
                     value=""
                     id="form2Example3cg"
                     className="checkboxInput1"
-                    required
                   />
                   <label class="form-check-label" for="form2Example3g">
                     Accetto tutte le dichiarazioni{" "}
@@ -274,6 +264,7 @@ const Register = () => {
                     value=""
                     id="notifiche"
                     className="checkboxInput2"
+                    onChange={(e) => setCheckbox2(e.checked)}
                   />
                   <label class="form-check-label" for="form2Example3g">
                     Acconsento di ricevere notifiche
