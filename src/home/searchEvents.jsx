@@ -8,7 +8,7 @@ import { ViewContext } from "../searchmuseum/hooks/view-context";
 import { FilterContext } from "../searchmuseum/hooks/filter-context";
 import Footer from "./Footer";
 import { FuncContext } from "../login/context";
-import Tickets from "../museumprofile/components/tickets";
+import { Tickets } from "../museumprofile/components/tickets";
 
 const SearchEvents = () => {
   const [events, setEvents] = useState([]);
@@ -125,11 +125,11 @@ const SearchEvents = () => {
     const card = document.querySelector(".events");
     const { arrows } = TicketsStats();
     setState(true);
-    main.addEventListener('click', () => {
-        setState(false);
-        main.style.opacity = 1;
-        mapSection.style.display = "block";
-    })
+    main.addEventListener("click", () => {
+      setState(false);
+      main.style.opacity = 1;
+      mapSection.style.display = "block";
+    });
     if (state === true) {
       card.style.position = "relative";
       mapSection.style.display = "none";
@@ -140,9 +140,9 @@ const SearchEvents = () => {
       main.style.opacity = 0.5;
       arrows.forEach((arrow) => {
         arrow.style.top = "-4.8rem";
-      })
+      });
     }
-  }
+  };
 
   return (
     <div className="rootSearchEvent">
