@@ -8,7 +8,7 @@ import { ViewContext } from "../searchmuseum/hooks/view-context";
 import { FilterContext } from "../searchmuseum/hooks/filter-context";
 import Footer from "./Footer";
 import { FuncContext } from "../login/context";
-import { Tickets } from "../museumprofile/components/tickets";
+import { Tickets, TicketsStats } from "../museumprofile/components/tickets";
 
 const SearchEvents = () => {
   const [events, setEvents] = useState([]);
