@@ -7,7 +7,13 @@ import { TicketsStats } from "../../museumprofile/components/tickets";
 import app from "../../database/databaseHandler";
 
 const db = app.firestore();
-const storage = app.storage();
+
+export const MuseumProfileStats = () => {
+    const museumProfile = document.querySelector(".museum-card");
+  return {
+    museumProfile
+  };
+}
 
 const MuseumProfile = ({ info }) => {
   const [list, setList] = useState(false);
@@ -118,7 +124,7 @@ const MuseumProfile = ({ info }) => {
           )}
         </div>
       </div>
-      {!list === true ? null : <Tickets />}
+      {!list === true ? null : <Tickets info={info} />}
       {!show === true ? null : <Show />}
     </div>
   );
