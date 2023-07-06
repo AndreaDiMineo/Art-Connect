@@ -6,7 +6,7 @@ export const useMain = () => {
   const [logged, setLogged] = useState(false);
   const [toggle, setToggle] = useState(true);
   const [togglePass, setTogglePass] = useState(false);
-  const [credentials, setCredentials] = useState([]);
+  const [credentials, setCredentials] = useState({});
 
   const validatePassword = (password) => {
     const regex =
@@ -32,12 +32,8 @@ export const useMain = () => {
   };
 
   const auth = (name, surname, username, email, password, status) => {
-    if (status === "register") {
-      setCredentials([name, surname, username, email, password]);
-      setLogged(true);
-    } else {
-      setLogged(true);
-    }
+    setCredentials({ name, surname, username, email, password });
+    setLogged(true);
   };
 
   return {
