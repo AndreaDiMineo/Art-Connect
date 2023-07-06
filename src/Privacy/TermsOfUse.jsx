@@ -1,64 +1,51 @@
-import React, { useState } from 'react';
+import React from "react";
 
-const TermsOfUse = () => {
-  const [optionalPermissions, setOptionalPermissions] = useState([]);
-  const [requiredPermissions, setRequiredPermissions] = useState([]);
+class TerminiDUso extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Termini d'Uso</h1>
+        <p>
+          Benvenuto nella nostra applicazione. Prima di utilizzarla, leggi
+          attentamente i seguenti Termini d'Uso.
+        </p>
+        <h2>1. Accettazione dei Termini</h2>
+        <p>
+          Utilizzando questa applicazione, accetti di essere vincolato dai
+          nostri termini d'Uso.{" "}
+        </p>
+        <h2>2. Utilizzo dell'Applicazione</h2>
+        <p>
+          L'applicazione è destinata solo a scopi informativi. Non garantiamo
+          l'accuratezza o la completezza delle informazioni fornite
+          nell'applicazione. L'utilizzo delle informazioni presenti
+          nell'applicazione è a tuo rischio.
+        </p>
+        <h2>3. Proprietà Intellettuale</h2>
+        <p>
+          Tutti i contenuti presenti nell'applicazione, come testi, grafica,
+          loghi, icone e immagini, sono di proprietà esclusiva dei loro
+          rispettivi proprietari.
+        </p>
+        <h2>4. Limitazioni di Responsabilità</h2>
+        <p>
+          Non siamo responsabili per eventuali danni derivanti dall'utilizzo
+          dell'applicazione. Utilizzi l'applicazione a tuo rischio e pericolo.
+        </p>
+        <h2>5. Modifiche ai Termini d'Uso</h2>
+        <p>
+          Ci riserviamo il diritto di modificare questi Termini d'Uso in
+          qualsiasi momento. Ti consigliamo di visitare periodicamente questa
+          pagina per verificare eventuali aggiornamenti.
+        </p>
+        <h2>6. Contattaci</h2>
+        <p>
+          Se hai domande o dubbi riguardo ai Termini d'Uso, contattaci tramite i
+          canali indicati nella sezione Contatti dell'applicazione.
+        </p>
+      </div>
+    );
+  }
+}
 
-  const handleToggleOptionalPermission = (permission) => {
-    if (optionalPermissions.includes(permission)) {
-      setOptionalPermissions(optionalPermissions.filter((p) => p !== permission));
-    } else {
-      setOptionalPermissions([...optionalPermissions, permission]);
-    }
-  };
-
-  const handleAcceptTerms = () => {
-    console.log('Permessi opzionali accettati:', optionalPermissions);
-    console.log('Permessi obbligatori accettati:', requiredPermissions);
-  };
-
-  return (
-    <div>
-      <h2>Termini d'uso</h2>
-      <h3>Permessi opzionali</h3>
-      <ul>
-        <li>
-          <label>
-            <input
-              type="checkbox"
-              checked={optionalPermissions.includes('Fotocamera')}
-              onChange={() => handleToggleOptionalPermission('Fotocamera')}
-            />
-            Fotocamera
-          </label>
-        </li>
-        <li>
-          <label>
-            <input
-              type="checkbox"
-              checked={optionalPermissions.includes('Posizione')}
-              onChange={() => handleToggleOptionalPermission('Posizione')}
-            />
-            Posizione
-          </label>
-        </li>
-      </ul>
-      <h3>Permessi obbligatori</h3>
-      <ul>
-        <li>
-          <label>
-            <input
-              type="checkbox"
-              checked={requiredPermissions.includes('Email')}
-              onChange={() => setRequiredPermissions(['Email'])}
-            />
-            Email
-          </label>
-        </li>
-      </ul>
-      <button onClick={handleAcceptTerms}>Accetta</button>
-    </div>
-  );
-};
-
-export default TermsOfUse;
+export default TerminiDUso;
