@@ -8,6 +8,7 @@ const db = app.firestore();
 
 const Form = () => {
   const [utenti, setUtenti] = useState([]);
+  const [loginControl, setLog] = useState(false);
   const navigate = useNavigate();
   const { auth } = useContext(FuncContext);
   const emailRef = useRef(null);
@@ -21,7 +22,7 @@ const Form = () => {
     const utenteData = snapshot.docs.map((doc) => doc.data());
     setUtenti(utenteData);
     const utentiDb = [...utenti];
-    let loginControl = false;
+
     utentiDb.map((utente) => {
       if (emailValue === utente.email && passwordValue === utente.password) {
         auth(
@@ -36,9 +37,6 @@ const Form = () => {
         loginControl = true;
       }
     });
-    if (loginControl === false) {
-      alert("Username e/o password sbagliato/i");
-    }
   };
   const { passwordNascondi, passwordInfo, showInfoPassword } =
     useContext(FuncContext);
@@ -164,6 +162,19 @@ const Form = () => {
                   )}
                 </div>
 
+                {!loginControl ? (
+                  <p
+                    style={{
+                      fontSize: "1rem",
+                      color: "red",
+                      textAlign: "center",
+                    }}
+                  >
+                    Dati errati
+                  </p>
+                ) : (
+                  <p></p>
+                )}
                 <div className="d-flex justify-content-between align-items-center">
                   <div className="form-check mb-0">
                     <input
