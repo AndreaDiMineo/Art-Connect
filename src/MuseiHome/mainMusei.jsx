@@ -4,6 +4,7 @@ import { appDb } from "../firebaseConfig";
 const dbA = appDb.firestore();
 
 const MainFirenze = () => {
+  
   const [GalleriaFirenze, setMuseiF] = useState([]);
 
   useEffect(() => {

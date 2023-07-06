@@ -3,14 +3,29 @@ import { useContext, useEffect, useState } from "react";
 import Footer from "../home/Footer";
 import Navbar from "../home/Navbar.jsx";
 import { Link } from "react-router-dom";
-import app from "../database/databaseHandler";
+//import app from "../database/databaseHandler";
 import { FuncContext } from "../login/context";
 import { useNavigate } from "react-router-dom";
 
-const db = app.firestore();
-const storage = app.storage();
+import { appDb } from "../firebaseConfig";
+const dbA = appDb.firestore();
+
+//const db = app.firestore();
+//const storage = app.storage();
 
 export default function Profile() {
+  const [visited, setVisited] = useState([]);
+
+  useEffect(() => {
+    const fetchMuseiF = async () => {
+      const snapshot = await dbA.collection("MuseiVistati").get();
+      const GalleriaFirenze = snapshot.docs.map((doc) => doc.data());
+      setVisited(GalleriaFirenze);
+    };
+
+    fetchMuseiF();
+  }, []);
+
   const navigate = useNavigate();
   const { logged } = useContext(FuncContext);
   const [toggle, setToggle] = useState(false);
@@ -143,6 +158,17 @@ export default function Profile() {
                       <h6 className="d-flex align-items-center mb-3">
                         Visited Museums
                       </h6>
+                      <p>
+                        {visited.length > 0 ? (
+                          <ul>
+                            {visited.map((visit) => (
+                              <li key={visit.id}>{visit.title}</li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p>Nessuna visita trovata </p>
+                        )}
+                      </p>
                     </div>
                   </div>
                 </div>
