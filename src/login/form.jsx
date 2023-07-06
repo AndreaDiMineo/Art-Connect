@@ -154,17 +154,12 @@ const Form = () => {
                     onBlur={passwordNascondi}
                     ref={passwordRef}
                   />
-                  {showInfoPassword && (
-                    <p>
-                      La password deve contenere almeno 8 caratteri con almeno
-                      una lettera maiuscola, un numero e un carattere speciale.
-                    </p>
-                  )}
                 </div>
 
                 {!loginControl ? (
                   <p
                     style={{
+                      fontWeight: "bold",
                       fontSize: "1rem",
                       color: "red",
                       textAlign: "center",
