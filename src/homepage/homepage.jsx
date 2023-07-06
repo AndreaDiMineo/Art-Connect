@@ -1,9 +1,11 @@
 import Footer from "./footer";
 import HomepageHeader from "./homepageHeader";
 import React from "react";
+
 const Homepage = () => {
   return (
     <div>
+
       <HomepageHeader />
       <section className="section-homepage">
         <h1 className="title">Benvenuto ad ArtConnect</h1>

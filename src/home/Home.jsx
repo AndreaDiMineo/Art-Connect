@@ -4,7 +4,7 @@ import React from "react";
 import Navbar from "./Navbar.jsx";
 import Musei from "./Musei";
 import Footer from "./Footer";
-
+import CookiePopup from "./Cookies";
 const Home = () => {
   return (
     <React.Fragment>
@@ -13,7 +13,8 @@ const Home = () => {
         rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
         crossOrigin="anonymous"
-      />
+      />{" "}
+      <CookiePopup />
       <div className="home">
         <div className="top">
           <Navbar />
