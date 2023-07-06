@@ -44,7 +44,7 @@ export const useMain = () => {
   };
 
   const auth = (name, surname, username, email, password) => {
-    setCredentials(name, surname, username, email, password);
+    setCredentials([name, surname, username, email, password]);
     setLogged(true);
   };
 
@@ -60,6 +60,7 @@ export const useMain = () => {
     showInfoPassword,
     togglePass,
     Forget,
+    setLogged,
   };
 };
 
@@ -78,6 +79,7 @@ export const FuncProvider = ({ children }) => {
     showInfoPassword,
     togglePass,
     Forget,
+    setLogged,
   } = useMain();
   return (
     <FuncContext.Provider
@@ -93,6 +95,7 @@ export const FuncProvider = ({ children }) => {
         showInfoPassword,
         togglePass,
         Forget,
+        setLogged,
       }}
     >
       {children}
