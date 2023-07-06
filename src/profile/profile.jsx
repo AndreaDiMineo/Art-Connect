@@ -14,17 +14,8 @@ const dbA = appDb.firestore();
 //const storage = app.storage();
 
 export default function Profile() {
-  const [visited, setVisited] = useState([]);
-
-  useEffect(() => {
-    const fetchMuseiF = async () => {
-      const snapshot = await dbA.collection("MuseiVistati").get();
-      const GalleriaFirenze = snapshot.docs.map((doc) => doc.data());
-      setVisited(GalleriaFirenze);
-    };
-
-    fetchMuseiF();
-  }, []);
+  const [visited, setVisited] = useState(["British Museum"]);
+  const [review, setReview] = useState(["una bella esperienza"]);
 
   const navigate = useNavigate();
   const { logged } = useContext(FuncContext);
@@ -175,9 +166,15 @@ export default function Profile() {
                 <div className="col-sm-6 mb-3">
                   <div className="card h-100">
                     <div className="card-body">
-                      <h6 className="d-flex align-items-center mb-3">
-                        Reviews
-                      </h6>
+                      {review.length > 0 ? (
+                        <ul>
+                          {review.map((rev) => (
+                            <li key={rev.id}>{rev.title}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p>Nessuna visita trovata </p>
+                      )}
                     </div>
                   </div>
                 </div>
