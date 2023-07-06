@@ -32,7 +32,7 @@ const Museum = ({ info }) => {
       <div className="museumCardLeft">
         <img
           className="museumImg"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Field_Museum_of_Natural_History.jpg/1280px-Field_Museum_of_Natural_History.jpg"
+          src={info.url}
           alt={info.name}
           onClick={
             !profile === true
@@ -47,7 +47,7 @@ const Museum = ({ info }) => {
           <div className="museumDistance">
             <img
               className="museum_icons"
-              src="https://i.ibb.co/4JWWxhz/map-pin.png"
+              src={"https://i.ibb.co/4JWWxhz/map-pin.png"}
               alt=""
             />
             <p>{parseFloat(info.km).toFixed(2)}km</p>
