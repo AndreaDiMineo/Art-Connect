@@ -153,7 +153,7 @@ export default function Profile() {
                         {visited.length > 0 ? (
                           <ul>
                             {visited.map((visit) => (
-                              <li key={visit.id}>{visit.title}</li>
+                              <li key={visit.id}>{visit}</li>
                             ))}
                           </ul>
                         ) : (
@@ -166,10 +166,14 @@ export default function Profile() {
                 <div className="col-sm-6 mb-3">
                   <div className="card h-100">
                     <div className="card-body">
+                      {" "}
+                      <h6 className="d-flex align-items-center mb-3">
+                        Reviews
+                      </h6>
                       {review.length > 0 ? (
                         <ul>
                           {review.map((rev) => (
-                            <li key={rev.id}>{rev.title}</li>
+                            <li key={rev.id}>{rev}</li>
                           ))}
                         </ul>
                       ) : (
