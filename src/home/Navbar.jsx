@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FuncContext } from "../login/context";
 import { useContext } from "react";
-import "../searchmuseum/styles/headerStyle.css"
+import "../searchmuseum/styles/headerStyle.css";
 const NavBar = () => {
   const location = useLocation(); // once ready it returns the 'window.location' object
   const [url, setUrl] = useState(null);
@@ -88,14 +88,20 @@ const NavBar = () => {
                     title="Notifiche"
                     alt="Notifiche"
                   />
-                  <a href="profile">
+
+                  <Link
+                    className={
+                      "nav-link" + (url === "//profile" ? " active" : "")
+                    }
+                    to={"/profile"}
+                  >
                     <img
                       className="globe"
                       src="https://i.ibb.co/YLNmppN/icons8-person-24.png"
                       title="Profilo"
                       alt="Profilo"
                     />
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}
