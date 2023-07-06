@@ -20,13 +20,13 @@ class TerminiDUso extends React.Component {
             Termini d'Uso
           </h1>
           <p>
-            Benvenuto nelnostra Sito Web ArtConnect. Prima di utilizzarla, leggi
-            attentamente i seguenti Termini d'Uso.
+            Benvenuto nel nostro sito web ArtConnect. Prima di utilizzarlo, leggi
+            attentamente i seguenti termini d'uso.
           </p>
           <h2>1. Accettazione dei Termini</h2>
           <p>
             Utilizzando questa applicazione, accetti di essere vincolato dai
-            nostri termini d'Uso.{" "}
+            nostri termini d'uso.{" "}
           </p>
           <h2>2. Utilizzo dell'Applicazione</h2>
           <p>
