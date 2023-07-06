@@ -17,6 +17,7 @@ import Home from "./home/Home";
 import SearchEvents from "./home/searchEvents";
 import DescMusei from "./MuseiHome/descrizione-Musei";
 import TerminiDUso from "./Privacy/TermsOfUse";
+import ChangePassword from "./profile/changepassword";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
@@ -136,6 +137,16 @@ const router = createBrowserRouter([
               <SearchEvents />
             </FilterProvider>
           </ViewProvider>
+        </FuncProvider>
+      </div>
+    ),
+  },
+  {
+    path: "/changepassword",
+    element: (
+      <div>
+        <FuncProvider>
+          <ChangePassword />
         </FuncProvider>
       </div>
     ),

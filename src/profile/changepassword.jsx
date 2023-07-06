@@ -1,4 +1,5 @@
 import "./changepasswordstyle.css";
+import {Link} from "react-router-dom"
 
 export default function ChangePassword() {
   const showHidePWD = () => {
@@ -23,11 +24,13 @@ export default function ChangePassword() {
       <div className="mainDivChangePWD">
         <div className="cardStyleChangePWD">
           <form action="" method="post" name="signupForm" id="signupForm">
+            <Link to="/profile">
             <img
               src="https://i.ibb.co/WFy8gDh/image.png"
               alt="image"
               id="signupLogoChangePWD"
             />
+            </Link>
             <h2 className="formTitleChangePWD">Cambia password</h2>
             <div className="inputDivChangePWD">
               <label className="inputLabelChangePWD" htmlFor="password">
