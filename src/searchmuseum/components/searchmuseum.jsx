@@ -16,7 +16,7 @@ const MAPBOX_TOKEN =
 
 //Usato da museumprofile
 export const Background = () => {
-  const main = document.querySelectorAll(".geo");
+  const main = document.querySelector(".geo");
   const mapSection = document.querySelector(".mainRight");
   return {
     main,
