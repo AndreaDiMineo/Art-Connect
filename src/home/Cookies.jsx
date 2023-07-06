@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './styles.css';
+import React, { useState } from "react";
+import "./styles.css";
 
 const CookiePopup = () => {
   const [showPopup, setShowPopup] = useState(true);
@@ -13,11 +13,16 @@ const CookiePopup = () => {
   };
 
   return (
-    <div className={`cookie-popup ${showPopup ? 'show' : ''}`}>
+    <div className={`cookie-popup ${showPopup ? "show" : ""}`}>
       <div className="cookie-popup-content">
-        <p>Questo sito utilizza i cookie per garantirti la migliore esperienza possibile.</p>
+        <p>
+          Questo sito utilizza i cookie per garantirti la migliore esperienza
+          possibile.
+        </p>
         <div>
-          <button onClick={handleClosePopup}>Accetta</button>
+          <button className="accetta" onClick={handleClosePopup}>
+            Accetta
+          </button>
           <button onClick={handleDecline}>Rifiuta</button>
         </div>
       </div>
