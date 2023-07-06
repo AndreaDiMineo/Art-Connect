@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FuncContext } from "../login/context";
 import { useContext } from "react";
 import "../searchmuseum/styles/headerStyle.css";
@@ -9,8 +9,17 @@ const NavBar = () => {
   useEffect(() => {
     setUrl(location.pathname);
   }, [location]);
+  const navigate = useNavigate();
 
   const { logged } = useContext(FuncContext);
+  const checkInput = (e) => {
+    if (e.key === "Enter" || e.keyCode === 13) {
+      const ricerca = e.target.value;
+      if (ricerca !== "") {
+        navigate("/museums/" + ricerca);
+      }
+    }
+  };
   return (
     <React.Fragment>
       <nav
@@ -60,6 +69,7 @@ const NavBar = () => {
                 className="form-control"
                 id="floatingInput"
                 placeholder="Ricerca"
+                onKeyUp={checkInput}
               />
               <label htmlFor="floatingInput">Cerca</label>
             </div>
