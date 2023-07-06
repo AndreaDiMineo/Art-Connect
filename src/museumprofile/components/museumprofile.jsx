@@ -22,6 +22,7 @@ const MuseumProfile = ({ info }) => {
 
   const mostraBiglietti = (stato) => {
     setList(stato);
+    setShow(!stato);
     if (stato === true) {
       logos.forEach((element) => {
         element.style.top = 0;
@@ -34,6 +35,7 @@ const MuseumProfile = ({ info }) => {
   };
   const mostraMostre = (stato) => {
     setShow(stato);
+    setList(!stato);
   };
   return (
     <div className="museum-card">

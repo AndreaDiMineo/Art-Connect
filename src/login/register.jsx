@@ -15,24 +15,10 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [checkbox2, setCheckbox2] = useState(false);
-  const addData = async () => {
+  const addData = async (e) => {
+    e.preventDefault();
     const status = "register";
-    if (
-      (name === "" &&
-        surname === "" &&
-        username === "" &&
-        email === "" &&
-        password === "" &&
-        checkbox2 === false) ||
-      name === "" ||
-      surname === "" ||
-      username === "" ||
-      email === "" ||
-      password === "" ||
-      checkbox2 === false
-    ) {
-      alert("Riempi tutti i campi obbligatori");
-    } else if (!checkPassword(password)) {
+    if (!checkPassword(password)) {
       alert("Password errata");
     } else {
       const currentDate = new Date();
@@ -46,7 +32,7 @@ const Register = () => {
         notifica: checkbox2,
       });
       auth(username, password, status);
-      navigate(["/museums"]);
+      navigate("/");
     }
   };
   const { passwordNascondi, passwordInfo, showInfoPassword } =
@@ -162,6 +148,7 @@ const Register = () => {
                   <input
                     type="text"
                     id="form3Example1cg"
+                    required
                     class="form-control form-control-md"
                     onChange={(e) => setName(e.target.value)}
                   />
@@ -173,6 +160,7 @@ const Register = () => {
                   <input
                     type="text"
                     id="form3Example1cg"
+                    required
                     class="form-control form-control-md"
                     onChange={(e) => setSurname(e.target.value)}
                   />
@@ -187,6 +175,7 @@ const Register = () => {
                       type="email"
                       class="form-control form-control-md"
                       placeholder="Inserisci il tuo indirizzo email"
+                      required
                       aria-label="Enter your email"
                       aria-describedby="basic-addon2"
                       onChange={(e) => setEmail(e.target.value)}
@@ -200,6 +189,7 @@ const Register = () => {
                   <input
                     type="text"
                     id="form3Example3cg"
+                    required
                     class="form-control form-control-md"
                     onChange={(e) => setUsername(e.target.value)}
                   />
@@ -213,6 +203,7 @@ const Register = () => {
                     type="password"
                     id="form3Example4cg"
                     class="form-control form-control-md"
+                    required
                     onClick={passwordInfo}
                     onBlur={passwordNascondi}
                     onChange={(e) => setPassword(e.target.value)}
@@ -233,8 +224,9 @@ const Register = () => {
                   class="form-select form-select-sm mb-3"
                   aria-label="Default select example"
                 >
-                  <option selected></option>
-                  <option value="1">Italiano</option>
+                  <option selected value="1">
+                    Italiano
+                  </option>
                   <option value="2">English</option>
                   <option value="3">Español</option>
                   <option value="4">Deutsch</option>
@@ -245,7 +237,7 @@ const Register = () => {
                   <input
                     class="form-check-input me-2"
                     type="checkbox"
-                    value=""
+                    required
                     id="form2Example3cg"
                     className="checkboxInput1"
                   />
