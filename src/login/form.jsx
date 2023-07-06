@@ -8,7 +8,7 @@ const db = app.firestore();
 
 const Form = () => {
   const [utenti, setUtenti] = useState([]);
-  const [loginControl, setLog] = useState(false);
+  const [loginControl, setLog] = useState(true);
   const navigate = useNavigate();
   const { auth } = useContext(FuncContext);
   const emailRef = useRef(null);
@@ -34,7 +34,8 @@ const Form = () => {
           status
         );
         navigate("/");
-        setLog(true);
+      } else {
+        setLog(false);
       }
     });
   };
@@ -165,7 +166,7 @@ const Form = () => {
                       textAlign: "center",
                     }}
                   >
-                    Dati errati
+                    Email e/o password errate
                   </p>
                 ) : (
                   <p></p>
