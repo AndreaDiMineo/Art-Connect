@@ -2,7 +2,7 @@ import "./styles.css";
 import { useContext, useEffect, useState } from "react";
 import Footer from "../home/Footer";
 import Navbar from "../home/Navbar.jsx";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 //import app from "../database/databaseHandler";
 import { FuncContext } from "../login/context";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ export default function Profile() {
   const [review, setReview] = useState(["una bella esperienza", "esperienza sicuramente da ripetere!", "non il massimo ma accettabile...", "capolavoro con la C maiuscola!"]);
 
   const navigate = useNavigate();
-  const { logged } = useContext(FuncContext);
+  const { logged, setLogged } = useContext(FuncContext);
   const [toggle, setToggle] = useState(false);
 
   const follow = () => {
@@ -80,6 +80,15 @@ export default function Profile() {
                       )}
                       <button className="btn btn-outline-primary">
                         Message
+                      </button>
+                      <button
+                        className="btn btn-outline-secondary"
+                        onClick={() => {
+                          setLogged(false);
+                          navigate("/");
+                        }}
+                      >
+                        Logout
                       </button>
                     </div>
                   </div>

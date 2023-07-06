@@ -6,7 +6,7 @@ export const useMain = () => {
   const [logged, setLogged] = useState(false);
   const [toggle, setToggle] = useState(true);
   const [togglePass, setTogglePass] = useState(false);
-  const credentials = [];
+  const [credentials, setCredentials] = useState([]);
 
   const validatePassword = (password) => {
     const regex =
@@ -33,7 +33,7 @@ export const useMain = () => {
 
   const auth = (name, surname, username, email, password, status) => {
     if (status === "register") {
-      credentials.push(name, surname, username, email, password);
+      setCredentials([name, surname, username, email, password]);
       setLogged(true);
     } else {
       setLogged(true);
@@ -52,6 +52,7 @@ export const useMain = () => {
     showInfoPassword,
     togglePass,
     Forget,
+    setLogged,
   };
 };
 
@@ -70,6 +71,7 @@ export const FuncProvider = ({ children }) => {
     showInfoPassword,
     togglePass,
     Forget,
+    setLogged,
   } = useMain();
   return (
     <FuncContext.Provider
@@ -85,6 +87,7 @@ export const FuncProvider = ({ children }) => {
         showInfoPassword,
         togglePass,
         Forget,
+        setLogged,
       }}
     >
       {children}
