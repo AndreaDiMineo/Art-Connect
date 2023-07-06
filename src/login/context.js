@@ -1,4 +1,7 @@
 import React, { useState, useContext, createContext } from "react";
+import app from "../database/databaseHandler";
+
+const db = app.firestore();
 
 export const useMain = () => {
   const [showinfoEmail, setShowinfoEmail] = useState(false);
@@ -6,7 +9,16 @@ export const useMain = () => {
   const [logged, setLogged] = useState(false);
   const [toggle, setToggle] = useState(true);
   const [togglePass, setTogglePass] = useState(false);
-  const [credentials, setCredentials] = useState({});
+  const [credentials, setCredentials] = useState([]);
+
+  const [musei, setMusei] = useState([]);
+
+  const fetchMusei = async () => {
+    const snapshot = await db.collection("musei").get();
+    const museiData = snapshot.docs.map((doc) => doc.data());
+    console.log(museiData);
+    setMusei(museiData);
+  };
 
   const validatePassword = (password) => {
     const regex =
@@ -31,8 +43,8 @@ export const useMain = () => {
     else setTogglePass(true);
   };
 
-  const auth = (name, surname, username, email, password, status) => {
-    setCredentials({ name, surname, username, email, password });
+  const auth = (name, surname, username, email, password) => {
+    setCredentials(name, surname, username, email, password);
     setLogged(true);
   };
 
@@ -48,7 +60,6 @@ export const useMain = () => {
     showInfoPassword,
     togglePass,
     Forget,
-    setLogged,
   };
 };
 
@@ -67,7 +78,6 @@ export const FuncProvider = ({ children }) => {
     showInfoPassword,
     togglePass,
     Forget,
-    setLogged,
   } = useMain();
   return (
     <FuncContext.Provider
@@ -83,7 +93,6 @@ export const FuncProvider = ({ children }) => {
         showInfoPassword,
         togglePass,
         Forget,
-        setLogged,
       }}
     >
       {children}

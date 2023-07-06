@@ -20,7 +20,7 @@ export default function EditProfile() {
               <div className="card-body text-center">
                 <img
                   className="img-account-profile rounded-circle mb-2"
-                  src="http://bootdey.com/img/Content/avatar/avatar7.png"
+                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
                   alt=""
                 />
                 <div className="small font-italic text-muted mb-4">
