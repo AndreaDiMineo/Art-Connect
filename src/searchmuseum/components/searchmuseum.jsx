@@ -320,7 +320,7 @@ const SearchMuseum = () => {
                   <p></p>
                 )}
               </div>
-              {museumView ? <Museums /> : <></>}
+              <div class="museumList">{museumView ? <Museums /> : <></>}</div>
             </div>
             <div className="mainRight">
               <Map
