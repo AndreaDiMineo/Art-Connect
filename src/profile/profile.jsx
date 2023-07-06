@@ -14,11 +14,21 @@ const dbA = appDb.firestore();
 //const storage = app.storage();
 
 export default function Profile() {
-  const [visited, setVisited] = useState(["British Museum", "Museo Del Louvre", "Musei Vaticani", "Metropolitan Museum of Art"]);
-  const [review, setReview] = useState(["una bella esperienza", "esperienza sicuramente da ripetere!", "non il massimo ma accettabile...", "capolavoro con la C maiuscola!"]);
+  const [visited, setVisited] = useState([
+    "British Museum",
+    "Museo Del Louvre",
+    "Musei Vaticani",
+    "Metropolitan Museum of Art",
+  ]);
+  const [review, setReview] = useState([
+    "una bella esperienza",
+    "esperienza sicuramente da ripetere!",
+    "non il massimo ma accettabile...",
+    "capolavoro con la C maiuscola!",
+  ]);
 
   const navigate = useNavigate();
-  const { logged, setLogged } = useContext(FuncContext);
+  const { logged, setLogged, credentials } = useContext(FuncContext);
   const [toggle, setToggle] = useState(false);
 
   const follow = () => {
@@ -28,8 +38,6 @@ export default function Profile() {
       setToggle(true);
     }
   };
-
-  const { credentials } = useContext(FuncContext);
 
   useEffect(() => {
     if (!logged) {
@@ -60,7 +68,7 @@ export default function Profile() {
                       width={150}
                     />
                     <div className="mt-4">
-                      <h4>{credentials[2]}</h4>
+                      <h4>{credentials.username}</h4>
                       {!toggle ? (
                         <button className="btn btn-primary" onClick={follow}>
                           Follow
@@ -103,7 +111,7 @@ export default function Profile() {
                       <h6 className="mb-0">Full Name</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {credentials[0]} {credentials[1]}
+                      {credentials.name} {credentials.surname}
                     </div>
                   </div>
                   <hr />
@@ -117,7 +125,7 @@ export default function Profile() {
                         className="__cf_email__"
                         data-cfemail="781e110838120d13150d10561914"
                       >
-                        {credentials[3]}
+                        {credentials.email}
                       </a>
                     </div>
                   </div>
@@ -133,7 +141,7 @@ export default function Profile() {
                     <div className="col-sm-3">
                       <h6 className="mb-0">N. Visited Museums</h6>
                     </div>
-                    <div className="col-sm-9 text-secondary">0</div>
+                    <div className="col-sm-9 text-secondary">4</div>
                   </div>
                   <hr />
                   <div className="row">
