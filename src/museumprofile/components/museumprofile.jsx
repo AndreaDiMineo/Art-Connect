@@ -9,11 +9,11 @@ import app from "../../database/databaseHandler";
 const db = app.firestore();
 
 export const MuseumProfileStats = () => {
-    const museumProfile = document.querySelector(".museum-card");
+  const museumProfile = document.querySelector(".museum-card");
   return {
-    museumProfile
+    museumProfile,
   };
-}
+};
 
 const MuseumProfile = ({ info }) => {
   const [list, setList] = useState(false);
@@ -37,7 +37,7 @@ const MuseumProfile = ({ info }) => {
   };
   return (
     <div className="museum-card">
-      <img className="museum-img" alt={info.name} src={info.url} />
+      <img className="museum-img" alt={info.nome} src={info.url} />
       <div className="museum-profile">
         <div className="stats-btns">
           <div className="stats">
@@ -71,7 +71,7 @@ const MuseumProfile = ({ info }) => {
               <button
                 className="museum-btn"
                 class="btn btn-primary"
-                onClick={window.open(info.sitoWeb)}
+                onClick={() => window.open(info.sitoWeb)}
               >
                 Sito web
               </button>
@@ -103,11 +103,11 @@ const MuseumProfile = ({ info }) => {
           </div>
         </div>
         <div className="museum-info">
-          <h1>{info.name}</h1>
+          <h1>{info.nome}</h1>
           <h3>{info.desc}</h3>
           <h3>Informazioni</h3>
           <p>
-            <b>Indirizzo:</b> {info.address}
+            <b>Indirizzo:</b> {info.indirizzo}
           </p>
           <p>
             <b>Orari:</b>
@@ -123,7 +123,7 @@ const MuseumProfile = ({ info }) => {
           </ul>
           {info.telefono ? (
             <p>
-              <b>Telefono:</b> {info.tel}
+              <b>Telefono:</b> {info.telefono}
             </p>
           ) : (
             <></>

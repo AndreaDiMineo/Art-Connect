@@ -16,7 +16,7 @@ const MAPBOX_TOKEN =
 
 //Usato da museumprofile
 export const Background = () => {
-  const main = document.querySelector(".geo");
+  const main = document.querySelectorAll(".geo");
   const mapSection = document.querySelector(".mainRight");
   return {
     main,
@@ -320,7 +320,7 @@ const SearchMuseum = () => {
                   <p></p>
                 )}
               </div>
-              {museumView ? <Museums /> : <></>}
+              <div class="museumList">{museumView ? <Museums /> : <></>}</div>
             </div>
             <div className="mainRight">
               <Map
