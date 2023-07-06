@@ -1,10 +1,11 @@
-import MuseumProfile, { MuseumProfileStats } from "../../museumprofile/components/museumprofile";
+import MuseumProfile, {
+  MuseumProfileStats,
+} from "../../museumprofile/components/museumprofile";
 import "../styles/museumStyle.css";
 import { useState } from "react";
 import { Background } from "./searchmuseum";
 
 const Museum = ({ info }) => {
-  console.log(info);
   const [profile, setProfile] = useState(false);
   const { main, mapSection } = Background();
   const { museumProfile } = MuseumProfileStats();
@@ -41,7 +42,7 @@ const Museum = ({ info }) => {
         />
       </div>
       <div className="museumCardRight">
-        <h4 className="museumTitle">{info.name}</h4>
+        <h4 className="museumTitle">{info.nome}</h4>
         <div className="museumSubtitle">
           <div className="museumDistance">
             <img
