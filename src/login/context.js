@@ -9,7 +9,7 @@ export const useMain = () => {
   const [logged, setLogged] = useState(false);
   const [toggle, setToggle] = useState(true);
   const [togglePass, setTogglePass] = useState(false);
-  const [credentials, setCredentials] = useState([]);
+  const [credentials, setCredentials] = useState({});
 
   const [musei, setMusei] = useState([]);
 
@@ -44,7 +44,7 @@ export const useMain = () => {
   };
 
   const auth = (name, surname, username, email, password) => {
-    setCredentials([name, surname, username, email, password]);
+    setCredentials({name, surname, username, email, password});
     setLogged(true);
   };
 

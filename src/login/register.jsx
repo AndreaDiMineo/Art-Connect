@@ -31,7 +31,7 @@ const Register = () => {
         password,
         notifica: checkbox2,
       });
-      auth(username, password, status);
+      auth(name, surname, username, email, password);
       navigate("/");
     }
   };
