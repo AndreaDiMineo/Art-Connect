@@ -14,11 +14,21 @@ const dbA = appDb.firestore();
 //const storage = app.storage();
 
 export default function Profile() {
-  const [visited, setVisited] = useState(["British Museum", "Museo Del Louvre", "Musei Vaticani", "Metropolitan Museum of Art"]);
-  const [review, setReview] = useState(["una bella esperienza", "esperienza sicuramente da ripetere!", "non il massimo ma accettabile...", "capolavoro con la C maiuscola!"]);
+  const [visited, setVisited] = useState([
+    "British Museum",
+    "Museo Del Louvre",
+    "Musei Vaticani",
+    "Metropolitan Museum of Art",
+  ]);
+  const [review, setReview] = useState([
+    "una bella esperienza",
+    "esperienza sicuramente da ripetere!",
+    "non il massimo ma accettabile...",
+    "capolavoro con la C maiuscola!",
+  ]);
 
   const navigate = useNavigate();
-  const { logged } = useContext(FuncContext);
+  const { logged, setLogged } = useContext(FuncContext);
   const [toggle, setToggle] = useState(false);
 
   const follow = () => {
@@ -82,6 +92,15 @@ export default function Profile() {
                       <button className="btn btn-outline-primary">
                         Message
                       </button>
+                      <button
+                        onClick={() => {
+                          setLogged(false);
+                          navigate("/");
+                        }}
+                        className="btn btn-outline-secondary"
+                      >
+                        Logout
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -125,7 +144,9 @@ export default function Profile() {
                     <div className="col-sm-3">
                       <h6 className="mb-0">N. Visited Museums</h6>
                     </div>
-                    <div className="col-sm-9 text-secondary">{visited.length}</div>
+                    <div className="col-sm-9 text-secondary">
+                      {visited.length}
+                    </div>
                   </div>
                   <hr />
                   <div className="row">
@@ -133,10 +154,7 @@ export default function Profile() {
                       <Link className="btn-settings" to={"/edit-profile"}>
                         Edit Profile
                       </Link>
-                      <Link
-                        className="btn-settings"
-                        to={"/changepassword"}
-                      >
+                      <Link className="btn-settings" to={"/changepassword"}>
                         Change Password
                       </Link>
                     </div>
