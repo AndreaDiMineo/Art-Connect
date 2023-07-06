@@ -1,4 +1,5 @@
 import "./FooterStyle.css";
+import { Link } from "react-router-dom";
 import React from "react";
 const Footer = () => {
   return (
@@ -18,7 +19,14 @@ const Footer = () => {
               <h3>Informazioni</h3>
               <nav>
                 <p>Notizie</p>
-                <p>Accessibilità</p>
+                <p>
+                  <Link
+                    to={"/termsOfUse"}
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    Termini di uso
+                  </Link>
+                </p>
               </nav>
             </div>
             <div className="social">
