@@ -16,7 +16,7 @@ import EditProfile from "./profile/editprofile";
 import Home from "./home/Home";
 import SearchEvents from "./home/searchEvents";
 import DescMusei from "./MuseiHome/descrizione-Musei";
-
+import TermsOfUse from "./Privacy/TermsOfUse";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
@@ -26,6 +26,16 @@ const router = createBrowserRouter([
       <div>
         <FuncProvider>
           <Home />
+        </FuncProvider>
+      </div>
+    ),
+  },
+  {
+    path: "/termsOfUse",
+    element: (
+      <div>
+        <FuncProvider>
+          <TermsOfUse />
         </FuncProvider>
       </div>
     ),
