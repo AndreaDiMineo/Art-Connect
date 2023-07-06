@@ -14,7 +14,6 @@ const Home = () => {
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
         crossOrigin="anonymous"
       />{" "}
-      <CookiePopup />
       <div className="home">
         <div className="top">
           <Navbar />
@@ -27,6 +26,7 @@ const Home = () => {
         <main>
           <Musei />
           <FeauturedEvent />
+          <CookiePopup />
         </main>
       </div>
       <Footer />
