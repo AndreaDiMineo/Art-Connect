@@ -96,6 +96,20 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/museums/:search",
+    element: (
+      <div>
+        <FuncProvider>
+          <ViewProvider>
+            <FilterProvider>
+              <SearchMuseum />
+            </FilterProvider>
+          </ViewProvider>
+        </FuncProvider>
+      </div>
+    ),
+  },
+  {
     path: "/profile",
     element: (
       <div>

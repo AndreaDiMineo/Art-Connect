@@ -9,6 +9,7 @@ import { FilterContext } from "../hooks/filter-context";
 import Museum from "./Museum";
 import Footer from "../../home/Footer";
 import Navbar from "../../home/Navbar";
+import { useParams } from "react-router-dom";
 
 //Per API mappa
 const MAPBOX_TOKEN =
@@ -25,6 +26,8 @@ export const Background = () => {
 };
 
 const SearchMuseum = () => {
+  const params = useParams();
+
   //Gestione mappa
   const { view, setView, setViewState } = useContext(ViewContext);
   const ref = useRef(view);
@@ -74,6 +77,14 @@ const SearchMuseum = () => {
       }
     }
   };
+
+  const checkInput = () => {
+    if (params.search !== undefined && params.search !== "") {
+      Geocoding(params.search);
+    }
+  };
+
+  //useEffect(checkInput, []);
 
   //_________________________________
   //_________________________________
@@ -223,6 +234,8 @@ const SearchMuseum = () => {
                       className="geoInput_input"
                       placeholder="Inserire la tua città o un museo specifico"
                       onKeyUp={CheckGeoInput}
+                      onLoad={checkInput}
+                      value={params.search}
                     />
                     <img
                       className="mapPin"
