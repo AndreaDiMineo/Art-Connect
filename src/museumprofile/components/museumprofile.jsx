@@ -72,7 +72,7 @@ const MuseumProfile = ({ info }) => {
             {info.sitoWeb ? (
               <button
                 className="museum-btn"
-                class="btn btn-primary"
+                class="btn btn-secondary"
                 onClick={() => window.open(info.sitoWeb)}
               >
                 Sito web
@@ -82,7 +82,7 @@ const MuseumProfile = ({ info }) => {
             )}
             <button
               className="museum-btn"
-              class="btn btn-primary"
+              class="btn btn-secondary"
               onClick={
                 !show === true
                   ? () => mostraMostre(true)
@@ -93,7 +93,7 @@ const MuseumProfile = ({ info }) => {
             </button>
             <button
               className="museum-btn"
-              class="btn btn-primary"
+              class="btn btn-secondary"
               onClick={
                 !list === true
                   ? () => mostraBiglietti(true)
