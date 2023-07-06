@@ -44,7 +44,7 @@ export const useMain = () => {
   };
 
   const auth = (name, surname, username, email, password) => {
-    setCredentials(name, surname, username, email, password);
+    setCredentials([name, surname, username, email, password]);
     setLogged(true);
   };
 
