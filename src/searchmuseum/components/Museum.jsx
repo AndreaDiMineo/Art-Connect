@@ -42,7 +42,7 @@ const Museum = ({ info }) => {
         />
       </div>
       <div className="museumCardRight">
-        <h4 className="museumTitle">{info.name}</h4>
+        <h4 className="museumTitle">{info.nome}</h4>
         <div className="museumSubtitle">
           <div className="museumDistance">
             <img

@@ -3,7 +3,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import { React } from "react";
 import { Map, Marker, NavigationControl } from "react-map-gl";
-import { useState, useContext, useRef } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import { ViewContext } from "../hooks/view-context";
 import { FilterContext } from "../hooks/filter-context";
 import Museum from "./Museum";
@@ -149,6 +149,7 @@ const SearchMuseum = () => {
 
   //Aggiorna i musei
   const Museums = () => {
+    console.log(museums);
     const mus = orderMuseums(filteredMuseums, order);
     if (museums[0].km === undefined) {
       updateMuseums(marker.longitude, marker.latitude);
@@ -166,11 +167,11 @@ const SearchMuseum = () => {
       <div>
         {filteredMuseums.map((v) => (
           <Marker
-            longitude={v.longitude}
-            latitude={v.latitude}
+            longitude={v.longitudine}
+            latitude={v.latitudine}
             color="blue"
-            onClick={() => alert(v.name)}
-            key={v.name}
+            onClick={() => alert(v.nome)}
+            key={v.nome}
           />
         ))}
       </div>
@@ -179,7 +180,7 @@ const SearchMuseum = () => {
   const updateMuseums = (lng, lat) => {
     setMuseums(
       museums.map((v) => {
-        v.km = calculateDistance(v.longitude, v.latitude, lng, lat);
+        v.km = calculateDistance(v.longitudine, v.latitudine, lng, lat);
         return {
           ...v,
         };
@@ -187,13 +188,17 @@ const SearchMuseum = () => {
     );
     setFilteredMuseums(
       filteredMuseums.map((v) => {
-        v.km = calculateDistance(v.longitude, v.latitude, lng, lat);
+        v.km = calculateDistance(v.longitudine, v.latitudine, lng, lat);
         return {
           ...v,
         };
       })
     );
   };
+
+  useEffect(() => {
+    setFilteredMuseums([...museums]);
+  }, [museums]);
 
   //HTML
   return (
