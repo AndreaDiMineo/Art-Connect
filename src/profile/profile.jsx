@@ -40,7 +40,7 @@ export default function Profile() {
   };
 
   const { credentials } = useContext(FuncContext);
-  const info = [...credentials];
+  const info = {...credentials};
 
   useEffect(() => {
     if (!logged) {
@@ -71,7 +71,7 @@ export default function Profile() {
                       width={150}
                     />
                     <div className="mt-4">
-                      <h4>{info[2]}</h4>
+                      <h4>{info.username}</h4>
                       {!toggle ? (
                         <button className="btn btn-primary" onClick={follow}>
                           Follow
@@ -114,7 +114,7 @@ export default function Profile() {
                       <h6 className="mb-0">Full Name</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {info[0]} {info[1]}
+                      {info.name} {info.surname}
                     </div>
                   </div>
                   <hr />
@@ -128,7 +128,7 @@ export default function Profile() {
                         className="__cf_email__"
                         data-cfemail="781e110838120d13150d10561914"
                       >
-                        {info[3]}
+                        {info.email}
                       </a>
                     </div>
                   </div>

@@ -34,7 +34,7 @@ const Form = () => {
           status
         );
         navigate("/");
-        loginControl = true;
+        setLog(true);
       }
     });
   };
