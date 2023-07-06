@@ -11,7 +11,7 @@ const Footer = () => {
               <nav>
                 <p>La nostra storia</p>
                 <p>Il nostro obiettivo</p>
-                <p>Opportunità di carriera</p>
+                <p>Gestione dei cookies</p>
               </nav>
             </div>
             <div className="news-info">
