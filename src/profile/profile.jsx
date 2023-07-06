@@ -1,6 +1,6 @@
 import "./styles.css";
 import { useContext, useEffect, useState } from "react";
-import Footer from "../home/footer";
+import Footer from "../home/Footer";
 import Navbar from "../home/Navbar.jsx";
 import { Link } from "react-router-dom";
 //import app from "../database/databaseHandler";

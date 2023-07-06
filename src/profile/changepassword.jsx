@@ -24,7 +24,7 @@ export default function ChangePassword() {
         <div className="cardStyleChangePWD">
           <form action="" method="post" name="signupForm" id="signupForm">
             <img
-              src="https://bootdey.com/img/Content/avatar/avatar7.png"
+              src="https://i.ibb.co/WFy8gDh/image.png"
               alt="image"
               id="signupLogoChangePWD"
             />
