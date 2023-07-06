@@ -1,34 +1,24 @@
 import "./styles.css";
 import { useContext, useEffect, useState } from "react";
-import Footer from "../home/Footer";
+import Footer from "../home/footer";
 import Navbar from "../home/Navbar.jsx";
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 //import app from "../database/databaseHandler";
 import { FuncContext } from "../login/context";
 import { useNavigate } from "react-router-dom";
-
 import { appDb } from "../firebaseConfig";
+import ChangePassword from "./changepassword";
 const dbA = appDb.firestore();
 
 //const db = app.firestore();
 //const storage = app.storage();
 
 export default function Profile() {
-  const [visited, setVisited] = useState([
-    "British Museum",
-    "Museo Del Louvre",
-    "Musei Vaticani",
-    "Metropolitan Museum of Art",
-  ]);
-  const [review, setReview] = useState([
-    "una bella esperienza",
-    "esperienza sicuramente da ripetere!",
-    "non il massimo ma accettabile...",
-    "capolavoro con la C maiuscola!",
-  ]);
+  const [visited, setVisited] = useState(["British Museum", "Museo Del Louvre", "Musei Vaticani", "Metropolitan Museum of Art"]);
+  const [review, setReview] = useState(["una bella esperienza", "esperienza sicuramente da ripetere!", "non il massimo ma accettabile...", "capolavoro con la C maiuscola!"]);
 
   const navigate = useNavigate();
-  const { logged, setLogged, credentials } = useContext(FuncContext);
+  const { logged } = useContext(FuncContext);
   const [toggle, setToggle] = useState(false);
 
   const follow = () => {
@@ -38,6 +28,9 @@ export default function Profile() {
       setToggle(true);
     }
   };
+
+  const { credentials } = useContext(FuncContext);
+  const info = [...credentials];
 
   useEffect(() => {
     if (!logged) {
@@ -68,7 +61,7 @@ export default function Profile() {
                       width={150}
                     />
                     <div className="mt-4">
-                      <h4>{credentials.username}</h4>
+                      <h4>{info[2]}</h4>
                       {!toggle ? (
                         <button className="btn btn-primary" onClick={follow}>
                           Follow
@@ -89,15 +82,6 @@ export default function Profile() {
                       <button className="btn btn-outline-primary">
                         Message
                       </button>
-                      <button
-                        className="btn btn-outline-secondary"
-                        onClick={() => {
-                          setLogged(false);
-                          navigate("/");
-                        }}
-                      >
-                        Logout
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -111,7 +95,7 @@ export default function Profile() {
                       <h6 className="mb-0">Full Name</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {credentials.name} {credentials.surname}
+                      {info[0]} {info[1]}
                     </div>
                   </div>
                   <hr />
@@ -125,7 +109,7 @@ export default function Profile() {
                         className="__cf_email__"
                         data-cfemail="781e110838120d13150d10561914"
                       >
-                        {credentials.email}
+                        {info[3]}
                       </a>
                     </div>
                   </div>
@@ -141,7 +125,7 @@ export default function Profile() {
                     <div className="col-sm-3">
                       <h6 className="mb-0">N. Visited Museums</h6>
                     </div>
-                    <div className="col-sm-9 text-secondary">4</div>
+                    <div className="col-sm-9 text-secondary">{visited.length}</div>
                   </div>
                   <hr />
                   <div className="row">
@@ -149,12 +133,12 @@ export default function Profile() {
                       <Link className="btn-settings" to={"/edit-profile"}>
                         Edit Profile
                       </Link>
-                      <a
+                      <Link
                         className="btn-settings"
-                        href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills"
+                        to={"/changepassword"}
                       >
                         Change Password
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
