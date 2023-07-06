@@ -15,10 +15,12 @@ class TerminiDUso extends React.Component {
           crossOrigin="anonymous"
         />
         <NavBar />
-        <div>
-          <h1>Termini d'Uso</h1>
+        <div style={{ marginTop: "6rem" }}>
+          <h1 style={{ marginTop: "6rem", textAlign: "center" }}>
+            Termini d'Uso
+          </h1>
           <p>
-            Benvenuto nella nostra applicazione. Prima di utilizzarla, leggi
+            Benvenuto nelnostra Sito Web ArtConnect. Prima di utilizzarla, leggi
             attentamente i seguenti Termini d'Uso.
           </p>
           <h2>1. Accettazione dei Termini</h2>
