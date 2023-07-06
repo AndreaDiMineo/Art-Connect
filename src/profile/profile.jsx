@@ -14,8 +14,8 @@ const dbA = appDb.firestore();
 //const storage = app.storage();
 
 export default function Profile() {
-  const [visited, setVisited] = useState(["British Museum"]);
-  const [review, setReview] = useState(["una bella esperienza"]);
+  const [visited, setVisited] = useState(["British Museum", "Museo Del Louvre", "Musei Vaticani", "Metropolitan Museum of Art"]);
+  const [review, setReview] = useState(["una bella esperienza", "esperienza sicuramente da ripetere!", "non il massimo ma accettabile...", "capolavoro con la C maiuscola!"]);
 
   const navigate = useNavigate();
   const { logged } = useContext(FuncContext);
